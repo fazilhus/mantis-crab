@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr6ca03nxhpu4"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_yxbtg"]
+[ext_resource type="PackedScene" uid="uid://2bxsj4ibq1w6" path="res://scenes/spawn_point.tscn" id="2_ex4we"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cn5vu"]
+
+[node name="Checkpoint" type="Node3D"]
+script = ExtResource("1_yxbtg")
+
+[node name="Trigger_Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger_Area3D"]
+shape = SubResource("SphereShape3D_cn5vu")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_ex4we")]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="Trigger_Area3D" to="." method="_on_trigger_area_3d_body_entered"]
