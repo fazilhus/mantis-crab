@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt738c78e7nfk"]
+
+[ext_resource type="Script" path="res://scenes/ui/in_game_options.gd" id="1_awiho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3adn"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+corner_radius_top_left = 360
+corner_radius_top_right = 360
+corner_radius_bottom_right = 360
+corner_radius_bottom_left = 360
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb21w"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_awiho")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 342.0
+offset_bottom = 333.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 353.0
+offset_right = 323.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel5" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 481.0
+offset_right = 575.0
+offset_bottom = 606.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 300.0
+offset_right = 376.0
+offset_bottom = 372.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel7" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -6.0
+offset_right = 75.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel4" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 423.0
+offset_right = 411.0
+offset_bottom = 495.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Panel6" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 535.0
+offset_right = 346.0
+offset_bottom = 607.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+
+[node name="Timer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 106.0
+offset_right = 153.0
+offset_bottom = 137.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
+text = "Timer"
+
+[node name="Sound" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 157.0
+offset_right = 153.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
+text = "Sound"
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 245.0
+offset_right = 153.0
+offset_bottom = 276.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
+text = "Resume"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 44.0
+offset_right = 217.0
+offset_bottom = 67.0
+text = "Options"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 106.0
+offset_right = 215.0
+offset_bottom = 130.0
+
+[node name="CheckButton2" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 157.0
+offset_right = 215.0
+offset_bottom = 181.0
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
