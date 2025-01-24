@@ -24,9 +24,9 @@ static func create(parent: Node, global_position: Vector3) -> Bubble:
 	
 	return bubble	
 
-func release() -> float:
+func release():
+	SignalBuss.bubble_release.emit(power)
 	queue_free()
-	return power
 	
 func cancel():
 	queue_free()
