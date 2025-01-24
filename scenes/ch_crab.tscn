@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbrkrysdd2mki"]
+[gd_scene load_steps=3 format=3 uid="uid://dbrkrysdd2mki"]
+
+[ext_resource type="Script" path="res://scripts/ch_crab.gd" id="1_hsu66"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_74vr0"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_hsu66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_74vr0")

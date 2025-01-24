@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cw4xxsw0xqqx8"]
+
+[node name="Coral" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]

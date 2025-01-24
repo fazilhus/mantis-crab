@@ -14,6 +14,12 @@ config/name="crab-rave"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBuss="*res://scripts/SignalBuss.gd"
+SoundBuss="*res://scripts/SoundBuss.gd"
+GUIBuss="*res://scripts/GUIBuss.gd"
+
 [dotnet]
 
 project/assembly_name="crab-rave"
