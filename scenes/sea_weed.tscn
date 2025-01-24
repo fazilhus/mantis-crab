@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl82wgjwqu4w6"]
+
+[ext_resource type="Script" path="res://scripts/sea_weed.gd" id="1_p8v4p"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_524gq"]
+
+[node name="SeaWeed" type="Node3D"]
+script = ExtResource("1_p8v4p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_524gq")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
