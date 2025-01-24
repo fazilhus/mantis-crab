@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cssibkyc0xmx0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p167u"]
+height = 8.53374
+radius = 1.26355
+
+[node name="Current_Area" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_p167u")
