@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://67yw87d3amit"]
+
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_kgfc5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kdq8n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0afar"]
+
+[node name="Bubble" type="Area3D"]
+script = ExtResource("1_kgfc5")
+
+[node name="BubbleMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = SubResource("SphereMesh_kdq8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0afar")
