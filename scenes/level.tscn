@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwmiok5ha5w61"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_s1i0l"]
+[ext_resource type="PackedScene" uid="uid://cr6ca03nxhpu4" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_28n6d"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_s1i0l")
+
+[node name="Checkpoints" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_gqs7d")]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_28n6d")
