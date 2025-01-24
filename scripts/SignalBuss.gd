@@ -1,4 +1,6 @@
 extends Node
+#signalbuss for signals between objects
+signal _can_grab
 
 #signalbuss for signals between objects
 signal level_ready(level: Level)
