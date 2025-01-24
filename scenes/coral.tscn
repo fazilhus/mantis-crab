@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw4xxsw0xqqx8"]
+[gd_scene load_steps=4 format=3 uid="uid://cw4xxsw0xqqx8"]
 
 [ext_resource type="Script" path="res://scripts/coral.gd" id="1_6v37m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3vja"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mpdla"]
 
 [node name="Coral" type="Node3D"]
 script = ExtResource("1_6v37m")
@@ -8,10 +12,14 @@ script = ExtResource("1_6v37m")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_e3vja")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Snap_Area3D" type="Area3D" parent="."]
 unique_name_in_owner = true
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Snap_Area3D"]
+shape = SubResource("SphereShape3D_mpdla")
+
+[connection signal="body_entered" from="Snap_Area3D" to="." method="_on_area_3d_body_entered"]
