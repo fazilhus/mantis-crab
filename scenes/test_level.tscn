@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://pw4j76ev6jae"]
+
+[ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="1_y4f8t"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qndwa"]
+top_radius = 2.5
+bottom_radius = 2.5
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ti4q0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_43453"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0d4kn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f6561"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oy57q"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b4mdw"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_16d5k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfd7a"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pwmg4"]
+sky_material = SubResource("ProceduralSkyMaterial_pfd7a")
+
+[sub_resource type="Environment" id="Environment_yg0ic"]
+background_mode = 2
+sky = SubResource("Sky_pwmg4")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="First" type="Node" parent="."]
+
+[node name="Checkpoint" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Checkpoint"]
+mesh = SubResource("CylinderMesh_qndwa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Checkpoint/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Checkpoint/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ti4q0")
+
+[node name="Pillar2" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.285, -4, -2.379)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Pillar2"]
+mesh = SubResource("CylinderMesh_43453")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Pillar2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Pillar2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0d4kn")
+
+[node name="Pillar3" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.476, -3, -3.568)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Pillar3"]
+mesh = SubResource("CylinderMesh_f6561")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Pillar3/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Pillar3/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_oy57q")
+
+[node name="Pillar4" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.476, -3, -8.49485)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Pillar4"]
+mesh = SubResource("CylinderMesh_b4mdw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Pillar4/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Pillar4/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16d5k")
+
+[node name="Checkpoint2" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91, -2.5, -11.692)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Checkpoint2"]
+mesh = SubResource("CylinderMesh_b4mdw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Checkpoint2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Checkpoint2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16d5k")
+
+[node name="Pillar6" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63679, -3.05673, -19.5327)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Pillar6"]
+mesh = SubResource("CylinderMesh_b4mdw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Pillar6/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Pillar6/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16d5k")
+
+[node name="Checkpoint3" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58536, -1.66796, -27.0248)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00515556, 0, 0.0225143)
+mesh = SubResource("CylinderMesh_b4mdw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Checkpoint3/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Checkpoint3/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16d5k")
+
+[node name="Pillar8" type="Node3D" parent="First"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86483, -1.65721, -29.6974)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="First/Pillar8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00515556, 0, 0.0225143)
+mesh = SubResource("CylinderMesh_b4mdw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="First/Pillar8/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="First/Pillar8/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16d5k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yg0ic")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Checkpoints" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("1_y4f8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
