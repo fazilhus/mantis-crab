@@ -29,8 +29,6 @@ static func create(bubblePosition: Node3D, chargeRate: float) -> Bubble:
 	
 	bubble.tween.tween_property(bubble.mesh, "scale", Vector3(1.5, 1.5, 1.5), (1/chargeRate)*3)
 	bubble.tween.parallel().tween_property(bubble, "power", MAX_POWER, (1/chargeRate)*3)
-
-	
 	return bubble	
 
 func release():
@@ -39,8 +37,7 @@ func release():
 	var implosion_instance = FX_Implosion.instantiate()
 	parent.add_child(implosion_instance)
 	implosion_instance.global_position = parent.global_position
-	
-	parent.remove_child(self)
+	queue_free()
 	
 	
 func cancel():
