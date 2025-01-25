@@ -23,8 +23,8 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 player_pkd = ExtResource("4_e07go")
 
+[node name="CameraManager" parent="." instance=ExtResource("6_3aln5")]
+
 [node name="Respawn_Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.5
-
-[node name="CameraManager" parent="." instance=ExtResource("6_3aln5")]
