@@ -2,7 +2,7 @@ extends Control
 
 @export var stopwatch_label : Label
 
-var stopwatch : Stopwatch
+var stopwatch : Stopwatch = Stopwatch.new()
 
 func _redy():
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")

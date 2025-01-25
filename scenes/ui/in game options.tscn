@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/in_game_options.gd" id="1_awiho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3adn"]
-bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+bg_color = Color(1.05888e-06, 0.531972, 0.847892, 1)
 corner_radius_top_left = 360
 corner_radius_top_right = 360
 corner_radius_bottom_right = 360
@@ -129,6 +129,7 @@ offset_left = 171.0
 offset_top = 165.0
 offset_right = 263.0
 offset_bottom = 181.0
+value = 50.0
 
 [node name="CheckBox" type="CheckBox" parent="."]
 layout_mode = 0
@@ -139,4 +140,6 @@ offset_bottom = 188.0
 text = "On/Of"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
