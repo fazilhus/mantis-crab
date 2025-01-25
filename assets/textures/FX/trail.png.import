@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b71tpfix0ayev"
-path.s3tc="res://.godot/imported/Krabb_Skybox_V3.png-5dbb247b935de16484f800532c2b0396.s3tc.ctex"
+uid="uid://d3c51sb8ulus3"
+path.s3tc="res://.godot/imported/trail.png-9d2466c72b546e894328801136dfbcaa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Krabb_Skybox_V3.png"
-dest_files=["res://.godot/imported/Krabb_Skybox_V3.png-5dbb247b935de16484f800532c2b0396.s3tc.ctex"]
+source_file="res://assets/textures/FX/trail.png"
+dest_files=["res://.godot/imported/trail.png-9d2466c72b546e894328801136dfbcaa.s3tc.ctex"]
 
 [params]
 
