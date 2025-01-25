@@ -7,8 +7,8 @@ func _ready():
 
 func _on_area_3d_body_exited(body:Node3D):
 	var parent = body.get_parent()
-	if parent is Crab:
-		var crab := parent as Crab
+	if parent is PlayerCharacter:
+		var crab := parent as PlayerCharacter
 		if crab.is_grabbing:
 			return
 		crab.can_grab = false		
