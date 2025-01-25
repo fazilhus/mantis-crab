@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://ssgmxn5726ui"]
+[gd_scene load_steps=11 format=3 uid="uid://ssgmxn5726ui"]
 
 [ext_resource type="Script" path="res://scripts/ui/menu.gd" id="1_m47di"]
-[ext_resource type="PackedScene" uid="uid://v2n6kagtwcir" path="res://scenes/ui/Options.tscn" id="2_st7dp"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="3_0uflx"]
 [ext_resource type="Texture2D" uid="uid://dr7a2xvvch027" path="res://scenes/ui/Mantiscrab.png" id="4_1bgnv"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="4_xfsfo"]
@@ -36,7 +35,6 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m47di")
-options_menu_pkd = ExtResource("2_st7dp")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -108,6 +106,5 @@ offset_bottom = 635.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_w8sto")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ChapterButton" to="." method="_on_chapter_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

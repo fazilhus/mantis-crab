@@ -151,3 +151,4 @@ text = "On/OF"
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

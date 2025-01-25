@@ -19,11 +19,12 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
-		pause_game()
 		GUIBuss.pause_game.emit()
+		pause_game()
 
 func _on_start_play() -> void:
 	level_manager.start_first_level()
+	GUIBuss.level_started.emit()
 
 func _on_quit_game() -> void:
 	get_tree().free()
