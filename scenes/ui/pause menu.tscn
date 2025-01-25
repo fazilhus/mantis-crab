@@ -1,13 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt4k8urekf1ax"]
+[gd_scene load_steps=7 format=3 uid="uid://dt4k8urekf1ax"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause menu.gd" id="1_yder4"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="2_10tps"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="3_n1a7x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ic2fq"]
 texture = ExtResource("2_10tps")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhqgu"]
+bg_color = Color(0.494118, 0.670588, 0.768627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx2cm"]
-bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+bg_color = Color(0.494118, 0.670588, 0.768627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -46,6 +60,10 @@ offset_right = 35.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Resume"
 
@@ -62,6 +80,10 @@ offset_right = 35.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Options"
 
@@ -78,15 +100,22 @@ offset_right = 35.0
 offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Home"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 153.0
-offset_right = 327.0
-offset_bottom = 176.0
+offset_left = 269.0
+offset_top = 144.0
+offset_right = 339.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
 text = "Pause"
 
 [connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]

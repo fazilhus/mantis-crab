@@ -19,7 +19,6 @@ func _ready() -> void:
 	GUIBuss.pause_menu_options_button_pressed.connect(_on_pause_menu_options_button_pressed)
 	GUIBuss.pause_menu_home_button_pressed.connect(_on_pause_menu_home_button_pressed)
 
-
 func _on_game_started() -> void:
 	_show_main_menu()
 

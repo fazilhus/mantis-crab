@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfjf0nujhxn12"]
+[gd_scene load_steps=3 format=3 uid="uid://bfjf0nujhxn12"]
 
 [ext_resource type="Script" path="res://scripts/ui/timer_ui.gd" id="1_n5o2i"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="2_qwwrx"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("stopwatch_label")]
 layout_mode = 3
@@ -21,4 +22,7 @@ offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qwwrx")
+theme_override_font_sizes/font_size = 30
 text = "00.00.000"
