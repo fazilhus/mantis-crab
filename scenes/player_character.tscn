@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
 [ext_resource type="Environment" uid="uid://brg3g0uv71dbg" path="res://resources/world_environment.tres" id="2_bvyv1"]
+[ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t8ixl"]
 
@@ -11,13 +12,25 @@
 script = ExtResource("1_w7rqf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_t8ixl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iukbm")
 
 [node name="CameraGimble_Node3D" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
 
 [node name="Camera3D" type="Camera3D" parent="CameraGimble_Node3D"]
 environment = ExtResource("2_bvyv1")
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.281234, 0.188634)
+
+[node name="mantis crab placeholder" parent="." instance=ExtResource("2_e8b2q")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.02954, 0)
+
+[node name="GrabMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716627, 0.640838, -1.11121)

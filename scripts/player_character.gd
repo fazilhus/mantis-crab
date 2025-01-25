@@ -11,6 +11,8 @@ var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
+@onready var camera_gimble = get_node("CameraGimble_Node3D")
+
 func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
 	SignalBuss.bubble_release.connect(on_bubble_release)
@@ -20,9 +22,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	if can_grab and Input.is_action_just_pressed("Grab"):
+		grab()
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -34,7 +43,14 @@ func _physics_process(delta: float) -> void:
 	bubble_logic()
 	
 	move_and_slide()
+
 	
+	move_and_slide()
+	camera_gimble.position = self.position
+
+func _unhandled_input(event: InputEvent):
+	pass
+
 func _can_grab():
 	can_grab = true
 	
@@ -55,3 +71,7 @@ func bubble_logic():
 	
 func on_bubble_release(power: float):
 	shoot = Vector3(0,1,1) * power
+
+func grab():
+	#TODO tween a swinging motion and apply force
+	pass
