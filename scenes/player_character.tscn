@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwv1w4n568vrw"]
+[gd_scene load_steps=5 format=3 uid="uid://cwv1w4n568vrw"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
+[ext_resource type="Environment" uid="uid://brg3g0uv71dbg" path="res://resources/world_environment.tres" id="2_bvyv1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t8ixl"]
 
@@ -19,3 +20,4 @@ shape = SubResource("SphereShape3D_iukbm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
 
 [node name="Camera3D" type="Camera3D" parent="CameraGimble_Node3D"]
+environment = ExtResource("2_bvyv1")

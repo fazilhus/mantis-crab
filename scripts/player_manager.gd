@@ -11,13 +11,13 @@ func _ready() -> void:
 func _process(_add_ice_candidatedelta) -> void:
 	pass
 
-func _on_spawn_player(spawn_point: SpawnPoint) -> void:
+func _on_spawn_player(root: Node, spawn_point: SpawnPoint) -> void:
 	if player != null:
 		player.queue_free()
 	
 	player = player_pkd.instantiate()
-	player.position = spawn_point.position
-	add_child(player)
+	player.position = spawn_point.global_position
+	root.add_child(player)
 
 func _on_player_died() -> void:
 	if player == null:
