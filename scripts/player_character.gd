@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
 
-	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.4)
+	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.5)
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
@@ -110,8 +110,8 @@ func air_movement(delta):
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x += direction.x * SPEED / 10
-		velocity.z += direction.z * SPEED / 10
+		velocity.x += direction.x * SPEED / 30
+		velocity.z += direction.z * SPEED / 20
 	
 	if velocity.x <= -10 or velocity.x >= 10:
 		velocity.x = move_toward(velocity.x, 0, 0.7)
@@ -121,7 +121,7 @@ func air_movement(delta):
 	
 func ground_movement(delta):
 	if Input.is_action_just_pressed("Jump_Action"):
-		velocity.y += 10
+		velocity.y += 8
 		#velocity.x *= 1.2
 		#velocity.z *= 1.2
 	
