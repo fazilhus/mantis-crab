@@ -1,0 +1,74 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://wpty66fjn0g4"]
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_apfp6"]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_qm118"]
+parameter_name = "FresnelPower"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ak8cl"]
+parameter_name = "EdgeColour"
+default_value_enabled = true
+default_value = Color(1.8049e-07, 0.139199, 0.157021, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_lu8p2"]
+parameter_name = "InsideColour"
+default_value_enabled = true
+default_value = Color(0.216494, 0.290247, 0.413162, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_ebyyh"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform float FresnelPower = 1;
+uniform vec4 InsideColour : source_color = vec4(0.216494, 0.290247, 0.413162, 1.000000);
+uniform vec4 EdgeColour : source_color = vec4(0.000000, 0.139199, 0.157021, 1.000000);
+
+
+
+void fragment() {
+// FloatParameter:3
+	float n_out3p0 = FresnelPower;
+
+
+// Fresnel:2
+	float n_out2p0 = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), n_out3p0);
+
+
+// ColorParameter:5
+	vec4 n_out5p0 = InsideColour;
+
+
+// ColorParameter:4
+	vec4 n_out4p0 = EdgeColour;
+
+
+// Mix:8
+	vec4 n_out8p0 = mix(n_out5p0, n_out4p0, vec4(n_out2p0));
+
+
+// Output:0
+	ALPHA = n_out2p0;
+	EMISSION = vec3(n_out8p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(940, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_apfp6")
+nodes/fragment/2/position = Vector2(-300, 460)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_qm118")
+nodes/fragment/3/position = Vector2(-700, 560)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_ak8cl")
+nodes/fragment/4/position = Vector2(-460, 40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_lu8p2")
+nodes/fragment/5/position = Vector2(-460, -200)
+nodes/fragment/8/node = SubResource("VisualShaderNodeMix_ebyyh")
+nodes/fragment/8/position = Vector2(120, 40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 3, 2, 0, 8, 2, 8, 0, 0, 5, 5, 0, 8, 0, 4, 0, 8, 1, 2, 0, 0, 1)
