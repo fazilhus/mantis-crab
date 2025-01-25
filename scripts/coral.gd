@@ -7,7 +7,7 @@ func _ready():
 
 func _on_area_3d_body_entered(body:Node3D):
 		#TODO Update statement to check for bubble
-	if body.get_parent() is Crab:
+	if body.get_parent() is PlayerCharacter:
 		#Break animation
 		#Break sound
 		self.queue_free()

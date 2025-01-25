@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwv1w4n568vrw"]
+[gd_scene load_steps=6 format=3 uid="uid://cwv1w4n568vrw"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
 [ext_resource type="Environment" uid="uid://brg3g0uv71dbg" path="res://resources/world_environment.tres" id="2_bvyv1"]
@@ -10,6 +10,7 @@
 
 [node name="PlayerCharacter" type="CharacterBody3D"]
 script = ExtResource("1_w7rqf")
+rot_speed_mod = Vector2(1, 1.2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -20,11 +21,11 @@ shape = SubResource("SphereShape3D_iukbm")
 
 [node name="CameraGimble_Node3D" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+transform = Transform3D(1, 0, 0, 0, 0.978939, 0.204154, 0, -0.204154, 0.978939, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraGimble_Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 environment = ExtResource("2_bvyv1")
-transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.281234, 0.188634)
 
 [node name="mantis crab placeholder" parent="." instance=ExtResource("2_e8b2q")]
 transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)

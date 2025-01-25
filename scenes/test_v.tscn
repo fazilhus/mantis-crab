@@ -27,6 +27,7 @@ shape = SubResource("ConvexPolygonShape3D_e24dm")
 transform = Transform3D(1, 0, 0, 0, 0.190689, 0.98165, 0, -0.98165, 0.190689, 0, 8.9016, 0)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_h4qco")]
+rot_speed_mod = null
 
 [node name="Current_Area" parent="." instance=ExtResource("2_wkh21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00256395, 1.40443, -7.58187)
