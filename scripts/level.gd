@@ -8,6 +8,8 @@ var checkpoints : Array[Checkpoint] = []
 var last_activated_checkpoint : Checkpoint
 
 func _ready():
+	SignalBuss.checkpoit_triggered.connect(_on_checkpoint_triggered)
+
 	for child in checkpoints_node.get_children():
 		var checkpoint : Checkpoint = child
 		if checkpoint:
@@ -21,3 +23,6 @@ func _process(_delta):
 
 func _on_ready():
 	SignalBuss.level_ready.emit(self)
+
+func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
+	last_activated_checkpoint = checkpoint

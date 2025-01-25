@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwmiok5ha5w61"]
+[gd_scene load_steps=6 format=3 uid="uid://bwmiok5ha5w61"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_s1i0l"]
 [ext_resource type="PackedScene" uid="uid://cr6ca03nxhpu4" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_28n6d"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4lg8a"]
+size = Vector2(10, 10)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0lntc"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_s1i0l")
@@ -12,8 +17,21 @@ script = ExtResource("1_s1i0l")
 unique_name_in_owner = true
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_gqs7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1682, 0)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_gqs7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611885, -4.36746)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95555, 0.64221, -4.09175)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 mesh = SubResource("BoxMesh_28n6d")
+
+[node name="Plane" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
+mesh = SubResource("PlaneMesh_4lg8a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
+shape = SubResource("WorldBoundaryShape3D_0lntc")

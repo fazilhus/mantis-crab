@@ -21,4 +21,4 @@ func start_first_level() -> void:
 
 func _on_level_ready(level: Level) -> void:
 	current_level = level
-	SignalBuss.spawn_player.emit(current_level.last_activated_checkpoint.spawn_point)
+	SignalBuss.spawn_player.emit(current_level, current_level.last_activated_checkpoint.spawn_point)
