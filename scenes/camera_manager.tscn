@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://c3bfqn4ncyen1"]
+[gd_scene load_steps=3 format=3 uid="uid://c3bfqn4ncyen1"]
+
+[ext_resource type="Script" path="res://scripts/camera_manager.gd" id="1_i0gqw"]
+[ext_resource type="PackedScene" uid="uid://kfy5fpdqcjg" path="res://scenes/camera.tscn" id="2_ls8y8"]
 
 [node name="CameraManager" type="Node"]
+script = ExtResource("1_i0gqw")
+
+[node name="MainCamera" parent="." instance=ExtResource("2_ls8y8")]
+unique_name_in_owner = true

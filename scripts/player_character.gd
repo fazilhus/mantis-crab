@@ -1,6 +1,8 @@
 class_name PlayerCharacter
 extends CharacterBody3D
 
+@onready var camera_gimble : CameraGimble = %CameraGimble
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const AIR_RESISTANCE = 0.5
@@ -11,11 +13,19 @@ var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
-@onready var camera_gimble = get_node("CameraGimble_Node3D")
+
+var camera_gimble_origin : Vector3 = Vector3.ZERO
+var camera_gimble_rotation_origion : Vector3 = Vector3.ZERO
+
+var rotation_speed : Vector2 = Vector2.ZERO
+@export var rot_speed_mod : Vector2 = Vector2.ONE
 
 func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
 	SignalBuss.bubble_release.connect(on_bubble_release)
+	camera_gimble_origin = camera_gimble.position
+
+	SignalBuss.player_spawned.emit(self)
 
 func _physics_process(delta: float) -> void:
 	bubble_logic()
@@ -34,10 +44,34 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
+	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
+
+	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.3)
+
+	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
+		self.rotation.y = 0
+
+	bubble_logic()
+	
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent):
-	pass
+	if event is InputEventJoypadMotion:
+		rotation_speed = Input.get_vector("Camera_Down", "Camera_Up", "Camera_Right", "Camera_Left")
+		rotation_speed *= -1
+
+	
+	
 
 func _can_grab():
 	can_grab = true

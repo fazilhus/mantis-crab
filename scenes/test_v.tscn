@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm6vlnay8e2cs"]
 
 [ext_resource type="PackedScene" uid="uid://cwv1w4n568vrw" path="res://scenes/player_character.tscn" id="1_h4qco"]
-[ext_resource type="PackedScene" uid="uid://cssibkyc0xmx0" path="res://scenes/current_area.tscn" id="2_wkh21"]
+[ext_resource type="PackedScene" path="res://scenes/current_area.tscn" id="2_wkh21"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28v4k"]
 albedo_color = Color(1, 0.415686, 1, 1)
@@ -27,6 +27,7 @@ shape = SubResource("ConvexPolygonShape3D_e24dm")
 transform = Transform3D(1, 0, 0, 0, 0.190689, 0.98165, 0, -0.98165, 0.190689, 0, 8.9016, 0)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_h4qco")]
+rot_speed_mod = null
 
 [node name="Current_Area" parent="." instance=ExtResource("2_wkh21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00256395, 1.40443, -7.58187)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="Environment" uid="uid://brg3g0uv71dbg" path="res://resources/world_environment.tres" id="2_bvyv1"]
+[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xayt"]
@@ -14,6 +14,7 @@ material = SubResource("StandardMaterial3D_7xayt")
 
 [node name="PlayerCharacter" type="CharacterBody3D"]
 script = ExtResource("1_w7rqf")
+rot_speed_mod = Vector2(1, 1.2)
 
 [node name="Model" parent="." instance=ExtResource("2_e8b2q")]
 unique_name_in_owner = true
@@ -29,16 +30,19 @@ mesh = SubResource("SphereMesh_x4ymr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iukbm")
 
-[node name="CameraGimble_Node3D" type="Node3D" parent="."]
+[node name="CameraGimble" parent="." instance=ExtResource("2_c3q04")]
 unique_name_in_owner = true
-transform = Transform3D(-0.067371, 0, 0.997728, 0, 1, 0, -0.997728, 0, -0.067371, 5.47209, 2, 0.343242)
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 2, 0)
+camera_position = Vector3(0, 2, 8)
 
-[node name="Camera3D" type="Camera3D" parent="CameraGimble_Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.281234, 0.188634)
-environment = ExtResource("2_bvyv1")
+[node name="mantis crab placeholder" parent="." instance=ExtResource("2_e8b2q")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.02954, 0)
 
 [node name="GrabMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716627, 0.640838, -1.11121)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.02954, 0)

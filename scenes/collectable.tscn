@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://wsm8ph4dqeke"]
+
+[ext_resource type="Script" path="res://scenes/collectable.gd" id="1_878rw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_384h8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_poorn"]
+radius = 1.0
+
+[node name="collectable" type="Area3D"]
+script = ExtResource("1_878rw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.557551, -0.573576, 0, 0.390402, 0.819152, 0, 0.601909, 0)
+mesh = SubResource("CylinderMesh_384h8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 0, 0.602, 0)
+shape = SubResource("SphereShape3D_poorn")
+
+[node name="collectablesound" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="collectablesound" to="." method="_on_collectablesound_finished"]
