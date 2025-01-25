@@ -3,6 +3,7 @@ extends Node
 
 # SignalBuss for the GUI Components
 signal game_started()
+signal level_started()
 signal quit_game()
 signal play_button_pressed()
 signal menu_options_button_pressed()
