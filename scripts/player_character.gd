@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 4.5
 const AIR_RESISTANCE = 0.5
 const STAMINA_MAX = 3
 
+var mouse_hidden: bool = false
 var shoot: Vector3
 var bubble: Bubble
 var stamina: int = STAMINA_MAX
@@ -17,6 +18,7 @@ var can_grab : bool = false
 var camera_gimble_origin : Vector3 = Vector3.ZERO
 var camera_gimble_rotation_origion : Vector3 = Vector3.ZERO
 
+var lastMousePosition : Vector2 = Vector2.ZERO
 var rotation_speed : Vector2 = Vector2.ZERO
 @export var rot_speed_mod : Vector2 = Vector2.ONE
 
@@ -35,7 +37,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		air_movement(delta)
 	
-	print(velocity)
 	# Add the gravity.
 	
 
@@ -51,18 +52,33 @@ func _physics_process(delta: float) -> void:
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
-
+	rotation_speed = Vector2.ZERO
 	bubble_logic()
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("Hide_Mouse"):
+		if mouse_hidden:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			mouse_hidden = false
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			mouse_hidden = true
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
 		rotation_speed = Input.get_vector("Camera_Up", "Camera_Down", "Camera_Left", "Camera_Right")
 		rotation_speed *= -1
-
 	
 	
+func _input(event):
+	if event is InputEventMouseMotion and mouse_hidden:
+		var delta : Vector2
+		if lastMousePosition != Vector2.ZERO:
+			delta = lastMousePosition - event.position
+		lastMousePosition = event.position
+		rotation_speed.x = delta.y
+		rotation_speed.y = delta.x
 
 func _can_grab():
 	can_grab = true
@@ -79,7 +95,6 @@ func bubble_logic():
 	
 func on_bubble_release(power: float):
 	velocity = (%BubbleMarker.global_position - global_position) * power
-	print(shoot)
 
 func grab():
 	#TODO tween a swinging motion and apply force
