@@ -26,3 +26,7 @@ func _on_ready():
 
 func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 	last_activated_checkpoint = checkpoint
+
+
+func _on_kill_floor_area_3d_body_entered(body):
+	pass # Replace with function body.

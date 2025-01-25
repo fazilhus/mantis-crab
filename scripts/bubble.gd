@@ -5,7 +5,7 @@ extends Area3D
 
 @onready var mesh = %BubbleMesh
 
-const MAX_POWER = 10
+const MAX_POWER = 2.5
 
 var tween : Tween
 var power: float

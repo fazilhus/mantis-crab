@@ -1,30 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu64gk3kj41jl"]
+[gd_scene load_steps=3 format=3 uid="uid://cu64gk3kj41jl"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_s1i0l"]
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pdxrr"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_pwmg4"]
-sky_material = SubResource("ProceduralSkyMaterial_pdxrr")
-
-[sub_resource type="Environment" id="Environment_7n8p6"]
-background_mode = 2
-sky = SubResource("Sky_pwmg4")
-tonemap_mode = 2
-glow_enabled = true
-
 [node name="Level" type="Node3D"]
 script = ExtResource("1_s1i0l")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7n8p6")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Checkpoints" type="Node" parent="."]
 unique_name_in_owner = true
