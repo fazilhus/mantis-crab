@@ -109,6 +109,7 @@ func bubble_logic():
 		stamina = STAMINA_MAX
 	
 func on_bubble_release(power: float):
+	bubble = null
 	velocity = (%BubbleMarker.global_position - global_position) * power
 
 func grab():
