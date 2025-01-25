@@ -14,32 +14,33 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	if entered:
-		player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
-		player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
-		player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
+	# if entered:
+	# 	player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
+	# 	player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
+	# 	player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
 
-		player.move_and_slide()
+	# 	player.move_and_slide()
 
-	if exited:
-		player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
-		player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
-		player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
+	# if exited:
+	# 	player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
+	# 	player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
+	# 	player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
 
-		player.move_and_slide()
-		exited = false
+	# 	player.move_and_slide()
+	# 	exited = false
+	pass
 		
 
 func _on_body_exited(body:Node3D):
 	if body is PlayerCharacter:
 		player = body
-		entered = false
-		exited = true
+		SignalBuss.current_entered.emit(Vector3.ZERO)
 
 
 func _on_body_entered(body:Node3D):
 	if body is PlayerCharacter:
 		player = body
-		entered = true
-		exited = false
-		current_force_direction = 4*(stream_End_marker.global_position-player.global_position).normalized()
+		SignalBuss.current_entered.emit((stream_End_marker.global_position-player.global_position).normalized())
+	# 	entered = true
+	# 	exited = false
+	# 	current_force_direction = 0.2*(stream_End_marker.global_position-player.global_position).normalized()
