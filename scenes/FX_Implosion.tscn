@@ -30,7 +30,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_axh6n")
 
 [sub_resource type="Curve" id="Curve_3sgg0"]
-_data = [Vector2(0.0198675, 0.792553), 0.0, 0.0, 0, 0, Vector2(0.490066, 1), 0.0, 0.0, 0, 0, Vector2(0.950331, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 5.63415, 0, 0, Vector2(0.490066, 1), 0.0, 0.0, 0, 0, Vector2(0.950331, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_rbhhr"]
@@ -240,7 +240,7 @@ _data = {
 [node name="implosion-inner" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_iaiti")
 amount = 1
-lifetime = 0.5
+lifetime = 0.3
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_62hil")
 draw_pass_1 = SubResource("SphereMesh_y4d01")
@@ -249,7 +249,7 @@ draw_pass_1 = SubResource("SphereMesh_y4d01")
 material_override = SubResource("ShaderMaterial_4ij1t")
 emitting = false
 amount = 1
-lifetime = 0.5
+lifetime = 0.3
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_0o7ev")
 draw_pass_1 = SubResource("SphereMesh_4wujy")
@@ -258,7 +258,7 @@ draw_pass_1 = SubResource("SphereMesh_4wujy")
 material_override = SubResource("ShaderMaterial_5bntv")
 emitting = false
 amount = 12
-lifetime = 0.6
+lifetime = 0.4
 one_shot = true
 explosiveness = 0.15
 process_material = SubResource("ParticleProcessMaterial_2t531")
@@ -268,14 +268,14 @@ draw_pass_1 = SubResource("QuadMesh_aaldv")
 material_override = SubResource("ShaderMaterial_eg8mq")
 emitting = false
 amount = 12
-lifetime = 0.6
+lifetime = 0.4
 one_shot = true
 explosiveness = 0.15
 process_material = SubResource("ParticleProcessMaterial_edw1u")
 draw_pass_1 = SubResource("QuadMesh_7r4g7")
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
-strength = 20.0
+strength = 50.0
 radius = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
