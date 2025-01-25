@@ -1,11 +1,21 @@
+class_name CameraManager
 extends Node
 
+@onready var main_camera : Camera = %MainCamera
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	SignalBuss.player_spawned.connect(_on_player_spawned)
+	SignalBuss.player_died.connect(_on_player_died)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
+
+func _on_player_spawned(player: PlayerCharacter) -> void:
+	if main_camera.initialized:
+		main_camera.target = player.camera_gimble
+		return
+	
+	main_camera.init_camera(player.camera_gimble)
+
+func _on_player_died() -> void:
+	main_camera.target = null
