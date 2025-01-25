@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			mouse_hidden = false
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			mouse_hidden = true
 
 func _unhandled_input(event: InputEvent):
@@ -74,10 +74,10 @@ func _input(event):
 	if event is InputEventMouseMotion and mouse_hidden:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
-			delta = lastMousePosition - event.position
-		lastMousePosition = event.position
-		rotation_speed.x = delta.y
-		rotation_speed.y = delta.x
+			delta = event.relative
+		lastMousePosition = event.relative
+		rotation_speed.x = -delta.y
+		rotation_speed.y = -delta.x
 
 func _can_grab():
 	can_grab = true
