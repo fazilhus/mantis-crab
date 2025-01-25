@@ -4,6 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="1_y4f8t"]
 [ext_resource type="Texture2D" uid="uid://8wtg682hcggm" path="res://icon.svg" id="3_8feah"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfd7a"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pwmg4"]
+sky_material = SubResource("ProceduralSkyMaterial_pfd7a")
+
+[sub_resource type="Environment" id="Environment_yg0ic"]
+background_mode = 2
+sky = SubResource("Sky_pwmg4")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_qndwa"]
 top_radius = 2.5
 bottom_radius = 2.5
@@ -56,6 +69,22 @@ size = Vector2(100, 100)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_vfg1r")
+
+[node name="Checkpoints" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("1_y4f8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yg0ic")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.879748, 0.47544, 0, -0.47544, 0.879748, 0, 4.6006, 2.79386)
 
 [node name="Checkpoints" type="Node" parent="."]
 unique_name_in_owner = true
