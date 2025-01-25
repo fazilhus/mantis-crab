@@ -28,6 +28,14 @@ func _ready():
 	camera_gimble_origin = camera_gimble.position
 
 	SignalBuss.player_spawned.emit(self)
+	
+	GUIBuss.pause_menu_resume_button_pressed.connect(hide_mouse_again)
+	
+func _process(delta):
+	if Input.is_action_just_pressed("Pause"):
+		if mouse_hidden:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _physics_process(delta: float) -> void:
 	print(velocity)
@@ -135,3 +143,6 @@ func ground_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
 	
+func hide_mouse_again():
+	if mouse_hidden:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
