@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxlmkm04smlb8"
+path="res://.godot/imported/quadsphere.obj-2b1b5f07afbe935b23a748a5a075d2e9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/quadsphere.obj-2b1b5f07afbe935b23a748a5a075d2e9.mesh"]
+
+source_file="res://assets/fx/quadsphere.obj"
+dest_files=["res://.godot/imported/quadsphere.obj-2b1b5f07afbe935b23a748a5a075d2e9.mesh", "res://.godot/imported/quadsphere.obj-2b1b5f07afbe935b23a748a5a075d2e9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

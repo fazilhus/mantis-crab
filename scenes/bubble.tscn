@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://67yw87d3amit"]
+[gd_scene load_steps=6 format=3 uid="uid://67yw87d3amit"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_kgfc5"]
+[ext_resource type="Shader" uid="uid://wpty66fjn0g4" path="res://assets/fx/bubble.tres" id="2_5wujn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1pwg"]
+render_priority = 0
+shader = ExtResource("2_5wujn")
+shader_parameter/FresnelPower = 1.0
+shader_parameter/InsideColour = Color(0.216494, 0.290247, 0.413162, 1)
+shader_parameter/EdgeColour = Color(0, 0.139199, 0.157021, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_kdq8n"]
+material = SubResource("ShaderMaterial_f1pwg")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0afar"]
 
