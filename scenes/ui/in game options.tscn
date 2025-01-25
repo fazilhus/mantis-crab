@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt738c78e7nfk"]
+[gd_scene load_steps=7 format=3 uid="uid://bt738c78e7nfk"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_options.gd" id="1_awiho"]
+[ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_mitsj"]
+[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="3_urusr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3adn"]
-bg_color = Color(1.05888e-06, 0.531972, 0.847892, 1)
-corner_radius_top_left = 360
-corner_radius_top_right = 360
-corner_radius_bottom_right = 360
-corner_radius_bottom_left = 360
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_135ay"]
+texture = ExtResource("2_mitsj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oykl0"]
+texture = ExtResource("3_urusr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb21w"]
 bg_color = Color(0.306923, 0.306923, 0.306923, 1)
@@ -16,7 +17,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Options" type="Control"]
+[node name="in gameOptions" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,13 +26,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_awiho")
 
+[node name="Panel8" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_135ay")
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 33.0
-offset_right = 342.0
-offset_bottom = 333.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+offset_left = -5.0
+offset_top = -16.0
+offset_right = 385.0
+offset_bottom = 374.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
@@ -39,7 +46,7 @@ offset_left = 196.0
 offset_top = 353.0
 offset_right = 323.0
 offset_bottom = 478.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel5" type="Panel" parent="."]
 layout_mode = 0
@@ -47,7 +54,7 @@ offset_left = 448.0
 offset_top = 481.0
 offset_right = 575.0
 offset_bottom = 606.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel3" type="Panel" parent="."]
 layout_mode = 0
@@ -55,7 +62,7 @@ offset_left = 302.0
 offset_top = 300.0
 offset_right = 376.0
 offset_bottom = 372.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel7" type="Panel" parent="."]
 layout_mode = 0
@@ -63,7 +70,7 @@ offset_left = 1.0
 offset_top = -6.0
 offset_right = 75.0
 offset_bottom = 66.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel4" type="Panel" parent="."]
 layout_mode = 0
@@ -71,7 +78,7 @@ offset_left = 337.0
 offset_top = 423.0
 offset_right = 411.0
 offset_bottom = 495.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Panel6" type="Panel" parent="."]
 layout_mode = 0
@@ -79,7 +86,7 @@ offset_left = 272.0
 offset_top = 535.0
 offset_right = 346.0
 offset_bottom = 607.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
 
 [node name="Timer" type="Button" parent="."]
 layout_mode = 0
@@ -114,6 +121,7 @@ offset_left = 155.0
 offset_top = 44.0
 offset_right = 217.0
 offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Options"
 
 [node name="CheckButton" type="CheckButton" parent="."]
@@ -137,6 +145,7 @@ offset_left = 265.0
 offset_top = 157.0
 offset_right = 341.0
 offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "On/Of"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

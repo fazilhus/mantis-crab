@@ -15,15 +15,15 @@ func _on_options_pressed() -> void:
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("Pause"):
 		pausemenu()
 
 func pausemenu():
 	if paused:
-		pause_menu.visible = false
+		self.show()
 		Engine.time_scale = 1
 	else:
-		pause_menu.visible = true
+		self.hide()
 		Engine.time_scale = 0 
 	
 	paused = !paused

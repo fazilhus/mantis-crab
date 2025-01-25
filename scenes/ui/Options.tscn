@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://v2n6kagtwcir"]
+[gd_scene load_steps=7 format=3 uid="uid://v2n6kagtwcir"]
 
 [ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_xvj2k"]
+[ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_yeawb"]
+[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="3_2yb20"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3adn"]
-bg_color = Color(0.509286, 0.509286, 0.509286, 1)
-corner_radius_top_left = 360
-corner_radius_top_right = 360
-corner_radius_bottom_right = 360
-corner_radius_bottom_left = 360
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3oew"]
+texture = ExtResource("2_yeawb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4rhb"]
+texture = ExtResource("3_2yb20")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb21w"]
 bg_color = Color(0.306923, 0.306923, 0.306923, 1)
@@ -25,13 +26,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xvj2k")
 
+[node name="Panel8" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_t3oew")
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 33.0
-offset_right = 342.0
-offset_bottom = 333.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 385.0
+offset_bottom = 376.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
@@ -39,7 +46,7 @@ offset_left = 196.0
 offset_top = 353.0
 offset_right = 323.0
 offset_bottom = 478.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel5" type="Panel" parent="."]
 layout_mode = 0
@@ -47,7 +54,7 @@ offset_left = 448.0
 offset_top = 481.0
 offset_right = 575.0
 offset_bottom = 606.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel3" type="Panel" parent="."]
 layout_mode = 0
@@ -55,7 +62,7 @@ offset_left = 302.0
 offset_top = 300.0
 offset_right = 376.0
 offset_bottom = 372.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel7" type="Panel" parent="."]
 layout_mode = 0
@@ -63,7 +70,7 @@ offset_left = 1.0
 offset_top = -6.0
 offset_right = 75.0
 offset_bottom = 66.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel4" type="Panel" parent="."]
 layout_mode = 0
@@ -71,7 +78,7 @@ offset_left = 337.0
 offset_top = 423.0
 offset_right = 411.0
 offset_bottom = 495.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Panel6" type="Panel" parent="."]
 layout_mode = 0
@@ -79,7 +86,7 @@ offset_left = 272.0
 offset_top = 535.0
 offset_right = 346.0
 offset_bottom = 607.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4rhb")
 
 [node name="Timer" type="Button" parent="."]
 layout_mode = 0
@@ -114,6 +121,7 @@ offset_left = 155.0
 offset_top = 44.0
 offset_right = 217.0
 offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Options"
 
 [node name="CheckButton" type="CheckButton" parent="."]
@@ -137,6 +145,7 @@ offset_left = 263.0
 offset_top = 151.0
 offset_right = 342.0
 offset_bottom = 182.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "On/OF"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
