@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pw4j76ev6jae" path="res://scenes/test_level.tscn" id="4_kel11"]
 
 [node name="Game" type="Node"]
+process_mode = 1
 script = ExtResource("1_oqn0f")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
