@@ -44,15 +44,6 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
 
@@ -67,7 +58,7 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
-		rotation_speed = Input.get_vector("Camera_Down", "Camera_Up", "Camera_Right", "Camera_Left")
+		rotation_speed = Input.get_vector("Camera_Up", "Camera_Down", "Camera_Left", "Camera_Right")
 		rotation_speed *= -1
 
 	
@@ -86,13 +77,8 @@ func bubble_logic():
 	if is_on_floor():
 		stamina = STAMINA_MAX
 	
-	velocity += shoot
-	shoot.x = move_toward(shoot.x, 0, AIR_RESISTANCE)
-	shoot.y = move_toward(shoot.y, 0, AIR_RESISTANCE)
-	shoot.z = move_toward(shoot.z, 0, AIR_RESISTANCE)
-	
 func on_bubble_release(power: float):
-	shoot = (%BubbleMarker.global_position - global_position) * power
+	velocity = (%BubbleMarker.global_position - global_position) * power
 	print(shoot)
 
 func grab():
@@ -100,15 +86,14 @@ func grab():
 	pass
 
 func air_movement(delta):
-	velocity += get_gravity() * delta
+	velocity += get_gravity() * delta * 2
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x += direction.x * SPEED / 2
-		velocity.z += direction.z * SPEED / 2
-	
-	if direction.x * velocity.x < 0 :
-		pass
+		velocity.x += direction.x * SPEED / 25
+
+	velocity.x = move_toward(velocity.x, 0, 0.2)
+	velocity.z = move_toward(velocity.z, 0, 0.2)
 	
 func ground_movement(delta):
 	if Input.is_action_just_pressed("Jump_Action"):

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw330ojpgp8yv"]
+[gd_scene load_steps=7 format=3 uid="uid://cw330ojpgp8yv"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_oqn0f"]
-[ext_resource type="PackedScene" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
+[ext_resource type="PackedScene" uid="uid://ned1vfj5u35n" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
 [ext_resource type="PackedScene" uid="uid://vcifh1n8soak" path="res://scenes/level_manager.tscn" id="2_tpw7h"]
 [ext_resource type="PackedScene" path="res://scenes/player_manager.tscn" id="3_h7ysb"]
 [ext_resource type="PackedScene" uid="uid://b5ilxmk5xif3k" path="res://scenes/player_character.tscn" id="4_e07go"]
 [ext_resource type="PackedScene" uid="uid://pw4j76ev6jae" path="res://scenes/test_level.tscn" id="4_kel11"]
-[ext_resource type="PackedScene" path="res://scenes/camera_manager.tscn" id="6_3aln5"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_oqn0f")
@@ -24,8 +23,6 @@ first_level_pkd = ExtResource("4_kel11")
 [node name="PlayerManager" parent="." instance=ExtResource("3_h7ysb")]
 unique_name_in_owner = true
 player_pkd = ExtResource("4_e07go")
-
-[node name="CameraManager" parent="." instance=ExtResource("6_3aln5")]
 
 [node name="Respawn_Timer" type="Timer" parent="."]
 unique_name_in_owner = true
