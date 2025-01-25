@@ -1,9 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://cvx8ojhcw4ahq"]
+[gd_scene load_steps=32 format=3 uid="uid://f4aqob083q0j"]
 
-[ext_resource type="Shader" uid="uid://nulbwxa4d6rb" path="res://assets/fx/implosion-inner.tres" id="1_5axs0"]
-[ext_resource type="Shader" uid="uid://dbmalteyuunb4" path="res://assets/fx/implosion-outer.tres" id="2_p1ahf"]
-[ext_resource type="Shader" uid="uid://bitmvg0dph04b" path="res://assets/fx/implosion-streaks.tres" id="3_tdqm3"]
-[ext_resource type="Shader" uid="uid://h7tkysxcrlil" path="res://assets/fx/implosion-bubbles.tres" id="4_0eq5i"]
+[ext_resource type="Shader" uid="uid://ucvk5rnourhx" path="res://assets/fx/implosion-inner.tres" id="1_5axs0"]
+[ext_resource type="Shader" uid="uid://llp304on1kg" path="res://assets/fx/implosion-outer.tres" id="2_p1ahf"]
+[ext_resource type="Shader" uid="uid://ca57yug8oqak3" path="res://assets/fx/implosion-streaks.tres" id="3_tdqm3"]
+[ext_resource type="Shader" uid="uid://bvt1t2i5vgmp6" path="res://assets/fx/implosion-bubbles.tres" id="4_0eq5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iaiti"]
 render_priority = 0

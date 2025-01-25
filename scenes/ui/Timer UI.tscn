@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfjf0nujhxn12"]
+
+[ext_resource type="Script" path="res://scripts/ui/timer_ui.gd" id="1_n5o2i"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("stopwatch_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n5o2i")
+stopwatch_label = NodePath("StopwatchLabel")
+
+[node name="StopwatchLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "00.00.000"
