@@ -31,6 +31,14 @@ func _ready():
 	SignalBuss.current_entered.connect(on_current_entered)
 
 	SignalBuss.player_spawned.emit(self)
+	
+	GUIBuss.pause_menu_resume_button_pressed.connect(hide_mouse_again)
+	
+func _process(delta):
+	if Input.is_action_just_pressed("Pause"):
+		if mouse_hidden:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _physics_process(delta: float) -> void:
 	print(velocity)
@@ -55,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
 
-	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.4)
+	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.5)
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
@@ -116,8 +124,8 @@ func air_movement(delta):
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x += direction.x * SPEED / 10
-		velocity.z += direction.z * SPEED / 10
+		velocity.x += direction.x * SPEED / 30
+		velocity.z += direction.z * SPEED / 20
 	
 	if velocity.x <= -10 or velocity.x >= 10:
 		velocity.x = move_toward(velocity.x, 0, 0.7)
@@ -127,7 +135,7 @@ func air_movement(delta):
 	
 func ground_movement(delta):
 	if Input.is_action_just_pressed("Jump_Action"):
-		velocity.y += 10
+		velocity.y += 8
 		#velocity.x *= 1.2
 		#velocity.z *= 1.2
 	
@@ -141,6 +149,9 @@ func ground_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
 	
+func hide_mouse_again():
+	if mouse_hidden:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
