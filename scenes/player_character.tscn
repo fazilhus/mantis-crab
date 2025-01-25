@@ -25,7 +25,8 @@ shape = SubResource("SphereShape3D_iukbm")
 
 [node name="CameraGimble" parent="." instance=ExtResource("2_c3q04")]
 unique_name_in_owner = true
-transform = Transform3D(-0.067371, 0, 0.997728, 0, 1, 0, -0.997728, 0, -0.067371, 5.47209, 2, 0.343242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+camera_position = Vector3(0, 2, 8)
 
 [node name="BubbleMarker" type="Marker3D" parent="CameraGimble"]
 unique_name_in_owner = true
