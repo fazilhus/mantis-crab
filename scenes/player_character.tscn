@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
+[ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iukbm"]
@@ -26,16 +26,6 @@ shape = SubResource("SphereShape3D_iukbm")
 [node name="CameraGimble" parent="." instance=ExtResource("2_c3q04")]
 unique_name_in_owner = true
 transform = Transform3D(-0.067371, 0, 0.997728, 0, 1, 0, -0.997728, 0, -0.067371, 5.47209, 2, 0.343242)
-
-[node name="BubbleMarker" type="Marker3D" parent="CameraGimble"]
-unique_name_in_owner = true
-transform = Transform3D(0.999997, 0, 0, 0, 0.978145, -0.207911, 0, 0.207911, 0.978145, 2.38419e-07, -1.34584, -2.31251)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraGimble/BubbleMarker"]
-mesh = SubResource("SphereMesh_x4ymr")
-
-[node name="Camera3D" type="Camera3D" parent="CameraGimble"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000992179, 5.5745)
 
 [node name="BubbleMarker" type="Marker3D" parent="CameraGimble"]
 unique_name_in_owner = true
