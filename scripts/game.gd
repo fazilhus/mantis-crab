@@ -27,6 +27,8 @@ func _process(_delta):
 func _on_start_play() -> void:
 	level_manager.start_first_level()
 	playing = true
+	%MenuMusic.stop()
+	%GameMusic.play()
 	GUIBuss.level_started.emit()
 
 func _on_quit_game() -> void:
@@ -42,6 +44,8 @@ func _on_pause_menu_resume_button_pressed() -> void:
 func _on_pause_menu_home_button_pressed() -> void:
 	level_manager._despawn_level()
 	playing = false
+	%GameMusic.stop()
+	%MenuMusic.play()
 
 func pause_game() -> void:
 	paused = true
