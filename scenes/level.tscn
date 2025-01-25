@@ -1,14 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwmiok5ha5w61"]
+[gd_scene load_steps=3 format=3 uid="uid://cu64gk3kj41jl"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_s1i0l"]
-[ext_resource type="PackedScene" uid="uid://cr6ca03nxhpu4" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_28n6d"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4lg8a"]
-size = Vector2(10, 10)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0lntc"]
+[ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_s1i0l")
@@ -17,21 +10,7 @@ script = ExtResource("1_s1i0l")
 unique_name_in_owner = true
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_gqs7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1682, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_gqs7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611885, -4.36746)
-
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95555, 0.64221, -4.09175)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-mesh = SubResource("BoxMesh_28n6d")
-
-[node name="Plane" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
-mesh = SubResource("PlaneMesh_4lg8a")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
-shape = SubResource("WorldBoundaryShape3D_0lntc")
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.879748, 0.47544, 0, -0.47544, 0.879748, 0, 1.30001, 2.79386)

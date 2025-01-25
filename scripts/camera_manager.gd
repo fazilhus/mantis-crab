@@ -11,11 +11,8 @@ func _process(_delta):
 	pass
 
 func _on_player_spawned(player: PlayerCharacter) -> void:
-	if main_camera.initialized:
-		main_camera.target = player.camera_gimble
-		return
+	player.camera_gimble.add_child(Camera3D.new())
 	
-	main_camera.init_camera(player.camera_gimble)
-
+	
 func _on_player_died() -> void:
 	main_camera.target = null

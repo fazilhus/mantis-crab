@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://di88xb3i04jtr"]
+[gd_scene load_steps=7 format=3 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
 [ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iukbm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xayt"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x4ymr"]
+material = SubResource("StandardMaterial3D_7xayt")
 
 [node name="PlayerCharacter" type="CharacterBody3D"]
 script = ExtResource("1_w7rqf")
@@ -14,10 +20,6 @@ rot_speed_mod = Vector2(1, 1.2)
 unique_name_in_owner = true
 transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)
 
-[node name="BubbleMarker" type="Marker3D" parent="Model"]
-unique_name_in_owner = true
-transform = Transform3D(1.63934, 0, 0, 0, 1.63934, 0, 0, 0, 1.63934, 0, 0.767497, -3.27869)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iukbm")
 
@@ -25,6 +27,16 @@ shape = SubResource("SphereShape3D_iukbm")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 2, 0)
 camera_position = Vector3(0, 2, 8)
+
+[node name="BubbleMarker" type="Marker3D" parent="CameraGimble"]
+unique_name_in_owner = true
+transform = Transform3D(0.999997, 0, 0, 0, 0.978145, -0.207911, 0, 0.207911, 0.978145, 2.38419e-07, -1.34584, -2.31251)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraGimble/BubbleMarker"]
+mesh = SubResource("SphereMesh_x4ymr")
+
+[node name="Camera3D" type="Camera3D" parent="CameraGimble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000992179, 5.5745)
 
 [node name="mantis crab placeholder" parent="." instance=ExtResource("2_e8b2q")]
 transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)

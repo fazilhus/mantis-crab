@@ -16,8 +16,8 @@ func trigger() -> void:
 	activated = true
 
 func _on_trigger_area_3d_body_entered(body:Node3D):
-	var player : PlayerCharacter = body
-	if !player:
+	if body is PlayerCharacter:
+		var player : PlayerCharacter = body
 		return
 	
 	if activated:
