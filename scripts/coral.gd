@@ -11,4 +11,3 @@ func _on_area_3d_body_entered(body:Node3D):
 		#Break animation
 		#Break sound
 		self.queue_free()
-
