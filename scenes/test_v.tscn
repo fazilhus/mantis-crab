@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm6vlnay8e2cs"]
+
+[ext_resource type="PackedScene" uid="uid://cwv1w4n568vrw" path="res://scenes/player_character.tscn" id="1_h4qco"]
+[ext_resource type="PackedScene" uid="uid://cssibkyc0xmx0" path="res://scenes/current_area.tscn" id="2_wkh21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28v4k"]
+albedo_color = Color(1, 0.415686, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5c3uv"]
+material = SubResource("StandardMaterial3D_28v4k")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e24dm"]
+points = PackedVector3Array(-10, -0.5, -10, -10, 0.5, -10, 10, -0.5, -10, -10, -0.5, 10, -10, 0.5, 10, 10, 0.5, -10, 10, -0.5, 10, 10, 0.5, 10)
+
+[node name="TestV" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_5c3uv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_e24dm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.190689, 0.98165, 0, -0.98165, 0.190689, 0, 8.9016, 0)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_h4qco")]
+rot_speed_mod = null
+
+[node name="Current_Area" parent="." instance=ExtResource("2_wkh21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00256395, 1.40443, -7.58187)
