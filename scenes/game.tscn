@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw330ojpgp8yv"]
+[gd_scene load_steps=12 format=3 uid="uid://cw330ojpgp8yv"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_oqn0f"]
 [ext_resource type="PackedScene" uid="uid://ned1vfj5u35n" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ssgmxn5726ui" path="res://scenes/ui/Main Menu.tscn" id="8_p18m0"]
 [ext_resource type="PackedScene" path="res://scenes/ui/Options.tscn" id="9_0gmxg"]
 [ext_resource type="PackedScene" uid="uid://dt4k8urekf1ax" path="res://scenes/ui/pause menu.tscn" id="10_3ssns"]
+[ext_resource type="AudioStream" uid="uid://c87ruma53s8p" path="res://assets/audio/mantiscrab_theme_menu.ogg" id="10_wglq5"]
+[ext_resource type="AudioStream" uid="uid://nxhv3xbnl8r2" path="res://assets/audio/mantiscrab_theme_game.ogg" id="11_bc73l"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_oqn0f")
@@ -48,3 +50,14 @@ visible = false
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("10_3ssns")]
 unique_name_in_owner = true
 visible = false
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_wglq5")
+autoplay = true
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_bc73l")
+bus = &"Music"
