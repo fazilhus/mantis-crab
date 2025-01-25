@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://c3bfqn4ncyen1"]
 
 [ext_resource type="Script" path="res://scripts/camera_manager.gd" id="1_i0gqw"]
-[ext_resource type="PackedScene" uid="uid://coqbt3iava6q4" path="res://scenes/camera.tscn" id="2_ls8y8"]
+[ext_resource type="PackedScene" path="res://scenes/camera.tscn" id="2_ls8y8"]
 [ext_resource type="PackedScene" uid="uid://ssgmxn5726ui" path="res://scenes/ui/Main Menu.tscn" id="3_2nyvv"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="4_c5pp7"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="5_eugww"]
 [ext_resource type="Texture2D" uid="uid://dr7a2xvvch027" path="res://scenes/ui/Mantiscrab.png" id="6_tgvyp"]
-[ext_resource type="PackedScene" uid="uid://v2n6kagtwcir" path="res://scenes/ui/Options.tscn" id="7_4e644"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Options.tscn" id="7_4e644"]
 [ext_resource type="PackedScene" uid="uid://dt4k8urekf1ax" path="res://scenes/ui/pause menu.tscn" id="8_qhed6"]
 [ext_resource type="PackedScene" uid="uid://bt738c78e7nfk" path="res://scenes/ui/in game options.tscn" id="9_rtsft"]
 

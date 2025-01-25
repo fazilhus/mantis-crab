@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://pw4j76ev6jae"]
+[gd_scene load_steps=21 format=3 uid="uid://pw4j76ev6jae"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vfg1r"]
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="1_y4f8t"]
 [ext_resource type="Texture2D" uid="uid://8wtg682hcggm" path="res://icon.svg" id="3_8feah"]
+[ext_resource type="PackedScene" uid="uid://cw4xxsw0xqqx8" path="res://scenes/coral.tscn" id="4_um7qx"]
+[ext_resource type="PackedScene" uid="uid://cssibkyc0xmx0" path="res://scenes/current_area.tscn" id="5_1n4ql"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qndwa"]
 top_radius = 2.5
@@ -168,5 +170,17 @@ mesh = SubResource("PlaneMesh_mkx1g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_cn8dx")
+
+[node name="Coral" parent="." instance=ExtResource("4_um7qx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6027, -1.01306, 1.24971)
+
+[node name="Coral2" parent="." instance=ExtResource("4_um7qx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7004, -0.753422, -5.0152)
+
+[node name="Coral3" parent="." instance=ExtResource("4_um7qx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1919, -1.03873, -3.59883)
+
+[node name="Current_Area" parent="." instance=ExtResource("5_1n4ql")]
+transform = Transform3D(-0.998615, -0.0526147, 0, 0.0526147, -0.998615, 0, 0, 0, 1, 13.0035, 0, 0)
 
 [connection signal="body_entered" from="First/KillFloor_Area3D" to="." method="_on_kill_floor_area_3d_body_entered"]
