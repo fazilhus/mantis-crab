@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://di88xb3i04jtr"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
+[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iukbm"]

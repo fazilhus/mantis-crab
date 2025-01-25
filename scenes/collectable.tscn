@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wsm8ph4dqeke"]
+[gd_scene load_steps=5 format=3 uid="uid://wsm8ph4dqeke"]
 
 [ext_resource type="Script" path="res://scenes/collectable.gd" id="1_878rw"]
+[ext_resource type="AudioStream" uid="uid://cd3kk0aijo4h2" path="res://assets/audio/mantiscrab_bottlecollect.ogg" id="2_3n2iw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_384h8"]
 
@@ -20,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 
 shape = SubResource("SphereShape3D_poorn")
 
 [node name="collectablesound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_3n2iw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="collectablesound" to="." method="_on_collectablesound_finished"]
