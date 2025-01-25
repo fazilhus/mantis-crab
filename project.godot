@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="crab-rave"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/ui/Main Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 SignalBuss="*res://scripts/SignalBuss.gd"
 SoundBuss="*res://scripts/SoundBuss.gd"
 GUIBuss="*res://scripts/GUIBuss.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [dotnet]
 
