@@ -6,7 +6,8 @@ const JUMP_VELOCITY = 4.5
 var is_grabbing : bool = false
 var can_grab : bool = false
 func _ready():
-	SignalBuss._can_grab.connect(_can_grab)
+	#SignalBuss._can_grab.connect(_can_grab)
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

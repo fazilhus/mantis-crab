@@ -21,6 +21,10 @@ SignalBuss="*res://scripts/SignalBuss.gd"
 SoundBuss="*res://scripts/SoundBuss.gd"
 GUIBuss="*res://scripts/GUIBuss.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="crab-rave"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://v2n6kagtwcir"]
 
-[ext_resource type="Script" path="res://scenes/ui/options.gd" id="1_xvj2k"]
+[ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_xvj2k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3adn"]
 bg_color = Color(0.509286, 0.509286, 0.509286, 1)
@@ -83,19 +83,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_c3adn")
 
 [node name="Timer" type="Button" parent="."]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 106.0
-offset_right = 153.0
-offset_bottom = 137.0
+offset_left = 81.0
+offset_top = 104.0
+offset_right = 151.0
+offset_bottom = 135.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
 text = "Timer"
 
 [node name="Sound" type="Button" parent="."]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 157.0
-offset_right = 153.0
-offset_bottom = 188.0
+offset_left = 81.0
+offset_top = 151.0
+offset_right = 151.0
+offset_bottom = 182.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
 text = "Sound"
 
@@ -109,6 +109,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
 text = "Back"
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 44.0
 offset_right = 217.0
@@ -116,15 +117,28 @@ offset_bottom = 67.0
 text = "Options"
 
 [node name="CheckButton" type="CheckButton" parent="."]
-offset_left = 171.0
-offset_top = 106.0
-offset_right = 215.0
-offset_bottom = 130.0
+layout_mode = 0
+offset_left = 169.0
+offset_top = 104.0
+offset_right = 213.0
+offset_bottom = 128.0
 
-[node name="CheckButton2" type="CheckButton" parent="."]
-offset_left = 171.0
-offset_top = 157.0
-offset_right = 215.0
-offset_bottom = 181.0
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 159.0
+offset_right = 262.0
+offset_bottom = 175.0
+value = 50.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 151.0
+offset_right = 342.0
+offset_bottom = 182.0
+text = "On/OF"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
