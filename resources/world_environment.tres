@@ -1,15 +1,20 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://brg3g0uv71dbg"]
 
-[ext_resource type="Texture2D" uid="uid://b71tpfix0ayev" path="res://assets/textures/Krabb_Skybox_V3.png" id="1_qo3cx"]
+[ext_resource type="Texture2D" uid="uid://dibo0uva5edd5" path="res://assets/textures/Krabb Skybox V4.png" id="1_osns1"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jfiap"]
-panorama = ExtResource("1_qo3cx")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_isblr"]
+panorama = ExtResource("1_osns1")
 
 [sub_resource type="Sky" id="Sky_ir2g5"]
-sky_material = SubResource("PanoramaSkyMaterial_jfiap")
+sky_material = SubResource("PanoramaSkyMaterial_isblr")
 
 [resource]
 background_mode = 2
 sky = SubResource("Sky_ir2g5")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.332782, 0.455457, 0.846652, 1)
+fog_light_energy = 2.27
+fog_density = 0.5335
+fog_sky_affect = 0.455

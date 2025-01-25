@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2b53imsx3afe"
-path.s3tc="res://.godot/imported/Krabb_Skybox_V1.png-ea724444066f8fa93c98eb5adfda955d.s3tc.ctex"
+uid="uid://bkyuna71imxnm"
+path.s3tc="res://.godot/imported/Krabb Skybox V11.png-b2c0026da9c6f3a5e23bded218ed8df7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Krabb_Skybox_V1.png"
-dest_files=["res://.godot/imported/Krabb_Skybox_V1.png-ea724444066f8fa93c98eb5adfda955d.s3tc.ctex"]
+source_file="res://assets/textures/Krabb Skybox V11.png"
+dest_files=["res://.godot/imported/Krabb Skybox V11.png-b2c0026da9c6f3a5e23bded218ed8df7.s3tc.ctex"]
 
 [params]
 
