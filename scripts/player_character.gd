@@ -1,6 +1,8 @@
 class_name PlayerCharacter
 extends CharacterBody3D
 
+@onready var camera_gimble : CameraGimble = %CameraGimble
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const AIR_RESISTANCE = 2
@@ -11,9 +13,12 @@ var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
+
 func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
 	SignalBuss.bubble_release.connect(on_bubble_release)
+
+	SignalBuss.player_spawned.emit(self)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
