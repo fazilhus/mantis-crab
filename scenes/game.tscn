@@ -22,7 +22,6 @@ shadow_enabled = true
 
 [node name="LevelManager" parent="." instance=ExtResource("2_tpw7h")]
 unique_name_in_owner = true
-process_mode = 1
 first_level_pkd = ExtResource("4_kel11")
 
 [node name="PlayerManager" parent="." instance=ExtResource("3_h7ysb")]

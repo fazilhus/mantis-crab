@@ -12,3 +12,16 @@ func _on_area_3d_body_entered(body:Node3D):
 		#Break sound
 		self.queue_free()
 
+func destroy(power: float):
+	queue_free()
+
+func _on_snap_area_3d_area_entered(area):
+	if area is Bubble:
+		area.entered_coral_range.emit(true)
+		SignalBuss.bubble_release.connect(destroy)
+
+
+func _on_snap_area_3d_area_exited(area):
+	if area is Bubble:
+		area.entered_coral_range.emit(false)
+		SignalBuss.bubble_release.disconnect(destroy)
