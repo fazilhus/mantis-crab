@@ -15,6 +15,8 @@ var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
 
+var current_dir : Vector3 = Vector3.ZERO
+
 var camera_gimble_origin : Vector3 = Vector3.ZERO
 var camera_gimble_rotation_origion : Vector3 = Vector3.ZERO
 
@@ -26,6 +28,7 @@ func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
 	SignalBuss.bubble_release.connect(on_bubble_release)
 	camera_gimble_origin = camera_gimble.position
+	SignalBuss.current_entered.connect(on_current_entered)
 
 	SignalBuss.player_spawned.emit(self)
 
@@ -36,7 +39,10 @@ func _physics_process(delta: float) -> void:
 		ground_movement(delta)
 	else:
 		air_movement(delta)
-	
+	#if current_dir is not Vector3.ZERO:
+
+	self.velocity += 1.5*current_dir
+		
 	# Add the gravity.
 	
 
@@ -53,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
 	rotation_speed = Vector2.ZERO
-	
+
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("Hide_Mouse"):
@@ -122,4 +128,7 @@ func ground_movement(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+	
+func on_current_entered(current_direction: Vector3):
+	current_dir = current_direction
 	
