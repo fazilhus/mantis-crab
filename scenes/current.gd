@@ -42,5 +42,4 @@ func _on_body_entered(body:Node3D):
 		player = body
 		entered = true
 		exited = false
-		current_force_direction = stream_End_marker.global_position-player.velocity.normalized()
-
+		current_force_direction = 4*(stream_End_marker.global_position-player.global_position).normalized()

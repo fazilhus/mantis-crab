@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @onready var camera_gimble : CameraGimble = %CameraGimble
 
-const SPEED = 5.0
+const SPEED = 12.0
 const JUMP_VELOCITY = 4.5
 const AIR_RESISTANCE = 0.5
 const STAMINA_MAX = 3
@@ -30,6 +30,7 @@ func _ready():
 	SignalBuss.player_spawned.emit(self)
 
 func _physics_process(delta: float) -> void:
+	print(velocity)
 	bubble_logic()
 		
 	if is_on_floor():
@@ -48,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
 
-	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.3)
+	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.4)
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
@@ -89,6 +90,7 @@ func bubble_logic():
 		stamina -= 1
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
 		bubble.release()
+		print(camera_gimble.rotation.x)
 		bubble = null
 	if is_on_floor():
 		stamina = STAMINA_MAX
@@ -101,18 +103,28 @@ func grab():
 	pass
 
 func air_movement(delta):
-	velocity += get_gravity() * delta * 2
+	if velocity.y >= 0:
+		velocity += get_gravity() * delta * 2.5
+	else:
+		velocity += get_gravity() * delta * 5
+		
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x += direction.x * SPEED / 25
-
-	velocity.x = move_toward(velocity.x, 0, 0.2)
-	velocity.z = move_toward(velocity.z, 0, 0.2)
+		velocity.x += direction.x * SPEED / 10
+		velocity.z += direction.z * SPEED / 10
+	
+	if velocity.x <= -10 or velocity.x >= 10:
+		velocity.x = move_toward(velocity.x, 0, 0.7)
+	
+	if velocity.z <= -10 or velocity.z >= 10:
+		velocity.z = move_toward(velocity.z, 0, 0.7)
 	
 func ground_movement(delta):
 	if Input.is_action_just_pressed("Jump_Action"):
 		velocity.y += 10
+		#velocity.x *= 1.2
+		#velocity.z *= 1.2
 	
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
