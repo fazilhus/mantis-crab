@@ -46,28 +46,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
-	#if abs(rotation_speed.x) > 0.3:
-	#	rotation.y = rotate_toward(rotation.y, rotation.y - 1 * rotation_speed.x, delta)
-
-	
-	# if abs(rotation_speed.y) > 0.3 and camera_gimble.rotation.y > -0.5 and camera_gimble.rotation.y <= 0:
-	# 	camera_gimble.rotation.y = rotate_toward(camera_gimble.rotation.y, camera_gimble.rotation.y + 1 * rotation_speed.y, delta)
-	# 	camera_gimble.position.z = move_toward(camera_gimble.position.z,self.position.z,delta*6)	
-	#if rotation_speed.y > -0.3 and rotation_speed.y != 0:
-		#camera_gimble.position.z = move_toward(camera_gimble.position.z,self.position.z,delta*4)
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
-
-	#else:
-		#pass
-		#self.rotation.y = rotate_toward(self.rotation.y, camera_gimble_rotation_origion.x + 1 * rotation_speed.y, delta)
-		#camera_gimble.position.z = move_toward(camera_gimble.position.z,camera_gimble_origin.z,delta*8)
 
 	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.3)
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
-	#self.rotation.y = wrapf(self.rotation.y, -PI, PI);
+
 	bubble_logic()
 	
 	move_and_slide()

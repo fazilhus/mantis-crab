@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://wdsgsvhh5xd0"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_oqn0f"]
-[ext_resource type="PackedScene" uid="uid://bjum5oaunqq2g" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
+[ext_resource type="PackedScene" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
 [ext_resource type="PackedScene" uid="uid://4sqha0l3powb" path="res://scenes/level_manager.tscn" id="2_tpw7h"]
 [ext_resource type="PackedScene" uid="uid://c8qi2w8yq1hxt" path="res://scenes/player_manager.tscn" id="3_h7ysb"]
 [ext_resource type="PackedScene" uid="uid://cwv1w4n568vrw" path="res://scenes/player_character.tscn" id="4_e07go"]
-[ext_resource type="PackedScene" uid="uid://c3bfqn4ncyen1" path="res://scenes/camera_manager.tscn" id="6_3aln5"]
+[ext_resource type="PackedScene" path="res://scenes/camera_manager.tscn" id="6_3aln5"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_oqn0f")
