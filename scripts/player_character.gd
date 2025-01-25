@@ -52,7 +52,8 @@ func _physics_process(delta: float) -> void:
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
-	rotation_speed = Vector2.ZERO
+
+	bubble_logic()
 	
 	move_and_slide()
 	
