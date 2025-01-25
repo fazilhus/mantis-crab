@@ -1,9 +1,11 @@
 class_name PlayerCharacter
 extends CharacterBody3D
 
+@onready var camera_gimble : CameraGimble = %CameraGimble
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const AIR_RESISTANCE = 2
+const AIR_RESISTANCE = 0.3
 const STAMINA_MAX = 3
 
 var shoot: Vector3
@@ -11,7 +13,7 @@ var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
-@onready var camera_gimble = get_node("CameraGimble_Node3D")
+
 var camera_gimble_origin : Vector3 = Vector3.ZERO
 var camera_gimble_rotation_origion : Vector3 = Vector3.ZERO
 
@@ -23,14 +25,12 @@ func _ready():
 	SignalBuss.bubble_release.connect(on_bubble_release)
 	camera_gimble_origin = camera_gimble.position
 
+	SignalBuss.player_spawned.emit(self)
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	if can_grab and Input.is_action_just_pressed("Grab"):
 		grab()
@@ -49,26 +49,28 @@ func _physics_process(delta: float) -> void:
 	#if abs(rotation_speed.x) > 0.3:
 	#	rotation.y = rotate_toward(rotation.y, rotation.y - 1 * rotation_speed.x, delta)
 
-	print(rotation_speed.y)
+	
 	# if abs(rotation_speed.y) > 0.3 and camera_gimble.rotation.y > -0.5 and camera_gimble.rotation.y <= 0:
 	# 	camera_gimble.rotation.y = rotate_toward(camera_gimble.rotation.y, camera_gimble.rotation.y + 1 * rotation_speed.y, delta)
 	# 	camera_gimble.position.z = move_toward(camera_gimble.position.z,self.position.z,delta*6)	
 	#if rotation_speed.y > -0.3 and rotation_speed.y != 0:
 		#camera_gimble.position.z = move_toward(camera_gimble.position.z,self.position.z,delta*4)
+	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
-	camera_gimble.rotation.y = camera_gimble.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
+
 	#else:
 		#pass
-		#camera_gimble.rotation.y = rotate_toward(camera_gimble.rotation.y, camera_gimble_rotation_origion.x + 1 * rotation_speed.y, delta)
+		#self.rotation.y = rotate_toward(self.rotation.y, camera_gimble_rotation_origion.x + 1 * rotation_speed.y, delta)
 		#camera_gimble.position.z = move_toward(camera_gimble.position.z,camera_gimble_origin.z,delta*8)
 
 	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.3)
-	camera_gimble.rotation.y = clampf(camera_gimble.rotation.y, -0.8, 0.8)
-	
+
+	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
+		self.rotation.y = 0
+	#self.rotation.y = wrapf(self.rotation.y, -PI, PI);
 	bubble_logic()
 	
 	move_and_slide()
-	
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
@@ -83,7 +85,7 @@ func _can_grab():
 	
 func bubble_logic():
 	if Input.is_action_just_pressed("ui_accept") and stamina > 1:
-		bubble = Bubble.create(self, stamina)
+		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
 	if Input.is_action_just_released("ui_accept") and bubble != null:
 		bubble.release()
@@ -96,8 +98,11 @@ func bubble_logic():
 	shoot.y = move_toward(shoot.y, 0, AIR_RESISTANCE)
 	shoot.z = move_toward(shoot.z, 0, AIR_RESISTANCE)
 	
+	%Model.global_position = global_position
+	
 func on_bubble_release(power: float):
-	shoot = Vector3(0,1,1) * power
+	shoot = (%BubbleMarker.global_position - global_position) * power
+	print(shoot)
 
 func grab():
 	#TODO tween a swinging motion and apply force

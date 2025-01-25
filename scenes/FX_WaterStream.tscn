@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxfl0y425p7an"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mlis"]
+transparency = 1
+cull_mode = 2
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+billboard_keep_scale = true
+use_particle_trails = true
+distance_fade_mode = 1
+
+[sub_resource type="Curve" id="Curve_jdawo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503311, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wo38i"]
+curve = SubResource("Curve_jdawo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_45e8l"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_wo38i")
+
+[sub_resource type="Curve" id="Curve_hl6el"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.52994, 0.409788), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_tvb6m"]
+curve = SubResource("Curve_hl6el")
+
+[node name="FxWaterStream" type="Node3D"]
+
+[node name="Stream" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_7mlis")
+amount = 30
+lifetime = 3.0
+transform_align = 2
+trail_enabled = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_45e8l")
+draw_pass_1 = SubResource("RibbonTrailMesh_tvb6m")

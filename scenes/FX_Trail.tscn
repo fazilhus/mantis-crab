@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbgktrt2sdteg"]
+
+[ext_resource type="Shader" uid="uid://bift3ilbtuk8a" path="res://assets/fx/Trail.tres" id="1_q1djp"]
+[ext_resource type="Script" path="res://assets/fx/Trail3D.gd" id="2_pmlqn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g02xx"]
+render_priority = 0
+shader = ExtResource("1_q1djp")
+shader_parameter/TrailSpeed = 1.0
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xkg16"]
+
+[node name="FxTrail" type="Node3D"]
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.94673, 0, -0.322028, 0, 1, 0, 0.322028, 0, -0.94673, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_g02xx")
+mesh = SubResource("ImmediateMesh_xkg16")
+script = ExtResource("2_pmlqn")
+fromWidth = 1.0
+toWidth = 0.3
