@@ -5,7 +5,8 @@ extends Node
 @onready var player_manager : PlayerManager = %PlayerManager
 @onready var respawn_timer : Timer = %Respawn_Timer
 
-var paused: bool = false
+var paused : bool = false
+var playing : bool = false
 
 func _ready():
 	GUIBuss.play_button_pressed.connect(_on_start_play)
@@ -19,11 +20,13 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
-		GUIBuss.pause_game.emit()
-		pause_game()
+		if playing:
+			GUIBuss.pause_game.emit()
+			pause_game()
 
 func _on_start_play() -> void:
 	level_manager.start_first_level()
+	playing = true
 	GUIBuss.level_started.emit()
 
 func _on_quit_game() -> void:
@@ -38,6 +41,7 @@ func _on_pause_menu_resume_button_pressed() -> void:
 
 func _on_pause_menu_home_button_pressed() -> void:
 	level_manager._despawn_level()
+	playing = false
 
 func pause_game() -> void:
 	paused = true
