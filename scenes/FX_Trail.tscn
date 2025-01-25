@@ -8,14 +8,14 @@ render_priority = 0
 shader = ExtResource("1_q1djp")
 shader_parameter/TrailSpeed = 1.0
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_5dutd"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_gxy5y"]
 
 [node name="FxTrail" type="Node3D"]
 
 [node name="Trail3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.94673, 0, -0.322028, 0, 1, 0, 0.322028, 0, -0.94673, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_g02xx")
-mesh = SubResource("ImmediateMesh_5dutd")
+mesh = SubResource("ImmediateMesh_gxy5y")
 script = ExtResource("2_pmlqn")
 fromWidth = 1.0
 toWidth = 0.3

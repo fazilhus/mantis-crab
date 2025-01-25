@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://v2n6kagtwcir"]
+[gd_scene load_steps=10 format=3 uid="uid://6mj27v7wafev"]
 
 [ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_xvj2k"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_yeawb"]
@@ -40,6 +40,7 @@ offset_bottom = 645.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_t3oew")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = -21.0
 offset_top = -39.0
 offset_right = 1160.0
@@ -47,6 +48,7 @@ offset_bottom = 797.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_1850k")
 
 [node name="master2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 207.0
 offset_right = 141.0
@@ -58,6 +60,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
 text = "Master"
 
 [node name="volume2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 236.0
 offset_right = 141.0
@@ -69,6 +72,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
 text = "Volume"
 
 [node name="sfx2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 264.0
 offset_right = 141.0
@@ -96,14 +100,6 @@ offset_left = 163.0
 offset_top = 111.0
 offset_right = 207.0
 offset_bottom = 135.0
-
-[node name="Master" parent="." instance=ExtResource("4_qxpnq")]
-layout_mode = 0
-offset_left = 145.0
-offset_top = 213.0
-offset_right = 238.0
-offset_bottom = 229.0
-value = 50.0
 
 [node name="HSlider2" type="HSlider" parent="."]
 layout_mode = 0
