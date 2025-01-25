@@ -7,7 +7,7 @@ signal entered_coral_range(entered: bool)
 
 @onready var mesh = %BubbleMesh
 
-const MAX_POWER = 10
+const MAX_POWER = 2.5
 
 var in_coral: bool = false
 var tween : Tween
