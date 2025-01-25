@@ -1,20 +1,36 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwv1w4n568vrw"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
+[ext_resource type="Environment" uid="uid://brg3g0uv71dbg" path="res://resources/world_environment.tres" id="2_bvyv1"]
+[ext_resource type="PackedScene" uid="uid://dqb6myuv8oh2k" path="res://scenes/mantis crab placeholder.fbx" id="2_e8b2q"]
 [ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_t8ixl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iukbm"]
 
 [node name="PlayerCharacter" type="CharacterBody3D"]
 script = ExtResource("1_w7rqf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_t8ixl")
+[node name="Model" parent="." instance=ExtResource("2_e8b2q")]
+unique_name_in_owner = true
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)
+
+[node name="BubbleMarker" type="Marker3D" parent="Model"]
+unique_name_in_owner = true
+transform = Transform3D(1.63934, 0, 0, 0, 1.63934, 0, 0, 0, 1.63934, 0, 0.767497, -3.27869)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iukbm")
 
-[node name="CameraGimble" parent="." instance=ExtResource("2_c3q04")]
+[node name="CameraGimble_Node3D" type="Node3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraGimble_Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.281234, 0.188634)
+environment = ExtResource("2_bvyv1")
+
+[node name="GrabMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716627, 0.640838, -1.11121)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.02954, 0)

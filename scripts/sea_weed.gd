@@ -11,7 +11,7 @@ func _on_area_3d_body_exited(body:Node3D):
 		var crab := parent as PlayerCharacter
 		if crab.is_grabbing:
 			return
-		crab.can_grab = false		
+		crab.can_grab = false	
 	
 func _on_area_3d_body_entered(_body:Node3D):
 	SignalBuss._can_grab.emit()
