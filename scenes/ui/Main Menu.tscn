@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://ssgmxn5726ui"]
+[gd_scene load_steps=32 format=3 uid="uid://ssgmxn5726ui"]
 
 [ext_resource type="Theme" uid="uid://chts77b3618uu" path="res://resources/menu_theme.tres" id="1_71frh"]
 [ext_resource type="Script" path="res://scripts/ui/menu.gd" id="1_m47di"]
-[ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="3_0uflx"]
-[ext_resource type="Texture2D" uid="uid://dr7a2xvvch027" path="res://scenes/ui/Mantiscrab.png" id="4_1bgnv"]
+[ext_resource type="Texture2D" uid="uid://b0cxsa7gg0b65" path="res://assets/textures/title_screen.png" id="3_vlbfv"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_fc051"]
 [ext_resource type="Texture2D" uid="uid://dbg38nj22f7ym" path="res://scenes/ui/ui_play.png" id="5_8fab2"]
 [ext_resource type="Texture2D" uid="uid://cpbkenvs031ck" path="res://scenes/ui/ui_credits.png" id="6_rvsfr"]
@@ -13,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://djoynhsvh0gqf" path="res://scenes/ui/MC_TITLE_v4.png" id="10_jdfb4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll8q5"]
-texture = ExtResource("3_0uflx")
+texture = ExtResource("3_vlbfv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjo5g"]
 texture = ExtResource("5_8fab2")
@@ -84,9 +83,6 @@ texture = ExtResource("7_mavj7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfjtr"]
 texture = ExtResource("7_mavj7")
-
-[sub_resource type="FontVariation" id="FontVariation_pjugl"]
-base_font = ExtResource("4_fc051")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -199,52 +195,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_rt5ct")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3ywrv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cfjtr")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -177.0
-offset_right = 177.0
-offset_bottom = 100.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = SubResource("FontVariation_pjugl")
-theme_override_font_sizes/font_size = 80
-text = "Mantiscrab"
-horizontal_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(500, 180)
+custom_minimum_size = Vector2(1300, 600)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
-texture = ExtResource("10_jdfb4")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(450, 300)
-layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -1300.0
+offset_top = -25.0
+offset_bottom = 575.0
 grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("4_1bgnv")
+texture = ExtResource("10_jdfb4")
 expand_mode = 1
 stretch_mode = 5
 
