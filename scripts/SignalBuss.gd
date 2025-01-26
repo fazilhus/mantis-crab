@@ -13,4 +13,5 @@ signal bubble_release(power: float)
 signal _can_grab
 
 signal collected_collectable(collectable: Collectable)
+signal collected_amount(collected_amount: int)
 signal current_entered(current_direction: Vector3)

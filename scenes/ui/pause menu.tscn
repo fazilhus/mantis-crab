@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt4k8urekf1ax"]
+[gd_scene load_steps=8 format=3 uid="uid://dt4k8urekf1ax"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause menu.gd" id="1_yder4"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="2_10tps"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="3_n1a7x"]
+[ext_resource type="Texture2D" uid="uid://bql5q4u6iqobm" path="res://assets/textures/mantiscrab_bottle_icon.png" id="4_a4fy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ic2fq"]
 texture = ExtResource("2_10tps")
@@ -68,6 +69,24 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_n1a7x")
 theme_override_font_sizes/font_size = 30
 text = "Pause"
+horizontal_alignment = 1
+
+[node name="MantiscrabBottleIcon" type="Sprite2D" parent="Panel/VBoxContainer"]
+position = Vector2(20.9999, 78)
+scale = Vector2(0.0859374, 0.0859374)
+texture = ExtResource("4_a4fy3")
+
+[node name="collected_amount" type="Label" parent="Panel/VBoxContainer/MantiscrabBottleIcon"]
+unique_name_in_owner = true
+offset_left = 350.0
+offset_top = -200.0
+offset_right = 389.0
+offset_bottom = -162.0
+scale = Vector2(10, 10)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+text = "x 0"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer"]
