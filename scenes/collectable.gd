@@ -1,9 +1,21 @@
 class_name Collectable
 extends Area3D
+var tween: Tween
+var distance: Vector3
+var origin: Vector3
+
+func _ready() -> void:
+	distance = self.position+Vector3(0,1,0)
+	origin = self.position
 
 func _process(delta: float) -> void:
 	rotate_y(0.01)
-	position = Vector3(position.x, sin(0.0), position.z)
+	#position = Vector3(position.x, Tween, position.z)
+	tween = create_tween()
+	if self.position == distance:
+		tween.tween_property(self, "position", origin, 2)
+	if self.position == origin:
+		tween.tween_property(self, "position", distance, 2)
 
 func _on_body_entered(body: Node3D) -> void:
 	$collectablesound.play()
