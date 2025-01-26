@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://chts77b3618uu"]
+
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="1_adkkx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2vqh"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+shadow_color = Color(0, 0, 0, 0.0980392)
+shadow_size = 1
+
+[resource]
+Button/fonts/font = ExtResource("1_adkkx")
+Button/styles/focus = SubResource("StyleBoxFlat_q2vqh")
+Label/colors/font_color = Color(0.839216, 0.937255, 0.933333, 1)
+Label/colors/font_outline_color = Color(0.564706, 0.682353, 0.745098, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_adkkx")

@@ -1,7 +1,7 @@
 class_name MainMenu
 extends Control
 
-@onready var default_focus : Control = $PlayButton
+@onready var default_focus : Control = %PlayButton
 
 func _on_play_button_pressed() -> void:
 	GUIBuss.play_button_pressed.emit()

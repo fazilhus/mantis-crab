@@ -23,6 +23,8 @@ GUIBuss="*res://scripts/GUIBuss.gd"
 
 [display]
 
+window/size/viewport_width=1820
+window/size/viewport_height=980
 window/stretch/mode="viewport"
 
 [dotnet]
