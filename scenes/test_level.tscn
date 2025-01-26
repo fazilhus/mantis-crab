@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://pw4j76ev6jae"]
+[gd_scene load_steps=93 format=3 uid="uid://pw4j76ev6jae"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vfg1r"]
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="1_y4f8t"]
@@ -19,10 +19,12 @@
 [ext_resource type="ArrayMesh" uid="uid://byh7gydnw076q" path="res://assets/models/LevelComponents/Pillar2.obj" id="16_huf5d"]
 [ext_resource type="FontFile" uid="uid://43772hspfd0e" path="res://assets/fonts/berlin-sans-fb/BRLNSB.TTF" id="16_wqvf6"]
 [ext_resource type="Script" path="res://scripts/coral.gd" id="17_h8ilm"]
-[ext_resource type="Material" path="res://assets/materials/evilcoral.tres" id="18_767sd"]
+[ext_resource type="Material" uid="uid://16cfr54byyqu" path="res://assets/materials/evilcoral.tres" id="18_767sd"]
 [ext_resource type="ArrayMesh" uid="uid://b6jlvn3k6nsyr" path="res://assets/models/LevelComponents/evil coral.obj" id="19_51757"]
 [ext_resource type="Texture2D" uid="uid://c2sj56drg3g4o" path="res://assets/fx/CoralTransparent.png" id="20_hd1yt"]
 [ext_resource type="AudioStream" uid="uid://4cp7v14w4dw4" path="res://assets/audio/mantiscrab_coralbreak.ogg" id="21_cfi1t"]
+[ext_resource type="PackedScene" uid="uid://cju5uiul0qu4a" path="res://scenes/collectable_manager.tscn" id="24_mlit8"]
+[ext_resource type="PackedScene" uid="uid://wsm8ph4dqeke" path="res://scenes/collectable.tscn" id="25_ic12g"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sr1yo"]
 points = PackedVector3Array(0, -5, -20, -1.96163, -5, -19.906, 0, 5, -20, 1.95771, -5, -19.906, -1.96163, 5, -19.906, -3.90368, -5, -19.6163, 1.95771, 5, -19.906, 3.89977, -5, -19.6163, -3.90368, 5, -19.6163, -5.80658, -5, -19.1425, 3.89977, 5, -19.6163, 5.80266, -5, -19.1425, -5.80658, 5, -19.1425, -7.65466, -5, -18.4808, 5.80266, 5, -19.1425, 7.65074, -5, -18.4808, -7.65466, 5, -18.4808, -9.42835, -5, -17.639, 7.65074, 5, -18.4808, 9.42443, -5, -17.639, -9.42835, 5, -17.639, -11.112, -5, -16.6327, 9.42443, 5, -17.639, 11.1081, -5, -16.6327, -11.112, 5, -16.6327, -12.6899, -5, -15.462, 11.1081, 5, -16.6327, 12.686, -5, -15.462, -12.6899, 5, -15.462, -14.1425, -5, -14.1425, 12.686, 5, -15.462, 14.1386, -5, -14.1425, -14.1425, 5, -14.1425, -15.462, -5, -12.6899, 14.1386, 5, -14.1425, 15.4581, -5, -12.6899, -15.462, 5, -12.6899, -16.6327, -5, -11.112, 15.4581, 5, -12.6899, 16.6288, -5, -11.112, -16.6327, 5, -11.112, -17.639, -5, -9.42835, 16.6288, 5, -11.112, 17.6351, -5, -9.42835, -17.639, 5, -9.42835, -18.4808, -5, -7.65466, 17.6351, 5, -9.42835, 18.4769, -5, -7.65466, -18.4808, 5, -7.65466, -19.1425, -5, -5.80658, 18.4769, 5, -7.65466, 19.1386, -5, -5.80658, -19.1425, 5, -5.80658, -19.6163, -5, -3.90368, 19.1386, 5, -5.80658, 19.6124, -5, -3.90368, -19.6163, 5, -3.90368, -19.906, -5, -1.96163, 19.6124, 5, -3.90368, 19.9021, -5, -1.96163, -19.906, 5, -1.96163, -20, -5, 0, 19.9021, 5, -1.96163, 20, -5, 0, -20, 5, 0, -19.906, -5, 1.95771, 20, 5, 0, 19.9021, -5, 1.95771, -19.906, 5, 1.95771, -19.6163, -5, 3.89977, 19.9021, 5, 1.95771, 19.6124, -5, 3.89977, -19.6163, 5, 3.89977, -19.1425, -5, 5.80266, 19.6124, 5, 3.89977, 19.1386, -5, 5.80266, -19.1425, 5, 5.80266, -18.4808, -5, 7.65074, 19.1386, 5, 5.80266, 18.4769, -5, 7.65074, -18.4808, 5, 7.65074, -17.639, -5, 9.42443, 18.4769, 5, 7.65074, 17.6351, -5, 9.42443, -17.639, 5, 9.42443, -16.6327, -5, 11.1081, 17.6351, 5, 9.42443, 16.6288, -5, 11.1081, -16.6327, 5, 11.1081, -15.462, -5, 12.686, 16.6288, 5, 11.1081, 15.4581, -5, 12.686, -15.462, 5, 12.686, -14.1425, -5, 14.1386, 15.4581, 5, 12.686, 14.1386, -5, 14.1386, -14.1425, 5, 14.1386, -12.6899, -5, 15.4581, 14.1386, 5, 14.1386, 12.686, -5, 15.4581, -12.6899, 5, 15.4581, -11.112, -5, 16.6288, 12.686, 5, 15.4581, 11.1081, -5, 16.6288, -11.112, 5, 16.6288, -9.42835, -5, 17.6351, 11.1081, 5, 16.6288, 9.42443, -5, 17.6351, -9.42835, 5, 17.6351, -7.65466, -5, 18.4769, 9.42443, 5, 17.6351, 7.65074, -5, 18.4769, -7.65466, 5, 18.4769, -5.80658, -5, 19.1386, 7.65074, 5, 18.4769, 5.80266, -5, 19.1386, -5.80658, 5, 19.1386, -3.90368, -5, 19.6124, 5.80266, 5, 19.1386, 3.89977, -5, 19.6124, -3.90368, 5, 19.6124, -1.96163, -5, 19.9021, 3.89977, 5, 19.6124, 1.95771, -5, 19.9021, -1.96163, 5, 19.9021, 0, -5, 20, 1.95771, 5, 19.9021, 0, 5, 20)
@@ -1506,25 +1508,14 @@ shape = SubResource("ConvexPolygonShape3D_udr6a")
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1.40518, 25.1145, -28.0176)
 script = ExtResource("17_h8ilm")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Third2/turbotemp/Coral"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Third2/turbotemp/Coral"]
 transform = Transform3D(-0.0265693, 0, 0.0782929, 0, 0.0826783, 0, -0.0782929, 0, -0.0265693, -0.0867143, -1.03541, 0.311245)
 material_overlay = ExtResource("18_767sd")
 mesh = ExtResource("19_51757")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Coral/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Coral/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/StaticBody3D"]
-shape = SubResource("CylinderShape3D_b0qxb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Third2/turbotemp/Coral/MeshInstance3D2"]
-transform = Transform3D(-1.30558, 0, -0.0636938, 0, 1.30713, 0, 0.0636938, 0, -1.30558, 4.24319, 0, 3.67584)
-material_overlay = ExtResource("18_767sd")
-mesh = ExtResource("19_51757")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D/StaticBody3D"]
 shape = SubResource("CylinderShape3D_b0qxb")
 
 [node name="Snap_Area3D" type="Area3D" parent="Third2/turbotemp/Coral"]
@@ -1837,6 +1828,17 @@ mesh = ExtResource("13_bt7ym")
 transform = Transform3D(0.122943, 0, -0.992414, 0, 1, 0, 0.992414, 0, 0.122943, 15.2207, 204.958, -876.195)
 material_override = SubResource("ShaderMaterial_gn0v1")
 mesh = ExtResource("14_xxbde")
+
+[node name="Collectable_Manager" parent="." instance=ExtResource("24_mlit8")]
+
+[node name="collectable" parent="Collectable_Manager" instance=ExtResource("25_ic12g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.2761, 0)
+
+[node name="collectable2" parent="Collectable_Manager" instance=ExtResource("25_ic12g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58642, 34.5423, -166.652)
+
+[node name="collectable3" parent="Collectable_Manager" instance=ExtResource("25_ic12g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23717, 106.021, -443.16)
 
 [connection signal="body_entered" from="First/KillFloor_Area3D" to="." method="_on_kill_floor_area_3d_body_entered"]
 [connection signal="area_entered" from="Third2/turbotemp/Coral/Snap_Area3D" to="Third2/turbotemp/Coral" method="_on_snap_area_3d_area_entered"]
