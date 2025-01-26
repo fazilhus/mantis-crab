@@ -1,0 +1,277 @@
+[gd_scene load_steps=26 format=3 uid="uid://d2l541r6muxnj"]
+
+[ext_resource type="Script" path="res://scripts/coral.gd" id="1_7rr7u"]
+[ext_resource type="PackedScene" uid="uid://cssibkyc0xmx0" path="res://scenes/current_area.tscn" id="2_q02de"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcn4l"]
+albedo_color = Color(0.431373, 0.243137, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qndwa"]
+material = SubResource("StandardMaterial3D_qcn4l")
+top_radius = 20.0
+bottom_radius = 20.0
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sr1yo"]
+points = PackedVector3Array(0, -5, -20, -1.96163, -5, -19.906, 0, 5, -20, 1.95771, -5, -19.906, -1.96163, 5, -19.906, -3.90368, -5, -19.6163, 1.95771, 5, -19.906, 3.89977, -5, -19.6163, -3.90368, 5, -19.6163, -5.80658, -5, -19.1425, 3.89977, 5, -19.6163, 5.80266, -5, -19.1425, -5.80658, 5, -19.1425, -7.65466, -5, -18.4808, 5.80266, 5, -19.1425, 7.65074, -5, -18.4808, -7.65466, 5, -18.4808, -9.42835, -5, -17.639, 7.65074, 5, -18.4808, 9.42443, -5, -17.639, -9.42835, 5, -17.639, -11.112, -5, -16.6327, 9.42443, 5, -17.639, 11.1081, -5, -16.6327, -11.112, 5, -16.6327, -12.6899, -5, -15.462, 11.1081, 5, -16.6327, 12.686, -5, -15.462, -12.6899, 5, -15.462, -14.1425, -5, -14.1425, 12.686, 5, -15.462, 14.1386, -5, -14.1425, -14.1425, 5, -14.1425, -15.462, -5, -12.6899, 14.1386, 5, -14.1425, 15.4581, -5, -12.6899, -15.462, 5, -12.6899, -16.6327, -5, -11.112, 15.4581, 5, -12.6899, 16.6288, -5, -11.112, -16.6327, 5, -11.112, -17.639, -5, -9.42835, 16.6288, 5, -11.112, 17.6351, -5, -9.42835, -17.639, 5, -9.42835, -18.4808, -5, -7.65466, 17.6351, 5, -9.42835, 18.4769, -5, -7.65466, -18.4808, 5, -7.65466, -19.1425, -5, -5.80658, 18.4769, 5, -7.65466, 19.1386, -5, -5.80658, -19.1425, 5, -5.80658, -19.6163, -5, -3.90368, 19.1386, 5, -5.80658, 19.6124, -5, -3.90368, -19.6163, 5, -3.90368, -19.906, -5, -1.96163, 19.6124, 5, -3.90368, 19.9021, -5, -1.96163, -19.906, 5, -1.96163, -20, -5, 0, 19.9021, 5, -1.96163, 20, -5, 0, -20, 5, 0, -19.906, -5, 1.95771, 20, 5, 0, 19.9021, -5, 1.95771, -19.906, 5, 1.95771, -19.6163, -5, 3.89977, 19.9021, 5, 1.95771, 19.6124, -5, 3.89977, -19.6163, 5, 3.89977, -19.1425, -5, 5.80266, 19.6124, 5, 3.89977, 19.1386, -5, 5.80266, -19.1425, 5, 5.80266, -18.4808, -5, 7.65074, 19.1386, 5, 5.80266, 18.4769, -5, 7.65074, -18.4808, 5, 7.65074, -17.639, -5, 9.42443, 18.4769, 5, 7.65074, 17.6351, -5, 9.42443, -17.639, 5, 9.42443, -16.6327, -5, 11.1081, 17.6351, 5, 9.42443, 16.6288, -5, 11.1081, -16.6327, 5, 11.1081, -15.462, -5, 12.686, 16.6288, 5, 11.1081, 15.4581, -5, 12.686, -15.462, 5, 12.686, -14.1425, -5, 14.1386, 15.4581, 5, 12.686, 14.1386, -5, 14.1386, -14.1425, 5, 14.1386, -12.6899, -5, 15.4581, 14.1386, 5, 14.1386, 12.686, -5, 15.4581, -12.6899, 5, 15.4581, -11.112, -5, 16.6288, 12.686, 5, 15.4581, 11.1081, -5, 16.6288, -11.112, 5, 16.6288, -9.42835, -5, 17.6351, 11.1081, 5, 16.6288, 9.42443, -5, 17.6351, -9.42835, 5, 17.6351, -7.65466, -5, 18.4769, 9.42443, 5, 17.6351, 7.65074, -5, 18.4769, -7.65466, 5, 18.4769, -5.80658, -5, 19.1386, 7.65074, 5, 18.4769, 5.80266, -5, 19.1386, -5.80658, 5, 19.1386, -3.90368, -5, 19.6124, 5.80266, 5, 19.1386, 3.89977, -5, 19.6124, -3.90368, 5, 19.6124, -1.96163, -5, 19.9021, 3.89977, 5, 19.6124, 1.95771, -5, 19.9021, -1.96163, 5, 19.9021, 0, -5, 20, 1.95771, 5, 19.9021, 0, 5, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4vl7"]
+albedo_color = Color(1, 0.541176, 0.372549, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_43453"]
+material = SubResource("StandardMaterial3D_j4vl7")
+top_radius = 10.0
+bottom_radius = 10.0
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_76l86"]
+points = PackedVector3Array(0, -5, -10, -0.980814, -5, -9.95302, 0, 5, -10, 0.978857, -5, -9.95302, -0.980814, 5, -9.95302, -1.95184, -5, -9.80814, 0.978857, 5, -9.95302, 1.94988, -5, -9.80814, -1.95184, 5, -9.80814, -2.90329, -5, -9.57126, 1.94988, 5, -9.80814, 2.90133, -5, -9.57126, -2.90329, 5, -9.57126, -3.82733, -5, -9.24041, 2.90133, 5, -9.57126, 3.82537, -5, -9.24041, -3.82733, 5, -9.24041, -4.71417, -5, -8.8195, 3.82537, 5, -9.24041, 4.71222, -5, -8.8195, -4.71417, 5, -8.8195, -5.55599, -5, -8.31637, 4.71222, 5, -8.8195, 5.55403, -5, -8.31637, -5.55599, 5, -8.31637, -6.34495, -5, -7.73101, 5.55403, 5, -8.31637, 6.34299, -5, -7.73101, -6.34495, 5, -7.73101, -7.07126, -5, -7.07126, 6.34299, 5, -7.73101, 7.0693, -5, -7.07126, -7.07126, 5, -7.07126, -7.73101, -5, -6.34495, 7.0693, 5, -7.07126, 7.72905, -5, -6.34495, -7.73101, 5, -6.34495, -8.31637, -5, -5.55599, 7.72905, 5, -6.34495, 8.31441, -5, -5.55599, -8.31637, 5, -5.55599, -8.8195, -5, -4.71417, 8.31441, 5, -5.55599, 8.81754, -5, -4.71417, -8.8195, 5, -4.71417, -9.24041, -5, -3.82733, 8.81754, 5, -4.71417, 9.23845, -5, -3.82733, -9.24041, 5, -3.82733, -9.57126, -5, -2.90329, 9.23845, 5, -3.82733, 9.5693, -5, -2.90329, -9.57126, 5, -2.90329, -9.80814, -5, -1.95184, 9.5693, 5, -2.90329, 9.80619, -5, -1.95184, -9.80814, 5, -1.95184, -9.95302, -5, -0.980814, 9.80619, 5, -1.95184, 9.95106, -5, -0.980814, -9.95302, 5, -0.980814, -10, -5, 0, 9.95106, 5, -0.980814, 10, -5, 0, -10, 5, 0, -9.95302, -5, 0.978857, 10, 5, 0, 9.95106, -5, 0.978857, -9.95302, 5, 0.978857, -9.80814, -5, 1.94988, 9.95106, 5, 0.978857, 9.80619, -5, 1.94988, -9.80814, 5, 1.94988, -9.57126, -5, 2.90133, 9.80619, 5, 1.94988, 9.5693, -5, 2.90133, -9.57126, 5, 2.90133, -9.24041, -5, 3.82537, 9.5693, 5, 2.90133, 9.23845, -5, 3.82537, -9.24041, 5, 3.82537, -8.8195, -5, 4.71222, 9.23845, 5, 3.82537, 8.81754, -5, 4.71222, -8.8195, 5, 4.71222, -8.31637, -5, 5.55403, 8.81754, 5, 4.71222, 8.31441, -5, 5.55403, -8.31637, 5, 5.55403, -7.73101, -5, 6.34299, 8.31441, 5, 5.55403, 7.72905, -5, 6.34299, -7.73101, 5, 6.34299, -7.07126, -5, 7.0693, 7.72905, 5, 6.34299, 7.0693, -5, 7.0693, -7.07126, 5, 7.0693, -6.34495, -5, 7.72905, 7.0693, 5, 7.0693, 6.34299, -5, 7.72905, -6.34495, 5, 7.72905, -5.55599, -5, 8.31441, 6.34299, 5, 7.72905, 5.55403, -5, 8.31441, -5.55599, 5, 8.31441, -4.71417, -5, 8.81754, 5.55403, 5, 8.31441, 4.71222, -5, 8.81754, -4.71417, 5, 8.81754, -3.82733, -5, 9.23845, 4.71222, 5, 8.81754, 3.82537, -5, 9.23845, -3.82733, 5, 9.23845, -2.90329, -5, 9.5693, 3.82537, 5, 9.23845, 2.90133, -5, 9.5693, -2.90329, 5, 9.5693, -1.95184, -5, 9.80619, 2.90133, 5, 9.5693, 1.94988, -5, 9.80619, -1.95184, 5, 9.80619, -0.980814, -5, 9.95106, 1.94988, 5, 9.80619, 0.978857, -5, 9.95106, -0.980814, 5, 9.95106, 0, -5, 10, 0.978857, 5, 9.95106, 0, 5, 10)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cf0tf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b0qxb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mpdla"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f6561"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_irwhd"]
+points = PackedVector3Array(5, 5, 0, 5, -5, 0, 4.97553, 5, -0.490407, 4.97553, 5, 0.489429, 4.97553, -5, 0.489429, 4.97553, -5, -0.490407, 4.90309, 5, -0.97592, 4.90309, 5, 0.974941, 4.90309, -5, 0.974941, 4.90309, -5, -0.97592, 4.78465, 5, -1.45164, 4.78465, 5, 1.45067, 4.78465, -5, 1.45067, 4.78465, -5, -1.45164, 4.61922, 5, -1.91366, 4.61922, 5, 1.91269, 4.61922, -5, 1.91269, 4.61922, -5, -1.91366, 4.40877, 5, -2.35709, 4.40877, 5, 2.35611, 4.40877, -5, 2.35611, 4.40877, -5, -2.35709, 4.1572, 5, -2.778, 4.1572, 5, 2.77702, 4.1572, -5, 2.77702, 4.1572, -5, -2.778, 3.86453, 5, -3.17247, 3.86453, 5, 3.1715, 3.86453, -5, 3.1715, 3.86453, -5, -3.17247, 3.53465, 5, -3.53563, 3.53465, 5, 3.53465, 3.53465, -5, 3.53465, 3.53465, -5, -3.53563, 3.1715, 5, -3.86551, 3.1715, 5, 3.86453, 3.1715, -5, 3.86453, 3.1715, -5, -3.86551, 2.77702, 5, -4.15818, 2.77702, 5, 4.1572, 2.77702, -5, 4.1572, 2.77702, -5, -4.15818, 2.35611, 5, -4.40975, 2.35611, 5, 4.40877, 2.35611, -5, 4.40877, 2.35611, -5, -4.40975, 1.91269, 5, -4.6202, 1.91269, 5, 4.61922, 1.91269, -5, 4.61922, 1.91269, -5, -4.6202, 1.45067, 5, -4.78563, 1.45067, 5, 4.78465, 1.45067, -5, 4.78465, 1.45067, -5, -4.78563, 0.974941, 5, -4.90407, 0.974941, 5, 4.90309, 0.974941, -5, 4.90309, 0.974941, -5, -4.90407, 0.489429, 5, -4.97651, 0.489429, 5, 4.97553, 0.489429, -5, 4.97553, 0.489429, -5, -4.97651, 0, 5, -5, 0, 5, 5, 0, -5, 5, 0, -5, -5, -0.490407, 5, -4.97651, -0.490407, 5, 4.97553, -0.490407, -5, 4.97553, -0.490407, -5, -4.97651, -0.97592, 5, -4.90407, -0.97592, 5, 4.90309, -0.97592, -5, 4.90309, -0.97592, -5, -4.90407, -1.45164, 5, -4.78563, -1.45164, 5, 4.78465, -1.45164, -5, 4.78465, -1.45164, -5, -4.78563, -1.91366, 5, -4.6202, -1.91366, 5, 4.61922, -1.91366, -5, 4.61922, -1.91366, -5, -4.6202, -2.35709, 5, -4.40975, -2.35709, 5, 4.40877, -2.35709, -5, 4.40877, -2.35709, -5, -4.40975, -2.778, 5, -4.15818, -2.778, 5, 4.1572, -2.778, -5, 4.1572, -2.778, -5, -4.15818, -3.17247, 5, -3.86551, -3.17247, 5, 3.86453, -3.17247, -5, 3.86453, -3.17247, -5, -3.86551, -3.53563, 5, -3.53563, -3.53563, 5, 3.53465, -3.53563, -5, 3.53465, -3.53563, -5, -3.53563, -3.86551, 5, -3.17247, -3.86551, 5, 3.1715, -3.86551, -5, 3.1715, -3.86551, -5, -3.17247, -4.15818, 5, -2.778, -4.15818, 5, 2.77702, -4.15818, -5, 2.77702, -4.15818, -5, -2.778, -4.40975, 5, -2.35709, -4.40975, 5, 2.35611, -4.40975, -5, 2.35611, -4.40975, -5, -2.35709, -4.6202, 5, -1.91366, -4.6202, 5, 1.91269, -4.6202, -5, 1.91269, -4.6202, -5, -1.91366, -4.78563, 5, -1.45164, -4.78563, 5, 1.45067, -4.78563, -5, 1.45067, -4.78563, -5, -1.45164, -4.90407, 5, -0.97592, -4.90407, 5, 0.974941, -4.90407, -5, 0.974941, -4.90407, -5, -0.97592, -4.97651, 5, -0.490407, -4.97651, 5, 0.489429, -4.97651, -5, 0.489429, -4.97651, -5, -0.490407, -5, 5, 0, -5, -5, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_73r3f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k0tk3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vcwv6"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ali00"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hks5b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fibg6"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_py7qc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vwhtv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vtr68"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k3lro"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fkmsi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yc32n"]
+radius = 1.5
+
+[node name="Third" type="Node"]
+
+[node name="turbotemp" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -63.198, 0, 14.6199)
+
+[node name="Pillar1" type="Node3D" parent="turbotemp"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar1"]
+mesh = SubResource("CylinderMesh_qndwa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar1/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar1/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_sr1yo")
+
+[node name="Pillar2" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38806, 0, -28.0176)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar2"]
+mesh = SubResource("CylinderMesh_43453")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_76l86")
+
+[node name="Coral" type="Node3D" parent="turbotemp"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1.40518, 25.1145, -28.0176)
+script = ExtResource("1_7rr7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Coral"]
+mesh = SubResource("CylinderMesh_cf0tf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Coral/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_b0qxb")
+
+[node name="Snap_Area3D" type="Area3D" parent="turbotemp/Coral"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 2.22045e-15, 0, 0.5, 0, -2.22045e-15, 0, 0.5, 0.0014084, -0.728868, -8.96454e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral/Snap_Area3D"]
+shape = SubResource("SphereShape3D_mpdla")
+
+[node name="Current_Area2" parent="turbotemp" instance=ExtResource("2_q02de")]
+transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -1.38282, 17.5821, -40.5247)
+
+[node name="Pillar3" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.33043, 17.3956, -78.1798)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar3"]
+mesh = SubResource("CylinderMesh_f6561")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar3/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar3/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_irwhd")
+
+[node name="Pillar4" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8021, 22.915, -108.147)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar4"]
+mesh = SubResource("CylinderMesh_f6561")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar4/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar4/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_irwhd")
+
+[node name="Pillar6" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8021, 44.7197, -194.327)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar6"]
+mesh = SubResource("CylinderMesh_f6561")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar6/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar6/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_irwhd")
+
+[node name="Coral2" type="Node3D" parent="turbotemp"]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, -2.33655, 31.8464, -78.2173)
+script = ExtResource("1_7rr7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Coral2"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -0.469534, 0)
+mesh = SubResource("CylinderMesh_73r3f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Coral2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_k0tk3")
+
+[node name="Snap_Area3D" type="Area3D" parent="turbotemp/Coral2"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4.76837e-06, -0.287364, 6.31809e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral2/Snap_Area3D"]
+shape = SubResource("SphereShape3D_vcwv6")
+
+[node name="Current_Area3" parent="turbotemp" instance=ExtResource("2_q02de")]
+transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6976, 37.6568, -115.883)
+
+[node name="Current_Area5" parent="turbotemp" instance=ExtResource("2_q02de")]
+transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6975, 61.2272, -203.435)
+
+[node name="Coral3" type="Node3D" parent="turbotemp"]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, -14.9574, 53.0235, -126.949)
+script = ExtResource("1_7rr7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Coral3"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.0682774, -0.239418, 0)
+mesh = SubResource("CylinderMesh_ali00")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Coral3/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral3/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_hks5b")
+
+[node name="Snap_Area3D" type="Area3D" parent="turbotemp/Coral3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral3/Snap_Area3D"]
+shape = SubResource("SphereShape3D_fibg6")
+
+[node name="Current_Area4" parent="turbotemp" instance=ExtResource("2_q02de")]
+transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6976, 46.8027, -132.596)
+current_force_multiplier = 2.0
+
+[node name="Current_Area6" parent="turbotemp" instance=ExtResource("2_q02de")]
+transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6975, 73.2357, -219.841)
+current_force_multiplier = 7.0
+
+[node name="Coral4" type="Node3D" parent="turbotemp"]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, -14.7831, 54.8531, -194.308)
+script = ExtResource("1_7rr7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Coral4"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_py7qc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Coral4/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral4/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_vwhtv")
+
+[node name="Snap_Area3D" type="Area3D" parent="turbotemp/Coral4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral4/Snap_Area3D"]
+shape = SubResource("SphereShape3D_vtr68")
+
+[node name="Pillar5" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2647, 51.1833, -159.363)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar5"]
+mesh = SubResource("CylinderMesh_43453")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar5/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar5/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_76l86")
+
+[node name="Coral5" type="Node3D" parent="turbotemp"]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, -14.5857, 78.1386, -212.119)
+script = ExtResource("1_7rr7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Coral5"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_k3lro")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Coral5/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral5/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_fkmsi")
+
+[node name="Snap_Area3D" type="Area3D" parent="turbotemp/Coral5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Coral5/Snap_Area3D"]
+shape = SubResource("SphereShape3D_yc32n")
+
+[node name="Pillar7" type="Node3D" parent="turbotemp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5811, 68.4234, -294.347)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turbotemp/Pillar7"]
+mesh = SubResource("CylinderMesh_qndwa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="turbotemp/Pillar7/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turbotemp/Pillar7/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_sr1yo")
+
+[connection signal="area_entered" from="turbotemp/Coral/Snap_Area3D" to="turbotemp/Coral" method="_on_snap_area_3d_area_entered"]
+[connection signal="area_exited" from="turbotemp/Coral/Snap_Area3D" to="turbotemp/Coral" method="_on_snap_area_3d_area_exited"]
+[connection signal="body_entered" from="turbotemp/Coral/Snap_Area3D" to="turbotemp/Coral" method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="turbotemp/Coral2/Snap_Area3D" to="turbotemp/Coral2" method="_on_snap_area_3d_area_entered"]
+[connection signal="area_exited" from="turbotemp/Coral2/Snap_Area3D" to="turbotemp/Coral2" method="_on_snap_area_3d_area_exited"]
+[connection signal="body_entered" from="turbotemp/Coral2/Snap_Area3D" to="turbotemp/Coral2" method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="turbotemp/Coral3/Snap_Area3D" to="turbotemp/Coral3" method="_on_snap_area_3d_area_entered"]
+[connection signal="area_exited" from="turbotemp/Coral3/Snap_Area3D" to="turbotemp/Coral3" method="_on_snap_area_3d_area_exited"]
+[connection signal="body_entered" from="turbotemp/Coral3/Snap_Area3D" to="turbotemp/Coral3" method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="turbotemp/Coral4/Snap_Area3D" to="turbotemp/Coral4" method="_on_snap_area_3d_area_entered"]
+[connection signal="area_exited" from="turbotemp/Coral4/Snap_Area3D" to="turbotemp/Coral4" method="_on_snap_area_3d_area_exited"]
+[connection signal="body_entered" from="turbotemp/Coral4/Snap_Area3D" to="turbotemp/Coral4" method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="turbotemp/Coral5/Snap_Area3D" to="turbotemp/Coral5" method="_on_snap_area_3d_area_entered"]
+[connection signal="area_exited" from="turbotemp/Coral5/Snap_Area3D" to="turbotemp/Coral5" method="_on_snap_area_3d_area_exited"]
+[connection signal="body_entered" from="turbotemp/Coral5/Snap_Area3D" to="turbotemp/Coral5" method="_on_area_3d_body_entered"]

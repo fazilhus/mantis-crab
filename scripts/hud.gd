@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var menu : MainMenu = %Menu
 @onready var options : OptionsMenu = %Options
 @onready var pause : PauseMenu = %Pause
+@onready var credits : CreditsMenu = %Credits
+@onready var buttons : ButtonMapMenu = %ButtonMap
 @onready var death_screen = %Control
 @onready var credits : CreditsMenu = %Credits
 @onready var buttons : ButtonMapMenu = %ButtonMap
@@ -26,6 +28,10 @@ func _ready() -> void:
 	GUIBuss.pause_menu_resume_button_pressed.connect(_on_pause_menu_resume_button_pressed)
 	GUIBuss.pause_menu_options_button_pressed.connect(_on_pause_menu_options_button_pressed)
 	GUIBuss.pause_menu_home_button_pressed.connect(_on_pause_menu_home_button_pressed)
+
+	GUIBuss.credits_back_pressed.connect(_on_credits_back_pressed)
+	GUIBuss.buttons_back_pressed.connect(_on_buttons_back_pressed)
+
 	SignalBuss.player_died.connect(_On_player_died)
 
 func _On_player_died():
