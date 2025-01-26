@@ -1,5 +1,4 @@
 extends Node
 
-func bajs():
-    pass
+signal current_swoosh()
 # SignalBuss for the SoundManager
