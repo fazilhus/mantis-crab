@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation.y = self.rotation.y + 1 * rotation_speed.y * rot_speed_mod.y * delta
 	camera_gimble.rotation.x = camera_gimble.rotation.x + 1 * rotation_speed.x * rot_speed_mod.x * delta
 
-	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.5, 0.5)
+	camera_gimble.rotation.x = clampf(camera_gimble.rotation.x, -0.8, 0.5)
 
 	if self.rotation.y < -2*PI + 0.001 or self.rotation.y > 2 * PI - 0.001:
 		self.rotation.y = 0
