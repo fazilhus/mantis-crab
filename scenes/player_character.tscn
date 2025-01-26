@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://b5ilxmk5xif3k"]
+[gd_scene load_steps=33 format=4 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
+[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="Animation" uid="uid://d0it3168h04h8" path="res://assets/animations/airborne.res" id="3_t6ti4"]
 [ext_resource type="Animation" uid="uid://cr4xatnlpegh3" path="res://assets/animations/charge.res" id="4_w8kc3"]
 [ext_resource type="Animation" uid="uid://be8quw63tknrp" path="res://assets/animations/idle.res" id="5_rc2jo"]
@@ -20,6 +20,8 @@ radius = 0.829002
 animation = &"airborne"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_p83it"]
+filter_enabled = true
+filters = ["transform2/Skeleton3D:arm_1.L", "transform2/Skeleton3D:arm_1.R", "transform2/Skeleton3D:arm_2.L", "transform2/Skeleton3D:arm_2.R", "transform2/Skeleton3D:arm_3.L", "transform2/Skeleton3D:arm_3.R", "transform2/Skeleton3D:body_1", "transform2/Skeleton3D:body_2", "transform2/Skeleton3D:body_3", "transform2/Skeleton3D:eye.L", "transform2/Skeleton3D:eye.R", "transform2/Skeleton3D:leg_1.L", "transform2/Skeleton3D:leg_1_2.L", "transform2/Skeleton3D:leg_1_3.L", "transform2/Skeleton3D:leg_2.L", "transform2/Skeleton3D:leg_2_2.L", "transform2/Skeleton3D:leg_2_3.L", "transform2/Skeleton3D:legs", "transform2/Skeleton3D:transform1", "transform2/Skeleton3D:whisker_1.R", "transform2/Skeleton3D:whisker_2.L", "transform2/Skeleton3D:whisker_2.R", "transform2/Skeleton3D:whisker_3.L", "transform2/Skeleton3D:whisker_3.R"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ij3ln"]
 animation = &"charge"
@@ -49,6 +51,9 @@ fadeout_time = 0.3
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kvgxv"]
 animation = &"punch"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qcycs"]
+animation = &"rave"
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_pgrhj"]
 xfade_time = 0.2
 input_0/name = "Idle_Walk"
@@ -59,12 +64,16 @@ input_1/name = "AirBorne"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
+input_2/name = "Rave"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e8by"]
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xrgdi"]
-graph_offset = Vector2(41.2912, -133.607)
+graph_offset = Vector2(-268.665, -190.434)
 nodes/AirBorne_Anim/node = SubResource("AnimationNodeAnimation_0nd07")
 nodes/AirBorne_Anim/position = Vector2(280, 60)
 nodes/Charge/node = SubResource("AnimationNodeBlend2_p83it")
@@ -87,12 +96,14 @@ nodes/Punch/node = SubResource("AnimationNodeOneShot_o1asv")
 nodes/Punch/position = Vector2(1120, -80)
 nodes/Punch_Anim/node = SubResource("AnimationNodeAnimation_kvgxv")
 nodes/Punch_Anim/position = Vector2(1120, 160)
+nodes/Rave_Anim/node = SubResource("AnimationNodeAnimation_qcycs")
+nodes/Rave_Anim/position = Vector2(280, 200)
 nodes/Walk_Air_Punch/node = SubResource("AnimationNodeTransition_pgrhj")
 nodes/Walk_Air_Punch/position = Vector2(460, -60)
 nodes/Walk_anim/node = SubResource("AnimationNodeAnimation_7e8by")
 nodes/Walk_anim/position = Vector2(100, -20)
 nodes/output/position = Vector2(1300, -60)
-node_connections = [&"Charge", 0, &"Land", &"Charge", 1, &"Charge_Anim", &"Idle_Walk", 0, &"Idle_Anim", &"Idle_Walk", 1, &"Walk_anim", &"Jump", 0, &"Walk_Air_Punch", &"Jump", 1, &"Jump_Anim", &"Land", 0, &"Jump", &"Land", 1, &"Land_Anim", &"Punch", 0, &"Charge", &"Punch", 1, &"Punch_Anim", &"Walk_Air_Punch", 0, &"Idle_Walk", &"Walk_Air_Punch", 1, &"AirBorne_Anim", &"output", 0, &"Punch"]
+node_connections = [&"Charge", 0, &"Land", &"Charge", 1, &"Charge_Anim", &"Idle_Walk", 0, &"Idle_Anim", &"Idle_Walk", 1, &"Walk_anim", &"Jump", 0, &"Walk_Air_Punch", &"Jump", 1, &"Jump_Anim", &"Land", 0, &"Jump", &"Land", 1, &"Land_Anim", &"Punch", 0, &"Charge", &"Punch", 1, &"Punch_Anim", &"Walk_Air_Punch", 0, &"Idle_Walk", &"Walk_Air_Punch", 1, &"AirBorne_Anim", &"Walk_Air_Punch", 2, &"Rave_Anim", &"output", 0, &"Punch"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7xkuu"]
 _data = {
