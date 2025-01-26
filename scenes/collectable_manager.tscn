@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/collectable_manager.gd" id="1_y8bo8"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Collectable_Manager" type="Node3D"]
 script = ExtResource("1_y8bo8")
