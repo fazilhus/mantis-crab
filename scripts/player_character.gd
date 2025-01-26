@@ -10,12 +10,12 @@ const AIR_RESISTANCE = 0.5
 const STAMINA_MAX = 3
 
 var was_in_air: bool = false
-var mouse_hidden: bool = false
 var shoot: Vector3
 var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
+var raving : bool = false
 
 var current_dir : Vector3 = Vector3.ZERO
 
@@ -34,12 +34,8 @@ func _ready():
 
 	SignalBuss.player_spawned.emit(self)
 	
-	GUIBuss.pause_menu_resume_button_pressed.connect(hide_mouse_again)
-	
 func _process(delta):
-	if Input.is_action_just_pressed("Pause"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -89,14 +85,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Hide_Mouse"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			mouse_hidden = false
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			mouse_hidden = true
-	
 	
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
@@ -106,10 +94,10 @@ func _unhandled_input(event: InputEvent):
 	
 func _input(event):
 	if event is InputEventKey:
-		if event.keycode == KEY_I:
+		if event.pressed and event.keycode == KEY_I:
 			start_rave()
 	
-	if event is InputEventMouseMotion and mouse_hidden:
+	if event is InputEventMouseMotion:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
 			delta = event.relative
@@ -125,9 +113,12 @@ func bubble_logic():
 		animTree.set("parameters/Charge/blend_amount", 1.0)
 		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
+		$ChargeBubble.play()
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
 		bubble.release()
 		bubble = null
+		$ChargeBubble.stop()
+		$Bubblepop.play()
 	if is_on_floor():
 		stamina = STAMINA_MAX
 	
@@ -163,10 +154,12 @@ func air_movement(delta):
 	
 	
 func ground_movement(delta):
-	if animTree.get("parameters/Walk_Air_Punch/current_state") != "Rave":
+	#if animTree.get("parameters/Walk_Air_Punch/current_state") != "Rave":
+	if !raving:
 		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 	
 	if Input.is_action_just_pressed("Jump_Action"):
+		raving = false
 		animTree["parameters/Jump/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		velocity.y += 8
 		#velocity.x *= 1.2
@@ -176,6 +169,7 @@ func ground_movement(delta):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
+		raving = false
 		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, 2) #sides
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, 2) #forward & backward
@@ -186,11 +180,10 @@ func ground_movement(delta):
 	animTree.set("parameters/Idle_Walk/blend_amount", clampf(abs(velocity.length()), 0, 1))
 	print(animTree.get("parameters/Idle_Walk/blend_amount"))
 	
-func hide_mouse_again():
-	if mouse_hidden:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
 func start_rave():
+	raving = true
 	animTree.set("parameters/Walk_Air_Punch/transition_request", "Rave")

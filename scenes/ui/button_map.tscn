@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dguhc4f7g3ks6"]
+[gd_scene load_steps=22 format=3 uid="uid://dguhc4f7g3ks6"]
 
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="1_6rmtq"]
-[ext_resource type="Texture2D" uid="uid://kx7d5m4danm0" path="res://scenes/ui/ui_button_map/Xbox Series/Default/controller_xboxseries.png" id="2_1hwci"]
+[ext_resource type="Theme" uid="uid://chts77b3618uu" path="res://resources/menu_theme.tres" id="1_gi2il"]
+[ext_resource type="Script" path="res://scripts/ui/button_map.gd" id="1_mehf0"]
 [ext_resource type="Texture2D" uid="uid://bjpf2ufnu0y0f" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_stick_l_vertical.png" id="3_1c4ga"]
 [ext_resource type="Texture2D" uid="uid://dqhineuhi40hp" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_stick_r_vertical.png" id="4_6pwaj"]
 [ext_resource type="Texture2D" uid="uid://brjxd77t1p0rx" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_rt.png" id="5_k4fys"]
@@ -12,9 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://bssyo3qbmgd5f" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_d.png" id="10_2h8ka"]
 [ext_resource type="Texture2D" uid="uid://dnlnlu0sg4kb3" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_space.png" id="11_cgrhf"]
 [ext_resource type="Texture2D" uid="uid://dvtq1egn211ut" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/mouse_left_outline.png" id="12_2uu27"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="14_34tsx"]
+[ext_resource type="Texture2D" uid="uid://bs8t6uaq6xson" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_i.png" id="14_nd2at"]
+[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="15_lwlfm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6dsl"]
 texture = ExtResource("1_6rmtq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udy63"]
+texture = ExtResource("15_lwlfm")
+modulate_color = Color(0, 0, 0, 0.196078)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqymj"]
+texture = ExtResource("15_lwlfm")
+modulate_color = Color(0.225044, 0.433188, 0.474193, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5de0i"]
+texture = ExtResource("15_lwlfm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obukk"]
+texture = ExtResource("15_lwlfm")
 
 [node name="Button_Map" type="Control"]
 layout_mode = 3
@@ -23,6 +41,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_gi2il")
+script = ExtResource("1_mehf0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -33,192 +53,251 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_r6dsl")
 
-[node name="Controller_Devider" type="Control" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Controller_Devider" type="Control" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 250.0
 grow_vertical = 2
 
-[node name="Controller_Text" type="TextureRect" parent="Panel/Controller_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 167.0
-offset_top = 461.0
-offset_right = -1146.0
-offset_bottom = -246.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_1hwci")
-stretch_mode = 5
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
 
-[node name="Left_Joy_Text" type="TextureRect" parent="Panel/Controller_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 138.0
-offset_top = 521.0
-offset_right = -1477.0
-offset_bottom = -366.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Left_Joy_Text" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("3_1c4ga")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Controller_Devider/Left_Joy_Text"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.673
-anchor_top = -5.449
-anchor_right = 8.274
-anchor_bottom = 4.827
-offset_left = 117.965
-offset_top = 523.757
-offset_right = -1570.17
-offset_bottom = -366.911
-theme_override_font_sizes/normal_font_size = 16
-text = "Backward
-Forward"
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Move"
 
-[node name="Rigyht_Joy_Text" type="TextureRect" parent="Panel/Controller_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 269.0
-offset_top = 673.0
-offset_right = -1198.0
-offset_bottom = -219.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Rigyht_Joy_Text" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("4_6pwaj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Right_Trigger_Text" type="TextureRect" parent="Panel/Controller_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 469.0
-offset_top = 394.0
-offset_right = -1271.0
-offset_bottom = -491.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Look"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Right_Trigger_Text" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("5_k4fys")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Joypad_Down" type="TextureRect" parent="Panel/Controller_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 546.0
-offset_top = 563.0
-offset_right = -1140.0
-offset_bottom = -362.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 50
+text = "Charge Attack"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Joypad_Down" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("6_5o5er")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Mouse_Keyboard_Devider" type="Control" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Controller_Devider/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Jump"
 
-[node name="A_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1097.0
-offset_top = 520.0
-offset_right = -632.0
-offset_bottom = -380.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_xhf0l")
-expand_mode = 1
-stretch_mode = 5
+[node name="Mouse_Keyboard_Devider" type="Control" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="W_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1175.0
-offset_top = 430.0
-offset_right = -566.0
-offset_bottom = -439.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="W_Key" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("8_7u7pp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="S_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1175.0
-offset_top = 520.0
-offset_right = -565.0
-offset_bottom = -380.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Forward
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="S_Key" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("9_8qoax")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="D_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1245.0
-offset_top = 519.0
-offset_right = -486.0
-offset_bottom = -378.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Backward"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="A_Key" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_xhf0l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Strafe Left
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="D_Key" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("10_2h8ka")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Space_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1321.0
-offset_top = 626.0
-offset_right = -210.0
-offset_bottom = -212.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Strafe Right
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space_Key" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("11_cgrhf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Left_Mouse" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
-layout_mode = 0
-offset_left = 1401.0
-offset_top = 391.0
-offset_right = 1532.0
-offset_bottom = 534.0
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Jump
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left_Mouse" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("12_2uu27")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Charge Attack"
+horizontal_alignment = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left_Mouse" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("14_nd2at")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Rave"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+offset_left = 100.0
+offset_top = 833.0
+offset_right = 250.0
+offset_bottom = 983.0
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_fonts/font = ExtResource("14_34tsx")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_udy63")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fqymj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5de0i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_obukk")
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

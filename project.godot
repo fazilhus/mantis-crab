@@ -13,6 +13,8 @@ config_version=5
 config/name="crab-rave"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://scenes/ui/MC_TITLE_v4.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,8 +25,9 @@ GUIBuss="*res://scripts/GUIBuss.gd"
 
 [display]
 
-window/size/viewport_width=1820
-window/size/viewport_height=980
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
