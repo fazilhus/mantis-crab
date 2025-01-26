@@ -4,6 +4,7 @@ class_name current
 var entered : bool = false
 var exited : bool = false
 @onready var stream_End_marker : Marker3D = %Stream_End
+@onready var audio_streamer : AudioStreamPlayer3D = %CurrentAudioStreamPlayer
 @export var current_force_multiplier : float = 1.0
 var current_force_direction : Vector3 = Vector3.ZERO
 var player : PlayerCharacter
@@ -15,25 +16,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	# if entered:
-	# 	player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
-	# 	player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
-	# 	player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
-
-	# 	player.move_and_slide()
-
-	# if exited:
-	# 	player.velocity.x = move_toward(player.velocity.x, current_force_direction.x, 4)
-	# 	player.velocity.y = move_toward(player.velocity.y, current_force_direction.y, 4)
-	# 	player.velocity.z = move_toward(player.velocity.z, current_force_direction.z, 4)
-
-	# 	player.move_and_slide()
-	# 	exited = false
 	pass
 		
 
 func _on_body_exited(body:Node3D):
 	if body is PlayerCharacter:
+		audio_streamer.play(0)
 		player = body
 		SignalBuss.current_entered.emit(Vector3.ZERO)
 
