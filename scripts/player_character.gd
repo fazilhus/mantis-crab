@@ -2,6 +2,7 @@ class_name PlayerCharacter
 extends CharacterBody3D
 
 @onready var camera_gimble : CameraGimble = %CameraGimble
+@onready var animTree: AnimationTree = %AnimationTree
 
 const SPEED = 12.0
 const JUMP_VELOCITY = 4.5
@@ -41,9 +42,12 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
-	print(velocity)
+	
 	bubble_logic()
-		
+	
+	if is_on_floor_only():
+		animTree["parameters/Land/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	
 	if is_on_floor():
 		ground_movement(delta)
 	else:
@@ -99,11 +103,13 @@ func _can_grab():
 	
 func bubble_logic():
 	if Input.is_action_just_pressed("Create_Bubble_Action") and stamina > 1:
+		animTree.set("parameters/Walk_Air_Punch/transition_request", "Charge_Punch")
 		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
+		animTree["parameters/Walk_Air_Punch/transition_request"] = "Idle_Walk"
+		animTree["parameters/Punch/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		bubble.release()
-		print(camera_gimble.rotation.x)
 		bubble = null
 	if is_on_floor():
 		stamina = STAMINA_MAX
@@ -117,6 +123,9 @@ func grab():
 	pass
 
 func air_movement(delta):
+	if animTree["parameters/Walk_Air_Punch/current_state"] != "Charge_Punch":
+		animTree["parameters/Walk_Air_Punch/transition_request"] = "AirBorne"
+	
 	if velocity.y >= 0:
 		velocity += get_gravity() * delta * 2.5
 	else:
@@ -134,21 +143,28 @@ func air_movement(delta):
 	if velocity.z <= -10 or velocity.z >= 10:
 		velocity.z = move_toward(velocity.z, 0, 0.7)
 	
+	
 func ground_movement(delta):
+	if animTree["parameters/Walk_Air_Punch/current_state"] != "Charge_Punch":
+		animTree["parameters/Walk_Air_Punch/transition_request"] = "Idle_Walk"
+	
 	if Input.is_action_just_pressed("Jump_Action"):
 		velocity.y += 8
+		animTree["parameters/Jump/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		#velocity.x *= 1.2
 		#velocity.z *= 1.2
 	
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+	print(animTree.get("parameters/Idle_Walk/blend_amount"))
 	if direction:
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, 2) #sides
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, 2) #forward & backward
+		animTree.set("parameters/Idle_Walk/blend_amount", 1.0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+		animTree.set("parameters/Idle_Walk/blend_amount", 0.0)
 	
 func hide_mouse_again():
 	if mouse_hidden:
