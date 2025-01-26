@@ -11,7 +11,9 @@ func _on_check_box_toggled(toggled_on:bool):
 
 
 func _on_check_button_toggled(toggled_on:bool):
-	AudioServer.set_bus_mute(master_bus, toggled_on)
+	#TODO enable timer
+	pass
+	#AudioServer.set_bus_mute(master_bus, toggled_on)
 
 
 func _on_resume_button_pressed():

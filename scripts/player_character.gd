@@ -10,7 +10,6 @@ const AIR_RESISTANCE = 0.5
 const STAMINA_MAX = 3
 
 var was_in_air: bool = false
-var mouse_hidden: bool = false
 var shoot: Vector3
 var bubble: Bubble
 var stamina: int = STAMINA_MAX
@@ -34,15 +33,23 @@ func _ready():
 
 	SignalBuss.player_spawned.emit(self)
 	
-	GUIBuss.pause_menu_resume_button_pressed.connect(hide_mouse_again)
-	
 func _process(delta):
-	if Input.is_action_just_pressed("Pause"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
 
 
 func _physics_process(delta: float) -> void:
+	if animTree.get("parameters/Walk_Air_Punch/current_state") == "Idle_Walk" and animTree.get("parameters/Idle_Walk/blend_amount") == 1 and $WalkingSound.has_stream_playback() == false:
+		$WalkingSound.play()
+	if animTree.get("parameters/Walk_Air_Punch/current_state") == "Idle_Walk" and animTree.get("parameters/Idle_Walk/blend_amount") == 1:
+		pass
+	else:
+		$WalkingSound.stop()
+		
+	if velocity.length() > 17:
+		%Trail3D.trailEnabled = true
+	else:
+		%Trail3D.trailEnabled = false
+	
 	
 	bubble_logic()
 	
@@ -77,14 +84,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Hide_Mouse"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			mouse_hidden = false
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			mouse_hidden = true
-	
 	
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
@@ -97,7 +96,7 @@ func _input(event):
 		if event.keycode == KEY_I:
 			start_rave()
 	
-	if event is InputEventMouseMotion and mouse_hidden:
+	if event is InputEventMouseMotion:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
 			delta = event.relative
@@ -113,9 +112,12 @@ func bubble_logic():
 		animTree.set("parameters/Charge/blend_amount", 1.0)
 		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
+		$ChargeBubble.play()
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
 		bubble.release()
 		bubble = null
+		$ChargeBubble.stop()
+		$Bubblepop.play()
 	if is_on_floor():
 		stamina = STAMINA_MAX
 	
@@ -174,9 +176,7 @@ func ground_movement(delta):
 	animTree.set("parameters/Idle_Walk/blend_amount", clampf(abs(velocity.length()), 0, 1))
 	print(animTree.get("parameters/Idle_Walk/blend_amount"))
 	
-func hide_mouse_again():
-	if mouse_hidden:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
