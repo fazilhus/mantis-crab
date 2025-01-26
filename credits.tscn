@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg8aytk4qt163"]
+[gd_scene load_steps=11 format=3 uid="uid://cg8aytk4qt163"]
 
+[ext_resource type="Script" path="res://scripts/ui/credits.gd" id="1_dxw3g"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="1_n4k6b"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="2_dhdpo"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="3_wdlio"]
@@ -9,6 +10,10 @@ texture = ExtResource("1_n4k6b")
 
 [sub_resource type="FontVariation" id="FontVariation_efrqt"]
 base_font = ExtResource("2_dhdpo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxjxu"]
+texture = ExtResource("3_wdlio")
+modulate_color = Color(0, 0, 0, 0.196078)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgcdf"]
 texture = ExtResource("3_wdlio")
@@ -27,11 +32,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dxw3g")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1149.0
-offset_bottom = 644.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2cvwg")
 
 [node name="Label" type="Label" parent="Panel"]
@@ -52,196 +61,159 @@ theme_override_font_sizes/font_size = 80
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 55.5
-offset_top = 115.0
-offset_right = 409.5
-offset_bottom = 215.0
+anchor_bottom = 0.5
+offset_left = -294.5
+offset_top = -131.5
+offset_right = 294.5
+offset_bottom = 131.5
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 3
+
+[node name="Label2" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Sebastian 
 Level Design"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 52.5
-offset_top = 219.0
-offset_right = 406.5
-offset_bottom = 319.0
-grow_horizontal = 2
+[node name="Label3" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Max 
 Programming"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -406.5
-offset_top = 115.0
-offset_right = -52.5
-offset_bottom = 215.0
-grow_horizontal = 2
+[node name="Label4" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Gustaf 
 SFX/Sound Design"
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 42.5
-offset_top = 332.0
-offset_right = 396.5
-offset_bottom = 432.0
-grow_horizontal = 2
+[node name="Label5" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Fazil
 Programming"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -430.5
-offset_top = 338.0
-offset_right = -76.5
-offset_bottom = 438.0
-grow_horizontal = 2
+[node name="Label6" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Paint
 3D Modeling"
 horizontal_alignment = 1
 
-[node name="Label7" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -424.5
-offset_top = 224.0
-offset_right = -70.5
-offset_bottom = 324.0
-grow_horizontal = 2
+[node name="Label7" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Linus 
 UI/UX Design"
 horizontal_alignment = 1
 
-[node name="Label8" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.5
-offset_top = 224.0
-offset_right = 161.5
-offset_bottom = 324.0
-grow_horizontal = 2
+[node name="Label8" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Victor
 Programming"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -185.5
-offset_top = 336.0
-offset_right = 168.5
-offset_bottom = 436.0
-grow_horizontal = 2
+[node name="Label9" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Simon 
 VFX/Animations"
 horizontal_alignment = 1
 
-[node name="Label10" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -191.5
-offset_top = 113.0
-offset_right = 162.5
-offset_bottom = 213.0
-grow_horizontal = 2
+[node name="Label10" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Rasmus
 Art"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 492.0
-offset_right = 151.0
-offset_bottom = 611.0
+[node name="Back" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = -100.0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
 theme_override_fonts/font = ExtResource("2_dhdpo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_bxjxu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fgcdf")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7pjdn")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tibyu")
 text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
