@@ -44,6 +44,7 @@ func _on_pause_menu_resume_button_pressed() -> void:
 func _on_pause_menu_home_button_pressed() -> void:
 	level_manager._despawn_level()
 	playing = false
+	unpause_game()
 	%GameMusic.stop()
 	%MenuMusic.play()
 

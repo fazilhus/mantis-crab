@@ -3,6 +3,7 @@ extends Area3D
 
 func _process(delta: float) -> void:
 	rotate_y(0.01)
+	position = Vector3(position.x, sin(0.0), position.z)
 
 func _on_body_entered(body: Node3D) -> void:
 	$collectablesound.play()
