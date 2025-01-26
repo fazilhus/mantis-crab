@@ -33,7 +33,7 @@ process_mode = 1
 [node name="Respawn_Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 0.5
+wait_time = 0.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

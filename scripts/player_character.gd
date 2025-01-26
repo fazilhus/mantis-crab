@@ -41,7 +41,6 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
-	print(velocity)
 	bubble_logic()
 		
 	if is_on_floor():
@@ -50,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		air_movement(delta)
 	#if current_dir is not Vector3.ZERO:
 
-	self.velocity += 1.5*current_dir
+	self.velocity += current_dir
 		
 	# Add the gravity.
 	
@@ -103,7 +102,7 @@ func bubble_logic():
 		stamina -= 1
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
 		bubble.release()
-		print(camera_gimble.rotation.x)
+
 		bubble = null
 	if is_on_floor():
 		stamina = STAMINA_MAX
