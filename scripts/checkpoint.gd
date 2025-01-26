@@ -17,10 +17,7 @@ func trigger() -> void:
 
 func _on_trigger_area_3d_body_entered(body:Node3D):
 	if body is PlayerCharacter:
-		var player : PlayerCharacter = body
-		return
+		trigger()
 	
 	if activated:
 		return
-	
-	trigger()
