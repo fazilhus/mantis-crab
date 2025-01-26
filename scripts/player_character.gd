@@ -43,6 +43,7 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
+	
 	bubble_logic()
 	
 	if is_on_floor():
@@ -55,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		air_movement(delta)
 	#if current_dir is not Vector3.ZERO:
 
-	self.velocity += 1.5*current_dir
+	self.velocity += current_dir
 		
 	# Add the gravity.
 	
@@ -92,6 +93,10 @@ func _unhandled_input(event: InputEvent):
 	
 	
 func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_I:
+			start_rave()
+	
 	if event is InputEventMouseMotion and mouse_hidden:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
@@ -109,8 +114,6 @@ func bubble_logic():
 		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
-		animTree.set("parameters/Charge/blend_amount", 0.0)
-		animTree.set("parameters/Punch/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		bubble.release()
 		bubble = null
 	if is_on_floor():
@@ -118,6 +121,8 @@ func bubble_logic():
 	
 func on_bubble_release(power: float):
 	bubble = null
+	animTree.set("parameters/Charge/blend_amount", 0.0)
+	animTree.set("parameters/Punch/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	velocity = (%BubbleMarker.global_position - global_position) * power
 
 func grab():
@@ -146,7 +151,8 @@ func air_movement(delta):
 	
 	
 func ground_movement(delta):
-	animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
+	if animTree.get("parameters/Walk_Air_Punch/current_state") != "Rave":
+		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 	
 	if Input.is_action_just_pressed("Jump_Action"):
 		animTree["parameters/Jump/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
@@ -158,6 +164,7 @@ func ground_movement(delta):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
+		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, 2) #sides
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, 2) #forward & backward
 	else:
@@ -173,3 +180,5 @@ func hide_mouse_again():
 func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
+func start_rave():
+	animTree.set("parameters/Walk_Air_Punch/transition_request", "Rave")
