@@ -26,6 +26,8 @@ var lastMousePosition : Vector2 = Vector2.ZERO
 var rotation_speed : Vector2 = Vector2.ZERO
 @export var rot_speed_mod : Vector2 = Vector2.ONE
 
+var mouse_sensitivity : float = 0.5
+
 func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
 	SignalBuss.bubble_release.connect(on_bubble_release)
@@ -35,7 +37,10 @@ func _ready():
 	SignalBuss.player_spawned.emit(self)
 	
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("Plus"):
+		mouse_sensitivity = clampf(mouse_sensitivity + 0.05, 0.1, 1)
+	if Input.is_action_just_pressed("Minus"):
+		mouse_sensitivity = clampf(mouse_sensitivity - 0.05, 0.1, 1)
 
 
 func _physics_process(delta: float) -> void:
@@ -100,7 +105,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
-			delta = event.relative
+			delta = event.relative * mouse_sensitivity
 		lastMousePosition = event.relative
 		rotation_speed.x = -delta.y
 		rotation_speed.y = -delta.x
