@@ -43,6 +43,11 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
+	if velocity.length() > 17:
+		%Trail3D.trailEnabled = true
+	else:
+		%Trail3D.trailEnabled = false
+	
 	
 	bubble_logic()
 	
