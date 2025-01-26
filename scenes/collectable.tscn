@@ -1,23 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://wsm8ph4dqeke"]
+[gd_scene load_steps=7 format=3 uid="uid://wsm8ph4dqeke"]
 
 [ext_resource type="Script" path="res://scenes/collectable.gd" id="1_878rw"]
+[ext_resource type="Texture2D" uid="uid://d3l1te85s5kws" path="res://assets/models/mantis crab bottle_KrabbEnviroTexture_V2.png" id="2_0rc42"]
 [ext_resource type="AudioStream" uid="uid://cd3kk0aijo4h2" path="res://assets/audio/mantiscrab_bottlecollect.ogg" id="2_3n2iw"]
+[ext_resource type="ArrayMesh" uid="uid://ddjr0cmtxwf1i" path="res://assets/models/mantis crab bottle_v2.obj" id="2_q6j7g"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_384h8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjowx"]
+albedo_texture = ExtResource("2_0rc42")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_poorn"]
-radius = 1.0
+radius = 0.8
 
 [node name="collectable" type="Area3D"]
 script = ExtResource("1_878rw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.557551, -0.573576, 0, 0.390402, 0.819152, 0, 0.601909, 0)
-mesh = SubResource("CylinderMesh_384h8")
+transform = Transform3D(0.6, 0, 0, 0, 0.491491, -0.344146, 0, 0.344146, 0.491491, 0, 0.409929, -0.376472)
+material_override = SubResource("StandardMaterial3D_qjowx")
+mesh = ExtResource("2_q6j7g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 0, 0.602, 0)
+transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 0, 0.940439, 0)
 shape = SubResource("SphereShape3D_poorn")
 
 [node name="collectablesound" type="AudioStreamPlayer3D" parent="."]
