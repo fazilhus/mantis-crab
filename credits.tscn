@@ -140,7 +140,7 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontVariation_efrqt")
 theme_override_font_sizes/font_size = 40
 text = "Paint
-3D Modeling"
+3D Modeling/Textureing"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Panel/GridContainer"]
