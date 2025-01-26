@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://pw4j76ev6jae"]
+[gd_scene load_steps=87 format=3 uid="uid://pw4j76ev6jae"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vfg1r"]
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="1_y4f8t"]
@@ -14,11 +14,15 @@
 [ext_resource type="ArrayMesh" uid="uid://btxhnr4sgphge" path="res://assets/models/LevelComponents/SmallAlgae.obj" id="12_sguh2"]
 [ext_resource type="ArrayMesh" uid="uid://djipwt78r16d6" path="res://assets/models/LevelComponents/MediumAlgae.obj" id="13_bt7ym"]
 [ext_resource type="ArrayMesh" uid="uid://mioa0bxsx36g" path="res://assets/models/LevelComponents/LargeAlgae.obj" id="14_xxbde"]
-[ext_resource type="Material" path="res://assets/materials/character.tres" id="15_hfxe5"]
+[ext_resource type="ArrayMesh" uid="uid://du0tihc17yoj0" path="res://assets/models/Signpost.obj" id="15_5tmv8"]
+[ext_resource type="Material" uid="uid://17ym4ritxg46" path="res://assets/materials/character.tres" id="15_hfxe5"]
 [ext_resource type="ArrayMesh" uid="uid://byh7gydnw076q" path="res://assets/models/LevelComponents/Pillar2.obj" id="16_huf5d"]
+[ext_resource type="FontFile" uid="uid://43772hspfd0e" path="res://assets/fonts/berlin-sans-fb/BRLNSB.TTF" id="16_wqvf6"]
 [ext_resource type="Script" path="res://scripts/coral.gd" id="17_h8ilm"]
 [ext_resource type="Material" uid="uid://16cfr54byyqu" path="res://assets/materials/evilcoral.tres" id="18_767sd"]
 [ext_resource type="ArrayMesh" uid="uid://b6jlvn3k6nsyr" path="res://assets/models/LevelComponents/evil coral.obj" id="19_51757"]
+[ext_resource type="Texture2D" uid="uid://c2sj56drg3g4o" path="res://assets/fx/CoralTransparent.png" id="20_hd1yt"]
+[ext_resource type="AudioStream" uid="uid://4cp7v14w4dw4" path="res://assets/audio/mantiscrab_coralbreak.ogg" id="21_cfi1t"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sr1yo"]
 points = PackedVector3Array(0, -5, -20, -1.96163, -5, -19.906, 0, 5, -20, 1.95771, -5, -19.906, -1.96163, 5, -19.906, -3.90368, -5, -19.6163, 1.95771, 5, -19.906, 3.89977, -5, -19.6163, -3.90368, 5, -19.6163, -5.80658, -5, -19.1425, 3.89977, 5, -19.6163, 5.80266, -5, -19.1425, -5.80658, 5, -19.1425, -7.65466, -5, -18.4808, 5.80266, 5, -19.1425, 7.65074, -5, -18.4808, -7.65466, 5, -18.4808, -9.42835, -5, -17.639, 7.65074, 5, -18.4808, 9.42443, -5, -17.639, -9.42835, 5, -17.639, -11.112, -5, -16.6327, 9.42443, 5, -17.639, 11.1081, -5, -16.6327, -11.112, 5, -16.6327, -12.6899, -5, -15.462, 11.1081, 5, -16.6327, 12.686, -5, -15.462, -12.6899, 5, -15.462, -14.1425, -5, -14.1425, 12.686, 5, -15.462, 14.1386, -5, -14.1425, -14.1425, 5, -14.1425, -15.462, -5, -12.6899, 14.1386, 5, -14.1425, 15.4581, -5, -12.6899, -15.462, 5, -12.6899, -16.6327, -5, -11.112, 15.4581, 5, -12.6899, 16.6288, -5, -11.112, -16.6327, 5, -11.112, -17.639, -5, -9.42835, 16.6288, 5, -11.112, 17.6351, -5, -9.42835, -17.639, 5, -9.42835, -18.4808, -5, -7.65466, 17.6351, 5, -9.42835, 18.4769, -5, -7.65466, -18.4808, 5, -7.65466, -19.1425, -5, -5.80658, 18.4769, 5, -7.65466, 19.1386, -5, -5.80658, -19.1425, 5, -5.80658, -19.6163, -5, -3.90368, 19.1386, 5, -5.80658, 19.6124, -5, -3.90368, -19.6163, 5, -3.90368, -19.906, -5, -1.96163, 19.6124, 5, -3.90368, 19.9021, -5, -1.96163, -19.906, 5, -1.96163, -20, -5, 0, 19.9021, 5, -1.96163, 20, -5, 0, -20, 5, 0, -19.906, -5, 1.95771, 20, 5, 0, 19.9021, -5, 1.95771, -19.906, 5, 1.95771, -19.6163, -5, 3.89977, 19.9021, 5, 1.95771, 19.6124, -5, 3.89977, -19.6163, 5, 3.89977, -19.1425, -5, 5.80266, 19.6124, 5, 3.89977, 19.1386, -5, 5.80266, -19.1425, 5, 5.80266, -18.4808, -5, 7.65074, 19.1386, 5, 5.80266, 18.4769, -5, 7.65074, -18.4808, 5, 7.65074, -17.639, -5, 9.42443, 18.4769, 5, 7.65074, 17.6351, -5, 9.42443, -17.639, 5, 9.42443, -16.6327, -5, 11.1081, 17.6351, 5, 9.42443, 16.6288, -5, 11.1081, -16.6327, 5, 11.1081, -15.462, -5, 12.686, 16.6288, 5, 11.1081, 15.4581, -5, 12.686, -15.462, 5, 12.686, -14.1425, -5, 14.1386, 15.4581, 5, 12.686, 14.1386, -5, 14.1386, -14.1425, 5, 14.1386, -12.6899, -5, 15.4581, 14.1386, 5, 14.1386, 12.686, -5, 15.4581, -12.6899, 5, 15.4581, -11.112, -5, 16.6288, 12.686, 5, 15.4581, 11.1081, -5, 16.6288, -11.112, 5, 16.6288, -9.42835, -5, 17.6351, 11.1081, 5, 16.6288, 9.42443, -5, 17.6351, -9.42835, 5, 17.6351, -7.65466, -5, 18.4769, 9.42443, 5, 17.6351, 7.65074, -5, 18.4769, -7.65466, 5, 18.4769, -5.80658, -5, 19.1386, 7.65074, 5, 18.4769, 5.80266, -5, 19.1386, -5.80658, 5, 19.1386, -3.90368, -5, 19.6124, 5.80266, 5, 19.1386, 3.89977, -5, 19.6124, -3.90368, 5, 19.6124, -1.96163, -5, 19.9021, 3.89977, 5, 19.6124, 1.95771, -5, 19.9021, -1.96163, 5, 19.9021, 0, -5, 20, 1.95771, 5, 19.9021, 0, 5, 20)
@@ -220,6 +224,39 @@ points = PackedVector3Array(0, -5, -10, -0.980814, -5, -9.95302, 0, 5, -10, 0.97
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mpdla"]
 radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8eu2g"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("20_hd1yt")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_2558d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.802508, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d25fh"]
+curve = SubResource("Curve_2558d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4213w"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(1, 1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -4, 0)
+scale_min = 0.1
+scale_max = 0.5
+color = Color(0.387861, 0.00103616, 0.563088, 1)
+alpha_curve = SubResource("CurveTexture_d25fh")
+hue_variation_min = 0.06
+hue_variation_max = 0.06
+
+[sub_resource type="QuadMesh" id="QuadMesh_2iqxi"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4f8q3"]
 top_radius = 5.0
@@ -1187,12 +1224,26 @@ transform = Transform3D(-1.5299e-07, 8, 0, -3.5, -3.49691e-07, 0, 0, 0, 8, -13, 
 current_force_multiplier = 2.0
 
 [node name="Current_Area5" parent="Second" instance=ExtResource("3_tgnvk")]
-transform = Transform3D(-2.18557e-08, -3, 0, 0.5, -1.31134e-07, 0, 0, 0, 3, -23.3457, 78.8043, -496.076)
+transform = Transform3D(-2.18557e-08, -3, 0, 0.5, -1.31134e-07, 0, 0, 0, 3, -23.3457, 82.7922, -496.076)
 current_force_multiplier = 1.5
 
 [node name="Current_Area6" parent="Second" instance=ExtResource("3_tgnvk")]
-transform = Transform3D(-2.18557e-08, -3, 0, 0.5, -1.31134e-07, 0, 0, 0, 3, -35.5274, 91.8761, -476.633)
+transform = Transform3D(-2.18557e-08, -3, 0, 0.5, -1.31134e-07, 0, 0, 0, 3, -35.5274, 91.0018, -477.681)
 current_force_multiplier = 1.5
+
+[node name="Signpost" type="MeshInstance3D" parent="Second"]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -5.39888, 210.946, -1019.93)
+material_overlay = ExtResource("4_etrbb")
+mesh = ExtResource("15_5tmv8")
+
+[node name="Label3D" type="Label3D" parent="Second/Signpost"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19209e-07, 2.38699, -0.48584)
+pixel_size = 0.01
+text = "YOU WIN!
+Press \"I\" on your 
+keyobard to do a
+little dance! [:"
+font = ExtResource("16_wqvf6")
 
 [node name="Third" type="Node" parent="."]
 
@@ -1440,16 +1491,6 @@ shape = SubResource("ConvexPolygonShape3D_udr6a")
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1.40518, 25.1145, -28.0176)
 script = ExtResource("17_h8ilm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Third2/turbotemp/Coral"]
-transform = Transform3D(0.039675, 0, -0.100525, 0, 0.108071, 0, 0.100525, 0, 0.039675, 0.0883373, -1.03541, -0.118633)
-material_overlay = ExtResource("18_767sd")
-mesh = ExtResource("19_51757")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Coral/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D/StaticBody3D"]
-shape = SubResource("CylinderShape3D_b0qxb")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Third2/turbotemp/Coral"]
 transform = Transform3D(-0.0265693, 0, 0.0782929, 0, 0.0826783, 0, -0.0782929, 0, -0.0265693, -0.0867143, -1.03541, 0.311245)
 material_overlay = ExtResource("18_767sd")
@@ -1460,12 +1501,40 @@ mesh = ExtResource("19_51757")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("CylinderShape3D_b0qxb")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Third2/turbotemp/Coral/MeshInstance3D2"]
+transform = Transform3D(-1.30558, 0, -0.0636938, 0, 1.30713, 0, 0.0636938, 0, -1.30558, 4.24319, 0, 3.67584)
+material_overlay = ExtResource("18_767sd")
+mesh = ExtResource("19_51757")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/MeshInstance3D2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("CylinderShape3D_b0qxb")
+
 [node name="Snap_Area3D" type="Area3D" parent="Third2/turbotemp/Coral"]
 unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 2.22045e-15, 0, 0.5, 0, -2.22045e-15, 0, 0.5, 0.0014084, -0.728868, -8.96454e-05)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral/Snap_Area3D"]
 shape = SubResource("SphereShape3D_mpdla")
+
+[node name="Node3D" type="Node3D" parent="Third2/turbotemp/Coral"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Third2/turbotemp/Coral/Node3D"]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_8eu2g")
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4213w")
+draw_pass_1 = SubResource("QuadMesh_2iqxi")
+
+[node name="CrunchSound" type="AudioStreamPlayer3D" parent="Third2/turbotemp/Coral"]
+unique_name_in_owner = true
+stream = ExtResource("21_cfi1t")
+bus = &"SFX"
 
 [node name="Current_Area2" parent="Third2/turbotemp" instance=ExtResource("3_tgnvk")]
 transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -1.38282, 17.5821, -40.5247)
@@ -1527,6 +1596,21 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4.76837e-06, -0.287364
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral2/Snap_Area3D"]
 shape = SubResource("SphereShape3D_vcwv6")
 
+[node name="Node3D" type="Node3D" parent="Third2/turbotemp/Coral2"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Third2/turbotemp/Coral2/Node3D"]
+material_override = SubResource("StandardMaterial3D_8eu2g")
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4213w")
+draw_pass_1 = SubResource("QuadMesh_2iqxi")
+
+[node name="CrunchSound" type="AudioStreamPlayer3D" parent="Third2/turbotemp/Coral2"]
+stream = ExtResource("21_cfi1t")
+bus = &"SFX"
+
 [node name="Current_Area3" parent="Third2/turbotemp" instance=ExtResource("3_tgnvk")]
 transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6976, 37.6568, -115.883)
 
@@ -1551,6 +1635,21 @@ shape = SubResource("CylinderShape3D_hks5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral3/Snap_Area3D"]
 shape = SubResource("SphereShape3D_fibg6")
+
+[node name="Node3D" type="Node3D" parent="Third2/turbotemp/Coral3"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Third2/turbotemp/Coral3/Node3D"]
+material_override = SubResource("StandardMaterial3D_8eu2g")
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4213w")
+draw_pass_1 = SubResource("QuadMesh_2iqxi")
+
+[node name="CrunchSound" type="AudioStreamPlayer3D" parent="Third2/turbotemp/Coral3"]
+stream = ExtResource("21_cfi1t")
+bus = &"SFX"
 
 [node name="Current_Area4" parent="Third2/turbotemp" instance=ExtResource("3_tgnvk")]
 transform = Transform3D(-8.74228e-08, -4, -1.42109e-14, 1.6454, -1.43845e-07, 2.2739, -1.13695, 9.93954e-08, 3.2908, -14.6976, 46.8027, -132.596)
@@ -1578,6 +1677,21 @@ shape = SubResource("CylinderShape3D_vwhtv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral4/Snap_Area3D"]
 shape = SubResource("SphereShape3D_vtr68")
+
+[node name="Node3D" type="Node3D" parent="Third2/turbotemp/Coral4"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Third2/turbotemp/Coral4/Node3D"]
+material_override = SubResource("StandardMaterial3D_8eu2g")
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4213w")
+draw_pass_1 = SubResource("QuadMesh_2iqxi")
+
+[node name="CrunchSound" type="AudioStreamPlayer3D" parent="Third2/turbotemp/Coral4"]
+stream = ExtResource("21_cfi1t")
+bus = &"SFX"
 
 [node name="Pillar5" type="Node3D" parent="Third2/turbotemp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2647, 51.1833, -159.363)
@@ -1609,6 +1723,21 @@ shape = SubResource("CylinderShape3D_fkmsi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Coral5/Snap_Area3D"]
 shape = SubResource("SphereShape3D_yc32n")
+
+[node name="Node3D" type="Node3D" parent="Third2/turbotemp/Coral5"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Third2/turbotemp/Coral5/Node3D"]
+material_override = SubResource("StandardMaterial3D_8eu2g")
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4213w")
+draw_pass_1 = SubResource("QuadMesh_2iqxi")
+
+[node name="CrunchSound" type="AudioStreamPlayer3D" parent="Third2/turbotemp/Coral5"]
+stream = ExtResource("21_cfi1t")
+bus = &"SFX"
 
 [node name="Pillar7" type="Node3D" parent="Third2/turbotemp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5811, 68.4234, -294.347)
