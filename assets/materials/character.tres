@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://17ym4ritxg46"]
+
+[ext_resource type="Texture2D" uid="uid://cegatgofajt87" path="res://assets/textures/KrabbTexture_V6.png" id="1_vptwy"]
+
+[resource]
+albedo_texture = ExtResource("1_vptwy")
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_vptwy")

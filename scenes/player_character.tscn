@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=4 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
+[ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="Animation" uid="uid://d0it3168h04h8" path="res://assets/animations/airborne.res" id="3_t6ti4"]
 [ext_resource type="Animation" uid="uid://cr4xatnlpegh3" path="res://assets/animations/charge.res" id="4_w8kc3"]
 [ext_resource type="Animation" uid="uid://be8quw63tknrp" path="res://assets/animations/idle.res" id="5_rc2jo"]
@@ -10,6 +10,8 @@
 [ext_resource type="Animation" uid="uid://dywfrfuubx45j" path="res://assets/animations/punch.res" id="8_3sap2"]
 [ext_resource type="Animation" uid="uid://c8rx6dybvh8jx" path="res://assets/animations/rave.res" id="9_v26o6"]
 [ext_resource type="Animation" uid="uid://byf43bqhvr6oj" path="res://assets/animations/walk.res" id="10_attxg"]
+[ext_resource type="Material" uid="uid://17ym4ritxg46" path="res://assets/materials/character.tres" id="11_o8ohe"]
+[ext_resource type="Texture2D" uid="uid://coi47chbic3vf" path="res://assets/textures/shadow.png" id="12_30k0j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iukbm"]
 radius = 0.829002
@@ -753,5 +755,13 @@ bones/60/rotation = Quaternion(0, 0, 0, 1)
 bones/60/scale = Vector3(1, 1, 1)
 
 [node name="mantis_crab" type="MeshInstance3D" parent="SK_Crab/transform2/Skeleton3D"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_po4nd")
 skin = SubResource("Skin_ragwa")
+surface_material_override/0 = ExtResource("11_o8ohe")
+
+[node name="shadow" type="Decal" parent="SK_Crab/transform2/Skeleton3D/mantis_crab"]
+transform = Transform3D(0.01, 2.85847e-08, 1.20823e-09, -9.5211e-15, -0.000422305, 0.00999108, 2.86101e-08, -0.00999107, -0.000422305, -4.30074e-08, 0.00777834, 0.0150905)
+size = Vector3(3, 30, 4)
+texture_albedo = ExtResource("12_30k0j")
+upper_fade = 1e+06
