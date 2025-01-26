@@ -109,7 +109,6 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs35c"]
 resource_name = "MC_mat"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_po4nd"]
