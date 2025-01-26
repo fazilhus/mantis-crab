@@ -7,15 +7,15 @@ var origin: Vector3
 func _ready() -> void:
 	distance = self.position+Vector3(0,1,0)
 	origin = self.position
+	tween = create_tween()
 
 func _process(delta: float) -> void:
 	rotate_y(0.01)
 	#position = Vector3(position.x, Tween, position.z)
-	tween = create_tween()
-	if self.position == distance:
-		tween.tween_property(self, "position", origin, 2)
-	if self.position == origin:
-		tween.tween_property(self, "position", distance, 2)
+	# if self.position == distance:
+	# 	tween.tween_property(self, "position", origin, 2)
+	# if self.position == origin:
+	# 	tween.tween_property(self, "position", distance, 2)
 
 func _on_body_entered(body: Node3D) -> void:
 	$collectablesound.play()
