@@ -32,8 +32,8 @@ static func create(bubblePosition: Node3D, chargeRate: float) -> Bubble:
 	
 	bubble.tween = bubble.create_tween()
 	
-	bubble.tween.tween_property(bubble.mesh, "scale", Vector3(1.5, 1.5, 1.5), (1/chargeRate)*3)
-	bubble.tween.parallel().tween_property(bubble, "power", MAX_POWER, (1/chargeRate)*3)
+	bubble.tween.tween_property(bubble.mesh, "scale", Vector3(1.5, 1.5, 1.5), (1/chargeRate)*2.5)
+	bubble.tween.parallel().tween_property(bubble, "power", MAX_POWER, (1/chargeRate)*2.5)
 	return bubble	
 
 func release():

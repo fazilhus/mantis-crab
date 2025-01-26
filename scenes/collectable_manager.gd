@@ -7,3 +7,4 @@ func _ready() -> void:
 
 func handle_collectables() -> void:
 	amount_collected = amount_collected + 1
+	SignalBuss.emit_signal("collected_amount", amount_collected)

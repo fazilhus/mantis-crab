@@ -15,6 +15,7 @@ func _ready():
 	GUIBuss.quit_game.connect(_on_quit_game)
 	
 	respawn_timer.timeout.connect(_on_respawn_timer_timeout)
+	SignalBuss.player_died.connect(on_player_died)
 	
 	GUIBuss.game_started.emit()
 
@@ -31,6 +32,11 @@ func _on_start_play() -> void:
 	%GameMusic.play()
 	GUIBuss.level_started.emit()
 
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_DELETE:
+			SignalBuss.player_died.emit()
+
 func _on_quit_game() -> void:
 	get_tree().free()
 
@@ -44,6 +50,7 @@ func _on_pause_menu_resume_button_pressed() -> void:
 func _on_pause_menu_home_button_pressed() -> void:
 	level_manager._despawn_level()
 	playing = false
+	unpause_game()
 	%GameMusic.stop()
 	%MenuMusic.play()
 
@@ -54,3 +61,6 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	paused = false
 	get_tree().paused = false
+
+func on_player_died():
+	respawn_timer.start()

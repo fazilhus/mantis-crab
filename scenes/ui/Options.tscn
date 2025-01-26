@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://6mj27v7wafev"]
+[gd_scene load_steps=18 format=3 uid="uid://6mj27v7wafev"]
 
+[ext_resource type="Theme" uid="uid://ci0a0ct3n7cro" path="res://resources/menu_theme.tres" id="1_mgf58"]
 [ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_xvj2k"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_yeawb"]
 [ext_resource type="Texture2D" uid="uid://cb7re8kjsto2g" path="res://scenes/ui/ui_options_menu.png" id="3_q0jwh"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_y0oyd"]
 [ext_resource type="PackedScene" uid="uid://cv7ohoxd3iaf" path="res://scenes/volume_slider.tscn" id="5_6evmo"]
+[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="7_aam0e"]
+[ext_resource type="Script" path="res://scenes/volume_slider.gd" id="8_i2dul"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3oew"]
 texture = ExtResource("2_yeawb")
@@ -25,6 +28,14 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_moccn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8eqx2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1q3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glfl7"]
+
 [node name="Options" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -32,15 +43,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mgf58")
 script = ExtResource("1_xvj2k")
 
 [node name="Panel8" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 645.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_t3oew")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -21.0
 offset_top = -39.0
@@ -49,6 +63,7 @@ offset_bottom = 797.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_1850k")
 
 [node name="master2" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 65.0
 offset_top = 207.0
@@ -61,6 +76,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
 text = "Master"
 
 [node name="volume2" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 65.0
 offset_top = 236.0
@@ -73,6 +89,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
 text = "Music"
 
 [node name="sfx2" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 65.0
 offset_top = 264.0
@@ -85,6 +102,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
 text = "SFX"
 
 [node name="Back" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 65.0
 offset_top = 287.0
@@ -96,6 +114,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mnf7r")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
 
 [node name="CheckButton" type="CheckButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 163.0
 offset_top = 111.0
@@ -103,6 +122,7 @@ offset_right = 207.0
 offset_bottom = 135.0
 
 [node name="Master" parent="." instance=ExtResource("5_6evmo")]
+visible = false
 layout_mode = 0
 offset_left = 142.0
 offset_top = 212.0
@@ -111,6 +131,7 @@ offset_bottom = 228.0
 bus_name = "Master"
 
 [node name="Music" parent="." instance=ExtResource("5_6evmo")]
+visible = false
 layout_mode = 0
 offset_left = 142.0
 offset_top = 240.0
@@ -119,6 +140,7 @@ offset_bottom = 256.0
 bus_name = "Music"
 
 [node name="SFX" parent="." instance=ExtResource("5_6evmo")]
+visible = false
 layout_mode = 0
 offset_left = 143.0
 offset_top = 268.0
@@ -127,14 +149,411 @@ offset_bottom = 284.0
 bus_name = "SFX"
 
 [node name="CheckBox" type="CheckBox" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 173.0
 offset_top = 170.0
-offset_right = 252.0
+offset_right = 197.0
 offset_bottom = 202.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_y0oyd")
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yeawb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Timer"
+
+[node name="CheckButton" type="CheckButton" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Sound"
+
+[node name="CheckBox" type="CheckBox" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Master"
+
+[node name="Master" type="HSlider" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+script = ExtResource("8_i2dul")
+bus_name = "Master"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music"
+
+[node name="Music" type="HSlider" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+script = ExtResource("8_i2dul")
+bus_name = "Music"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "VFX"
+
+[node name="SFX" type="HSlider" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+script = ExtResource("8_i2dul")
+bus_name = "SFX"
+
+[node name="Control2" type="Control" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Button" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Button"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Button"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.776471, 0.882353, 0.894118, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_moccn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8eqx2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e1q3j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glfl7")
+text = "Resume"
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/MarginContainer/TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/MarginContainer/TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 587.0
+offset_top = -623.0
+offset_right = 647.0
+offset_bottom = -563.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/MarginContainer/TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = -522.0
+offset_right = 104.0
+offset_bottom = -462.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+offset_left = -10.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 40.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = -200.0
+grow_vertical = 0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = -50.0
+offset_top = -200.0
+offset_right = -10.0
+offset_bottom = -160.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1149.0
+offset_top = 115.0
+offset_right = 1244.0
+offset_bottom = 193.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect13" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1252.0
+offset_top = -610.0
+offset_right = 1352.0
+offset_bottom = -524.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect14" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1328.0
+offset_top = -164.0
+offset_right = 1435.0
+offset_bottom = -66.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect9" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1366.0
+offset_top = -449.0
+offset_right = 1525.0
+offset_bottom = -303.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect10" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1108.0
+offset_top = -228.0
+offset_right = 1267.0
+offset_bottom = -82.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect11" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 1450.0
+offset_top = -137.0
+offset_right = 1609.0
+offset_bottom = 9.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect12" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 386.0
+offset_top = -479.0
+offset_right = 545.0
+offset_bottom = -333.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 65.0
+offset_top = -268.0
+offset_right = 213.0
+offset_bottom = -145.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 375.0
+offset_top = -637.0
+offset_right = 450.0
+offset_bottom = -562.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = -40.0
+offset_top = -582.0
+offset_right = 35.0
+offset_bottom = -507.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 229.0
+offset_top = -142.0
+offset_right = 304.0
+offset_bottom = -67.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 240.0
+offset_top = 5.0
+offset_right = 486.0
+offset_bottom = 282.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="TextureRect/TextureRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+offset_left = 100.0
+offset_top = -513.0
+offset_right = 226.0
+offset_bottom = -369.0
+texture = ExtResource("7_aam0e")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="toggled" from="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Button/ResumeButton" to="." method="_on_resume_button_pressed"]

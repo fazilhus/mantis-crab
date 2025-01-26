@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt4k8urekf1ax"]
+[gd_scene load_steps=8 format=3 uid="uid://dt4k8urekf1ax"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause menu.gd" id="1_yder4"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="2_10tps"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="3_n1a7x"]
+[ext_resource type="Texture2D" uid="uid://bql5q4u6iqobm" path="res://assets/textures/mantiscrab_bottle_icon.png" id="4_a4fy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ic2fq"]
 texture = ExtResource("2_10tps")
@@ -47,19 +48,54 @@ offset_bottom = 600.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ic2fq")
 
-[node name="Resume" type="Button" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -96.0
-offset_right = 35.0
-offset_bottom = -65.0
+offset_left = -50.0
+offset_top = -88.0
+offset_right = 50.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="MantiscrabBottleIcon" type="Sprite2D" parent="Panel/VBoxContainer"]
+position = Vector2(20.9999, 78)
+scale = Vector2(0.0859374, 0.0859374)
+texture = ExtResource("4_a4fy3")
+
+[node name="collected_amount" type="Label" parent="Panel/VBoxContainer/MantiscrabBottleIcon"]
+unique_name_in_owner = true
+offset_left = 350.0
+offset_top = -200.0
+offset_right = 389.0
+offset_bottom = -162.0
+scale = Vector2(10, 10)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n1a7x")
+theme_override_font_sizes/font_size = 30
+text = "x 0"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_n1a7x")
 theme_override_font_sizes/font_size = 30
@@ -67,19 +103,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Resume"
 
-[node name="Options" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -15.5
-offset_right = 35.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Options" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_n1a7x")
 theme_override_font_sizes/font_size = 30
@@ -87,19 +112,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Options"
 
-[node name="Home" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = 72.0
-offset_right = 35.0
-offset_bottom = 103.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Home" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_n1a7x")
 theme_override_font_sizes/font_size = 30
@@ -107,17 +121,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dhqgu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx2cm")
 text = "Home"
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 269.0
-offset_top = 144.0
-offset_right = 339.0
-offset_bottom = 182.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_n1a7x")
-theme_override_font_sizes/font_size = 30
-text = "Pause"
-
-[connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Panel/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Home" to="." method="_on_home_pressed"]
