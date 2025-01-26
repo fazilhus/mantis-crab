@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://w8i712xi4kej"]
 
 [resource]
-albedo_color = Color(0, 0.127581, 0.138362, 1)
+albedo_color = Color(9.14484e-07, 0.377876, 0.454252, 1)
 disable_receive_shadows = true
 proximity_fade_enabled = true
-proximity_fade_distance = 10.0
+proximity_fade_distance = 100.0
