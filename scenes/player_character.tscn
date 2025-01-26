@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=4 uid="uid://b5ilxmk5xif3k"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_w7rqf"]
-[ext_resource type="PackedScene" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
+[ext_resource type="PackedScene" uid="uid://cs22jtctwayv5" path="res://scenes/camera_gimble.tscn" id="2_c3q04"]
 [ext_resource type="Animation" uid="uid://d0it3168h04h8" path="res://assets/animations/airborne.res" id="3_t6ti4"]
 [ext_resource type="Animation" uid="uid://cr4xatnlpegh3" path="res://assets/animations/charge.res" id="4_w8kc3"]
 [ext_resource type="Animation" uid="uid://be8quw63tknrp" path="res://assets/animations/idle.res" id="5_rc2jo"]
