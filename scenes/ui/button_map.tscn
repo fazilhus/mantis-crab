@@ -1,0 +1,227 @@
+[gd_scene load_steps=14 format=3 uid="uid://dguhc4f7g3ks6"]
+
+[ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="1_6rmtq"]
+[ext_resource type="Texture2D" uid="uid://kx7d5m4danm0" path="res://scenes/ui/ui_button_map/Xbox Series/Default/controller_xboxseries.png" id="2_1hwci"]
+[ext_resource type="Texture2D" uid="uid://bjpf2ufnu0y0f" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_stick_l_vertical.png" id="3_1c4ga"]
+[ext_resource type="Texture2D" uid="uid://dqhineuhi40hp" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_stick_r_vertical.png" id="4_6pwaj"]
+[ext_resource type="Texture2D" uid="uid://brjxd77t1p0rx" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_rt.png" id="5_k4fys"]
+[ext_resource type="Texture2D" uid="uid://bvs5df3qnjcl7" path="res://scenes/ui/ui_button_map/Xbox Series/Default/xbox_button_a.png" id="6_5o5er"]
+[ext_resource type="Texture2D" uid="uid://b1yj5hleyukdu" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_a.png" id="7_xhf0l"]
+[ext_resource type="Texture2D" uid="uid://cq68navtl0f8" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_w.png" id="8_7u7pp"]
+[ext_resource type="Texture2D" uid="uid://b0t455sswen1j" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_s.png" id="9_8qoax"]
+[ext_resource type="Texture2D" uid="uid://bssyo3qbmgd5f" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_d.png" id="10_2h8ka"]
+[ext_resource type="Texture2D" uid="uid://dnlnlu0sg4kb3" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_space.png" id="11_cgrhf"]
+[ext_resource type="Texture2D" uid="uid://dvtq1egn211ut" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/mouse_left_outline.png" id="12_2uu27"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6dsl"]
+texture = ExtResource("1_6rmtq")
+
+[node name="Button_Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r6dsl")
+
+[node name="Controller_Devider" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -972.0
+offset_bottom = -507.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Controller_Text" type="TextureRect" parent="Panel/Controller_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 167.0
+offset_top = 297.0
+offset_right = 191.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1hwci")
+stretch_mode = 5
+
+[node name="Left_Joy_Text" type="TextureRect" parent="Panel/Controller_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 331.0
+offset_right = 24.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1c4ga")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Controller_Devider/Left_Joy_Text"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.094
+anchor_top = -6.193
+anchor_right = 15.316
+anchor_bottom = 5.973
+offset_left = 46.204
+offset_top = 337.229
+offset_right = -1005.86
+offset_bottom = -230.569
+theme_override_font_sizes/normal_font_size = 14
+text = "Movement:
+Backward
+Forward"
+
+[node name="Rigyht_Joy_Text" type="TextureRect" parent="Panel/Controller_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.0
+offset_top = 427.0
+offset_right = 140.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6pwaj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Right_Trigger_Text" type="TextureRect" parent="Panel/Controller_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 310.0
+offset_top = 266.0
+offset_right = 185.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_k4fys")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Joypad_Down" type="TextureRect" parent="Panel/Controller_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 356.0
+offset_top = 355.0
+offset_right = 237.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5o5er")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Mouse_Keyboard_Devider" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="A_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 656.0
+offset_top = 367.0
+offset_right = -447.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_xhf0l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="W_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 698.0
+offset_top = 324.0
+offset_right = -404.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_7u7pp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="S_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 699.0
+offset_top = 367.0
+offset_right = -403.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_8qoax")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="D_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 742.0
+offset_top = 366.0
+offset_right = -360.0
+offset_bottom = -228.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_2h8ka")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Space_Key" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 566.0
+offset_top = 473.0
+offset_right = -422.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_cgrhf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Left_Mouse" type="TextureRect" parent="Panel/Mouse_Keyboard_Devider"]
+layout_mode = 0
+offset_left = 881.0
+offset_top = 391.0
+offset_right = 972.0
+offset_bottom = 494.0
+texture = ExtResource("12_2uu27")
+expand_mode = 1
+stretch_mode = 5
