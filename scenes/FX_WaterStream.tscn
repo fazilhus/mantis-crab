@@ -39,7 +39,7 @@ curve = SubResource("Curve_hl6el")
 
 [node name="Stream" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_7mlis")
-amount = 30
+amount = 200
 lifetime = 3.0
 transform_align = 2
 trail_enabled = true
