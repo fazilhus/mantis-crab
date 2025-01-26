@@ -10,7 +10,6 @@ const AIR_RESISTANCE = 0.5
 const STAMINA_MAX = 3
 
 var was_in_air: bool = false
-var mouse_hidden: bool = false
 var shoot: Vector3
 var bubble: Bubble
 var stamina: int = STAMINA_MAX
@@ -34,12 +33,8 @@ func _ready():
 
 	SignalBuss.player_spawned.emit(self)
 	
-	GUIBuss.pause_menu_resume_button_pressed.connect(hide_mouse_again)
-	
 func _process(delta):
-	if Input.is_action_just_pressed("Pause"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -77,14 +72,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Hide_Mouse"):
-		if mouse_hidden:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			mouse_hidden = false
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			mouse_hidden = true
-	
 	
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
@@ -97,7 +84,7 @@ func _input(event):
 		if event.keycode == KEY_I:
 			start_rave()
 	
-	if event is InputEventMouseMotion and mouse_hidden:
+	if event is InputEventMouseMotion:
 		var delta : Vector2
 		if lastMousePosition != Vector2.ZERO:
 			delta = event.relative
@@ -174,9 +161,7 @@ func ground_movement(delta):
 	animTree.set("parameters/Idle_Walk/blend_amount", clampf(abs(velocity.length()), 0, 1))
 	print(animTree.get("parameters/Idle_Walk/blend_amount"))
 	
-func hide_mouse_again():
-	if mouse_hidden:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
