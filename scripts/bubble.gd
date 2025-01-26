@@ -20,7 +20,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if in_coral and power > 7:
+		release()
+		
 
 static func create(bubblePosition: Node3D, chargeRate: float) -> Bubble:
 	var bubble = preload("res://scenes/bubble.tscn").instantiate()

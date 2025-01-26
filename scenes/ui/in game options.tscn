@@ -1,21 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt738c78e7nfk"]
+[gd_scene load_steps=10 format=3 uid="uid://bt738c78e7nfk"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_options.gd" id="1_awiho"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_mitsj"]
-[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="3_urusr"]
+[ext_resource type="Texture2D" uid="uid://cb7re8kjsto2g" path="res://scenes/ui/ui_options_menu.png" id="3_r7cpu"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_1yfha"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_135ay"]
 texture = ExtResource("2_mitsj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oykl0"]
-texture = ExtResource("3_urusr")
+texture = ExtResource("3_r7cpu")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb21w"]
-bg_color = Color(0.306923, 0.306923, 0.306923, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3dsp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5ymw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7w2xv"]
 
 [node name="in gameOptions" type="Control"]
 layout_mode = 3
@@ -34,121 +39,99 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_135ay")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -5.0
-offset_top = -16.0
-offset_right = 385.0
-offset_bottom = 374.0
+offset_left = -21.0
+offset_top = -39.0
+offset_right = 1160.0
+offset_bottom = 797.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel2" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 196.0
-offset_top = 353.0
-offset_right = 323.0
-offset_bottom = 478.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel5" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 481.0
-offset_right = 575.0
-offset_bottom = 606.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel3" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 302.0
-offset_top = 300.0
-offset_right = 376.0
-offset_bottom = 372.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel7" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -6.0
-offset_right = 75.0
-offset_bottom = 66.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel4" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 337.0
-offset_top = 423.0
-offset_right = 411.0
-offset_bottom = 495.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Panel6" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 535.0
-offset_right = 346.0
-offset_bottom = 607.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_oykl0")
-
-[node name="Timer" type="Button" parent="."]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 106.0
-offset_right = 153.0
-offset_bottom = 137.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
-text = "Timer"
-
-[node name="Sound" type="Button" parent="."]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 157.0
-offset_right = 153.0
-offset_bottom = 188.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
-text = "Sound"
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 245.0
-offset_right = 153.0
-offset_bottom = 276.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_lb21w")
-text = "Resume"
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 44.0
-offset_right = 217.0
-offset_bottom = 67.0
+offset_left = 62.0
+offset_top = 283.0
+offset_right = 158.0
+offset_bottom = 314.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Options"
+theme_override_fonts/font = ExtResource("4_1yfha")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n3dsp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j5ymw")
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 171.0
-offset_top = 106.0
-offset_right = 215.0
-offset_bottom = 130.0
-
-[node name="HSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 165.0
-offset_right = 263.0
-offset_bottom = 181.0
-value = 50.0
+offset_left = 142.0
+offset_top = 109.0
+offset_right = 186.0
+offset_bottom = 133.0
 
 [node name="CheckBox" type="CheckBox" parent="."]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 157.0
-offset_right = 341.0
-offset_bottom = 188.0
+offset_left = 177.0
+offset_top = 168.0
+offset_right = 253.0
+offset_bottom = 200.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "On/Of"
+theme_override_fonts/font = ExtResource("4_1yfha")
+
+[node name="HSlider2" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 267.0
+offset_right = 230.0
+offset_bottom = 283.0
+value = 50.0
+
+[node name="HSlider3" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 211.0
+offset_right = 230.0
+offset_bottom = 227.0
+value = 50.0
+
+[node name="HSlider4" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 239.0
+offset_right = 230.0
+offset_bottom = 257.0
+value = 50.0
+
+[node name="master" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 207.0
+offset_right = 141.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.823529, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("4_1yfha")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_7w2xv")
+text = "Master"
+
+[node name="volume" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 236.0
+offset_right = 141.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0.823529, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("4_1yfha")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_7w2xv")
+text = "Volume"
+
+[node name="sfx" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 264.0
+offset_right = 141.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0.823529, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("4_1yfha")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_7w2xv")
+text = "SFX"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

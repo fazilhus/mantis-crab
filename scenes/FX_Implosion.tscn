@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://f4aqob083q0j"]
+[gd_scene load_steps=32 format=3 uid="uid://cvx8ojhcw4ahq"]
 
 [ext_resource type="Shader" uid="uid://ucvk5rnourhx" path="res://assets/fx/implosion-inner.tres" id="1_5axs0"]
 [ext_resource type="Shader" uid="uid://llp304on1kg" path="res://assets/fx/implosion-outer.tres" id="2_p1ahf"]

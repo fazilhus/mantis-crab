@@ -1,25 +1,62 @@
-[gd_scene load_steps=12 format=3 uid="uid://ssgmxn5726ui"]
+[gd_scene load_steps=25 format=3 uid="uid://ssgmxn5726ui"]
 
 [ext_resource type="Script" path="res://scripts/ui/menu.gd" id="1_m47di"]
-[ext_resource type="PackedScene" uid="uid://v2n6kagtwcir" path="res://scenes/ui/Options.tscn" id="2_st7dp"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="3_0uflx"]
 [ext_resource type="Texture2D" uid="uid://dr7a2xvvch027" path="res://scenes/ui/Mantiscrab.png" id="4_1bgnv"]
-[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="4_xfsfo"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_fc051"]
+[ext_resource type="Texture2D" uid="uid://dbg38nj22f7ym" path="res://scenes/ui/ui_play.png" id="5_8fab2"]
+[ext_resource type="Texture2D" uid="uid://cbpxue15emgwd" path="res://scenes/ui/ui_chapters.png" id="6_qjl8t"]
+[ext_resource type="Texture2D" uid="uid://f6r64n05igut" path="res://scenes/ui/ui_options.png" id="7_d15ff"]
+[ext_resource type="Texture2D" uid="uid://ckokkmiquq4ac" path="res://scenes/ui/ui_quit.png" id="8_qfho0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll8q5"]
 texture = ExtResource("3_0uflx")
 
+[sub_resource type="FontVariation" id="FontVariation_crrqi"]
+base_font = ExtResource("4_fc051")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6ixa"]
+texture = ExtResource("5_8fab2")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w63m0"]
+texture = ExtResource("5_8fab2")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hitj4"]
-texture = ExtResource("4_xfsfo")
+texture = ExtResource("5_8fab2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc17s"]
+texture = ExtResource("6_qjl8t")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3xo5"]
+texture = ExtResource("6_qjl8t")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0efv3"]
-texture = ExtResource("4_xfsfo")
+texture = ExtResource("6_qjl8t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xday"]
+texture = ExtResource("7_d15ff")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xjkw"]
+texture = ExtResource("7_d15ff")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcltx"]
-texture = ExtResource("4_xfsfo")
+texture = ExtResource("7_d15ff")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toxnq"]
+texture = ExtResource("8_qfho0")
+modulate_color = Color(0.750426, 0.872516, 0.952584, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pnpf"]
+texture = ExtResource("8_qfho0")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7hgf"]
-texture = ExtResource("4_xfsfo")
+texture = ExtResource("8_qfho0")
+
+[sub_resource type="FontVariation" id="FontVariation_pjugl"]
+base_font = ExtResource("4_fc051")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8sto"]
 texture = ExtResource("4_1bgnv")
@@ -36,7 +73,6 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m47di")
-options_menu_pkd = ExtResource("2_st7dp")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -46,44 +82,56 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ll8q5")
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 2
-offset_left = 45.0
-offset_top = 86.0
-offset_right = 225.0
-offset_bottom = 266.0
+offset_left = 40.0
+offset_top = 34.0
+offset_right = 220.0
+offset_bottom = 214.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_crrqi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y6ixa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w63m0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hitj4")
-text = "Play"
 
 [node name="ChapterButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 50.0
-offset_top = 277.0
+offset_top = 165.0
 offset_right = 211.0
-offset_bottom = 353.0
+offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fc051")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lc17s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t3xo5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0efv3")
-text = "Chapters"
+text = "
+"
 
 [node name="OptionsButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 50.0
-offset_top = 358.0
+offset_top = 280.0
 offset_right = 211.0
-offset_bottom = 431.0
+offset_bottom = 464.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fc051")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4xday")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0xjkw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vcltx")
-text = "Options"
+text = "
+"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 50.0
-offset_top = 494.0
+offset_top = 458.0
 offset_right = 211.0
-offset_bottom = 568.0
+offset_bottom = 630.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_fc051")
+theme_override_styles/hover = SubResource("StyleBoxTexture_toxnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5pnpf")
 theme_override_styles/normal = SubResource("StyleBoxTexture_n7hgf")
-text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -94,8 +142,12 @@ offset_left = -135.5
 offset_right = 135.5
 offset_bottom = 81.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_pjugl")
+theme_override_font_sizes/font_size = 80
 text = "Mantiscrab"
 horizontal_alignment = 1
 
@@ -108,6 +160,5 @@ offset_bottom = 635.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_w8sto")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ChapterButton" to="." method="_on_chapter_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
