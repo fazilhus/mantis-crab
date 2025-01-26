@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cw330ojpgp8yv"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_oqn0f"]
-[ext_resource type="PackedScene" uid="uid://ned1vfj5u35n" path="res://scenes/world_environment.tscn" id="2_6rwg3"]
+[ext_resource type="PackedScene" uid="uid://psgmmk1fddd6" path="res://scenes/lighting.tscn" id="2_sjwpg"]
 [ext_resource type="PackedScene" uid="uid://vcifh1n8soak" path="res://scenes/level_manager.tscn" id="2_tpw7h"]
 [ext_resource type="PackedScene" uid="uid://c8qi2w8yq1hxt" path="res://scenes/player_manager.tscn" id="3_h7ysb"]
 [ext_resource type="PackedScene" uid="uid://pw4j76ev6jae" path="res://scenes/test_level.tscn" id="4_kel11"]
@@ -15,11 +15,7 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_oqn0f")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" parent="." instance=ExtResource("2_6rwg3")]
+[node name="Lighting" parent="." instance=ExtResource("2_sjwpg")]
 
 [node name="LevelManager" parent="." instance=ExtResource("2_tpw7h")]
 unique_name_in_owner = true
