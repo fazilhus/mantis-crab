@@ -44,9 +44,6 @@ func _on_player_spawned():
 	timer.queue_free()
 	death_screen.hide()
 
-	GUIBuss.credits_back_pressed.connect(_on_credits_back_pressed)
-	GUIBuss.buttons_back_pressed.connect(_on_buttons_back_pressed)
-
 func _on_game_started() -> void:
 	_show_main_menu()
 

@@ -15,6 +15,7 @@ var bubble: Bubble
 var stamina: int = STAMINA_MAX
 var is_grabbing : bool = false
 var can_grab : bool = false
+var raving : bool = false
 
 var current_dir : Vector3 = Vector3.ZERO
 
@@ -93,7 +94,7 @@ func _unhandled_input(event: InputEvent):
 	
 func _input(event):
 	if event is InputEventKey:
-		if event.keycode == KEY_I:
+		if event.pressed and event.keycode == KEY_I:
 			start_rave()
 	
 	if event is InputEventMouseMotion:
@@ -153,10 +154,12 @@ func air_movement(delta):
 	
 	
 func ground_movement(delta):
-	if animTree.get("parameters/Walk_Air_Punch/current_state") != "Rave":
+	#if animTree.get("parameters/Walk_Air_Punch/current_state") != "Rave":
+	if !raving:
 		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 	
 	if Input.is_action_just_pressed("Jump_Action"):
+		raving = false
 		animTree["parameters/Jump/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		velocity.y += 8
 		#velocity.x *= 1.2
@@ -166,6 +169,7 @@ func ground_movement(delta):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
+		raving = false
 		animTree.set("parameters/Walk_Air_Punch/transition_request", "Idle_Walk")
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, 2) #sides
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, 2) #forward & backward
@@ -181,4 +185,5 @@ func on_current_entered(current_direction: Vector3):
 	current_dir = current_direction
 	
 func start_rave():
+	raving = true
 	animTree.set("parameters/Walk_Air_Punch/transition_request", "Rave")

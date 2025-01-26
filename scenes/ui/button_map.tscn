@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dguhc4f7g3ks6"]
+[gd_scene load_steps=22 format=3 uid="uid://dguhc4f7g3ks6"]
 
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="1_6rmtq"]
 [ext_resource type="Theme" uid="uid://chts77b3618uu" path="res://resources/menu_theme.tres" id="1_gi2il"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dnlnlu0sg4kb3" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_space.png" id="11_cgrhf"]
 [ext_resource type="Texture2D" uid="uid://dvtq1egn211ut" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/mouse_left_outline.png" id="12_2uu27"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="14_34tsx"]
+[ext_resource type="Texture2D" uid="uid://bs8t6uaq6xson" path="res://scenes/ui/ui_button_map/Keyboard & Mouse/Default/keyboard_i.png" id="14_nd2at"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="15_lwlfm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6dsl"]
@@ -263,6 +264,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "Charge Attack"
+horizontal_alignment = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left_Mouse" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("14_nd2at")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Mouse_Keyboard_Devider/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Rave"
 horizontal_alignment = 1
 
 [node name="Back" type="Button" parent="."]
