@@ -125,9 +125,12 @@ func bubble_logic():
 		animTree.set("parameters/Charge/blend_amount", 1.0)
 		bubble = Bubble.create(%BubbleMarker, stamina)
 		stamina -= 1
+		$ChargeBubble.play()
 	if Input.is_action_just_released("Create_Bubble_Action") and bubble != null:
 		bubble.release()
 		bubble = null
+		$ChargeBubble.stop()
+		$Bubblepop.play()
 	if is_on_floor():
 		stamina = STAMINA_MAX
 	
