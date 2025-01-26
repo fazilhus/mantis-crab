@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://6mj27v7wafev"]
+[gd_scene load_steps=11 format=3 uid="uid://6mj27v7wafev"]
 
 [ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_xvj2k"]
 [ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="2_yeawb"]
 [ext_resource type="Texture2D" uid="uid://cb7re8kjsto2g" path="res://scenes/ui/ui_options_menu.png" id="3_q0jwh"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_y0oyd"]
+[ext_resource type="PackedScene" uid="uid://cv7ohoxd3iaf" path="res://scenes/volume_slider.tscn" id="5_6evmo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3oew"]
 texture = ExtResource("2_yeawb")
@@ -69,7 +70,7 @@ theme_override_colors/font_color = Color(0.823529, 0.92549, 0.92549, 1)
 theme_override_fonts/font = ExtResource("4_y0oyd")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_550v5")
-text = "Volume"
+text = "Music"
 
 [node name="sfx2" type="Label" parent="."]
 layout_mode = 0
@@ -101,21 +102,29 @@ offset_top = 111.0
 offset_right = 207.0
 offset_bottom = 135.0
 
-[node name="HSlider2" type="HSlider" parent="."]
+[node name="Master" parent="." instance=ExtResource("5_6evmo")]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 240.0
-offset_right = 237.0
-offset_bottom = 256.0
-value = 50.0
+offset_left = 142.0
+offset_top = 212.0
+offset_right = 235.0
+offset_bottom = 228.0
+bus_name = "Master"
 
-[node name="HSlider3" type="HSlider" parent="."]
+[node name="Music" parent="." instance=ExtResource("5_6evmo")]
 layout_mode = 0
-offset_left = 144.0
+offset_left = 142.0
+offset_top = 240.0
+offset_right = 235.0
+offset_bottom = 256.0
+bus_name = "Music"
+
+[node name="SFX" parent="." instance=ExtResource("5_6evmo")]
+layout_mode = 0
+offset_left = 143.0
 offset_top = 268.0
-offset_right = 237.0
+offset_right = 236.0
 offset_bottom = 284.0
-value = 50.0
+bus_name = "SFX"
 
 [node name="CheckBox" type="CheckBox" parent="."]
 layout_mode = 0
