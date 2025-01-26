@@ -1,0 +1,80 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://dbitidc61h6yt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mrn60"]
+load_path = "res://.godot/imported/CoralInvert.png-298719704a3620ea3c790f5c6aaec411.s3tc.ctex"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ksj1b"]
+expanded_output_ports = [0]
+texture = SubResource("CompressedTexture2D_mrn60")
+
+[sub_resource type="Gradient" id="Gradient_0yp4x"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5fmqy"]
+gradient = SubResource("Gradient_0yp4x")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_128t6"]
+texture = SubResource("GradientTexture2D_5fmqy")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pmakj"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4ay72"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_3ikdp"]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_5;
+uniform sampler2D tex_frg_10;
+
+
+
+void fragment() {
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Input:6
+	vec4 n_out6p0 = COLOR;
+	float n_out6p4 = n_out6p0.a;
+
+
+// VectorOp:7
+	vec3 n_out7p0 = vec3(n_out5p0.xyz) * vec3(n_out6p0.xyz);
+
+
+// Texture2D:10
+	vec4 n_out10p0 = texture(tex_frg_10, UV);
+	float n_out10p1 = n_out10p0.r;
+
+
+// FloatOp:9
+	float n_out9p0 = n_out6p4 * n_out10p1;
+
+
+// Output:0
+	ALBEDO = n_out7p0;
+	ALPHA = n_out9p0;
+
+
+}
+"
+graph_offset = Vector2(-345.143, -25.4872)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_128t6")
+nodes/fragment/5/position = Vector2(-680, 20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_pmakj")
+nodes/fragment/6/position = Vector2(-740, 380)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_4ay72")
+nodes/fragment/7/position = Vector2(-320, 80)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatOp_3ikdp")
+nodes/fragment/9/position = Vector2(-140, 440)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture_ksj1b")
+nodes/fragment/10/position = Vector2(-620, 620)
+nodes/fragment/connections = PackedInt32Array(5, 0, 7, 0, 6, 4, 9, 0, 9, 0, 0, 1, 6, 0, 7, 1, 7, 0, 0, 0, 10, 1, 9, 1)
