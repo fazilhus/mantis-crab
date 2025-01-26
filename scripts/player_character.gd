@@ -38,6 +38,18 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
+	if animTree.get("parameters/Walk_Air_Punch/current_state") == "Idle_Walk" and animTree.get("parameters/Idle_Walk/blend_amount") == 1 and $WalkingSound.has_stream_playback() == false:
+		$WalkingSound.play()
+	if animTree.get("parameters/Walk_Air_Punch/current_state") == "Idle_Walk" and animTree.get("parameters/Idle_Walk/blend_amount") == 1:
+		pass
+	else:
+		$WalkingSound.stop()
+		
+	if velocity.length() > 17:
+		%Trail3D.trailEnabled = true
+	else:
+		%Trail3D.trailEnabled = false
+	
 	
 	bubble_logic()
 	

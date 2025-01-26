@@ -4,11 +4,13 @@ extends CanvasLayer
 @onready var menu : MainMenu = %Menu
 @onready var options : OptionsMenu = %Options
 @onready var pause : PauseMenu = %Pause
+@onready var death_screen = %Control
 @onready var credits : CreditsMenu = %Credits
 @onready var buttons : ButtonMapMenu = %ButtonMap
 
 enum OptionsPrevious {MAIN, PAUSE}
 var options_previous : OptionsPrevious
+var timer : Timer
 
 func _ready() -> void:
 	GUIBuss.game_started.connect(_on_game_started)
@@ -24,6 +26,19 @@ func _ready() -> void:
 	GUIBuss.pause_menu_resume_button_pressed.connect(_on_pause_menu_resume_button_pressed)
 	GUIBuss.pause_menu_options_button_pressed.connect(_on_pause_menu_options_button_pressed)
 	GUIBuss.pause_menu_home_button_pressed.connect(_on_pause_menu_home_button_pressed)
+	SignalBuss.player_died.connect(_On_player_died)
+
+func _On_player_died():
+	death_screen.show()
+	timer = Timer.new()
+	add_child(timer)
+	timer.one_shot
+	timer.start(1.5)
+	timer.timeout.connect(_on_player_spawned)
+	
+func _on_player_spawned():
+	timer.queue_free()
+	death_screen.hide()
 
 	GUIBuss.credits_back_pressed.connect(_on_credits_back_pressed)
 	GUIBuss.buttons_back_pressed.connect(_on_buttons_back_pressed)

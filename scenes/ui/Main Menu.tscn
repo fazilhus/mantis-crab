@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ssgmxn5726ui"]
+[gd_scene load_steps=34 format=3 uid="uid://ssgmxn5726ui"]
 
 [ext_resource type="Theme" uid="uid://chts77b3618uu" path="res://resources/menu_theme.tres" id="1_71frh"]
 [ext_resource type="Script" path="res://scripts/ui/menu.gd" id="1_m47di"]
@@ -6,11 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://dr7a2xvvch027" path="res://scenes/ui/Mantiscrab.png" id="4_1bgnv"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_fc051"]
 [ext_resource type="Texture2D" uid="uid://dbg38nj22f7ym" path="res://scenes/ui/ui_play.png" id="5_8fab2"]
+[ext_resource type="Texture2D" uid="uid://cpbkenvs031ck" path="res://scenes/ui/ui_credits.png" id="6_rvsfr"]
 [ext_resource type="Texture2D" uid="uid://f6r64n05igut" path="res://scenes/ui/ui_options.png" id="7_d15ff"]
+[ext_resource type="Texture2D" uid="uid://d11b5gdxgpv7j" path="res://scenes/ui/ui_controls.png" id="7_mavj7"]
 [ext_resource type="Texture2D" uid="uid://ckokkmiquq4ac" path="res://scenes/ui/ui_quit.png" id="8_qfho0"]
+[ext_resource type="Texture2D" uid="uid://djoynhsvh0gqf" path="res://scenes/ui/MC_TITLE_v4.png" id="10_jdfb4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll8q5"]
 texture = ExtResource("3_0uflx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjo5g"]
+texture = ExtResource("5_8fab2")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6ixa"]
 texture = ExtResource("5_8fab2")
@@ -22,6 +29,10 @@ texture = ExtResource("5_8fab2")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hitj4"]
 texture = ExtResource("5_8fab2")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oddm2"]
+texture = ExtResource("7_d15ff")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xday"]
 texture = ExtResource("7_d15ff")
 modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
@@ -31,6 +42,10 @@ texture = ExtResource("7_d15ff")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcltx"]
 texture = ExtResource("7_d15ff")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymfgf"]
+texture = ExtResource("8_qfho0")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toxnq"]
 texture = ExtResource("8_qfho0")
@@ -42,11 +57,36 @@ texture = ExtResource("8_qfho0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7hgf"]
 texture = ExtResource("8_qfho0")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_te8x2"]
+texture = ExtResource("6_rvsfr")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k74bx"]
+texture = ExtResource("6_rvsfr")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7xhq"]
+texture = ExtResource("6_rvsfr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brtor"]
+texture = ExtResource("6_rvsfr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obdoa"]
+texture = ExtResource("7_mavj7")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt5ct"]
+texture = ExtResource("7_mavj7")
+modulate_color = Color(0.74902, 0.870588, 0.952941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ywrv"]
+texture = ExtResource("7_mavj7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfjtr"]
+texture = ExtResource("7_mavj7")
+
 [sub_resource type="FontVariation" id="FontVariation_pjugl"]
 base_font = ExtResource("4_fc051")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8sto"]
-texture = ExtResource("4_1bgnv")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -67,36 +107,44 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ll8q5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-custom_minimum_size = Vector2(400, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -270.0
+offset_top = -425.0
 offset_right = 400.0
-offset_bottom = 270.0
+offset_bottom = 425.0
 grow_vertical = 2
 theme_override_constants/separation = 0
-alignment = 1
 
-[node name="PlayButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PlayButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_mjo5g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y6ixa")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w63m0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hitj4")
 
-[node name="OptionsButton" type="Button" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_fc051")
+theme_override_styles/focus = SubResource("StyleBoxTexture_oddm2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4xday")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0xjkw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vcltx")
@@ -104,18 +152,55 @@ text = "
 "
 icon_alignment = 1
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
+[node name="Control2" type="Control" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_fc051")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ymfgf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_toxnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5pnpf")
 theme_override_styles/normal = SubResource("StyleBoxTexture_n7hgf")
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_te8x2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k74bx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q7xhq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_brtor")
+
+[node name="Control3" type="Control" parent="Panel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Controls" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_obdoa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rt5ct")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3ywrv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cfjtr")
+
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -133,18 +218,35 @@ theme_override_font_sizes/font_size = 80
 text = "Mantiscrab"
 horizontal_alignment = 1
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(500, 180)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("10_jdfb4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(450, 300)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -403.0
-offset_top = -294.0
+offset_left = -40.0
+offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_w8sto")
+texture = ExtResource("4_1bgnv")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
