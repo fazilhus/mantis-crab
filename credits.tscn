@@ -1,0 +1,246 @@
+[gd_scene load_steps=9 format=3 uid="uid://cg8aytk4qt163"]
+
+[ext_resource type="Texture2D" uid="uid://mw4c783e2jd2" path="res://scenes/ui/Krabb_Skybox_V3.png" id="1_n4k6b"]
+[ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="2_dhdpo"]
+[ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="3_wdlio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2cvwg"]
+texture = ExtResource("1_n4k6b")
+
+[sub_resource type="FontVariation" id="FontVariation_efrqt"]
+base_font = ExtResource("2_dhdpo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgcdf"]
+texture = ExtResource("3_wdlio")
+modulate_color = Color(0.225044, 0.433188, 0.474193, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7pjdn"]
+texture = ExtResource("3_wdlio")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tibyu"]
+texture = ExtResource("3_wdlio")
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1149.0
+offset_bottom = 644.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2cvwg")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.5
+offset_right = 135.5
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 80
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 55.5
+offset_top = 115.0
+offset_right = 409.5
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Sebastian 
+Level Design"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 52.5
+offset_top = 219.0
+offset_right = 406.5
+offset_bottom = 319.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Max 
+Programing"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.5
+offset_top = 115.0
+offset_right = -52.5
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Gustaf 
+Sound Design"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 332.0
+offset_right = 396.5
+offset_bottom = 432.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Fazil
+Programing"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -430.5
+offset_top = 338.0
+offset_right = -76.5
+offset_bottom = 438.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Paint
+3D Modeling"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.5
+offset_top = 224.0
+offset_right = -70.5
+offset_bottom = 324.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Linus 
+UI/UX Design"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 224.0
+offset_right = 161.5
+offset_bottom = 324.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Victor
+Programing"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.5
+offset_top = 336.0
+offset_right = 168.5
+offset_bottom = 436.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Simon 
+Animations"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.5
+offset_top = 113.0
+offset_right = 162.5
+offset_bottom = 213.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_efrqt")
+theme_override_font_sizes/font_size = 30
+text = "Rasmus
+Art"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 492.0
+offset_right = 151.0
+offset_bottom = 611.0
+theme_override_colors/font_color = Color(0.843137, 0.945098, 0.937255, 1)
+theme_override_fonts/font = ExtResource("2_dhdpo")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_fgcdf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7pjdn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tibyu")
+text = "Back"
