@@ -1,13 +1,11 @@
 class_name Collectable
 extends Area3D
-var tween: Tween
 var distance: Vector3
 var origin: Vector3
 
 func _ready() -> void:
 	distance = self.position+Vector3(0,1,0)
 	origin = self.position
-	tween = create_tween()
 
 func _process(delta: float) -> void:
 	rotate_y(0.01)

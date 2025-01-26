@@ -10,6 +10,6 @@ func handle_collectables() -> void:
 	amount_collected = amount_collected + 1
 	SignalBuss.emit_signal("collected_amount", amount_collected)
 	
-func reset_collectables() -> void:
+func reset_collectables(_level) -> void:
 	amount_collected = 0
 	SignalBuss.emit_signal("collected_amount", amount_collected)
