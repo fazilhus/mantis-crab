@@ -29,4 +29,5 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 
 
 func _on_kill_floor_area_3d_body_entered(body):
-	pass # Replace with function body.
+	if body is PlayerCharacter:
+		SignalBuss.player_died.emit()
