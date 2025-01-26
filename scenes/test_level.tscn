@@ -1436,6 +1436,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 57.2322, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Pillar2/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_udr6a")
 
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Third2/turbotemp/Pillar2"]
+transform = Transform3D(0.529018, 0, 0, 0, 1, 0, 0, 0, 0.529018, -16.6724, -37.1665, -78.0688)
+material_overlay = ExtResource("4_etrbb")
+mesh = ExtResource("16_huf5d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Third2/turbotemp/Pillar2/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 57.2322, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Third2/turbotemp/Pillar2/MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_udr6a")
+
 [node name="Coral" type="Node3D" parent="Third2/turbotemp"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1.40518, 25.1145, -28.0176)
 script = ExtResource("17_h8ilm")
@@ -1486,7 +1497,8 @@ shape = SubResource("ConvexPolygonShape3D_oougn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8021, 22.915, -108.147)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Third2/turbotemp/Pillar4"]
-transform = Transform3D(1, 0, 0, 0, 0.701422, -0.655067, 0, 0.545452, 0.84238, 0, 0.315384, -6.86261)
+transform = Transform3D(1, 0, 0, 0, 0.888544, 0, 0, 0, 1.06711, 0, -1.2765, 2.29596)
+visible = false
 material_overlay = ExtResource("18_767sd")
 mesh = ExtResource("19_51757")
 
