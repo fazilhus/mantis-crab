@@ -2,6 +2,8 @@ extends Node3D
 class_name Coral
 
 @onready var fx = %GPUParticles3D
+@onready var area3D = %Snap_Area3D
+@onready var staticBody = %StaticBody3D
 var timer : Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,8 @@ func destroy(power: float):
 	fx.emitting = true
 	timer.start(fx.lifetime)
 	%CrunchSound.play()
+	area3D.queue_free()
+	staticBody.queue_free()
 
 func _on_snap_area_3d_area_entered(area):
 	if area is Bubble:

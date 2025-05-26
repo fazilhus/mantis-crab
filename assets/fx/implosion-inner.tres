@@ -139,14 +139,14 @@ code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform float DistortSpeed = 0.5;
-uniform float DistortSize = 2;
+uniform float DistortSize = 2.0;
 uniform sampler2D tex_vtx_5;
 uniform float DistortStrenght = 0.30000001192093;
 uniform sampler2D tex_frg_15;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_21;
 uniform vec4 ExplosionColour : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform float ExplosionBrightness = 20;
+uniform float ExplosionBrightness = 20.0;
 uniform sampler2D tex_frg_7;
 
 

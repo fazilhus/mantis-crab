@@ -7,7 +7,7 @@ extends CharacterBody3D
 const SPEED = 12.0
 const JUMP_VELOCITY = 4.5
 const AIR_RESISTANCE = 0.5
-const STAMINA_MAX = 3
+const STAMINA_MAX = 4
 
 var was_in_air: bool = false
 var shoot: Vector3
@@ -26,7 +26,7 @@ var lastMousePosition : Vector2 = Vector2.ZERO
 var rotation_speed : Vector2 = Vector2.ZERO
 @export var rot_speed_mod : Vector2 = Vector2.ONE
 
-var mouse_sensitivity : float = 0.5
+var mouse_sensitivity : float = 0.3
 
 func _ready():
 	SignalBuss._can_grab.connect(_can_grab)
@@ -41,6 +41,9 @@ func _process(delta):
 		mouse_sensitivity = clampf(mouse_sensitivity + 0.05, 0.1, 1)
 	if Input.is_action_just_pressed("Minus"):
 		mouse_sensitivity = clampf(mouse_sensitivity - 0.05, 0.1, 1)
+		
+	rotation_speed = Input.get_vector("Camera_Up", "Camera_Down", "Camera_Left", "Camera_Right")
+	rotation_speed *= -1
 
 
 func _physics_process(delta: float) -> void:
@@ -93,14 +96,12 @@ func _physics_process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent):
 	if event is InputEventJoypadMotion:
-		rotation_speed = Input.get_vector("Camera_Up", "Camera_Down", "Camera_Left", "Camera_Right")
-		rotation_speed *= -1
+		pass
 	
 	
 func _input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_I:
-			start_rave()
+	if Input.is_action_just_pressed("Rave"):
+		start_rave()
 	
 	if event is InputEventMouseMotion:
 		var delta : Vector2
@@ -109,6 +110,8 @@ func _input(event):
 		lastMousePosition = event.relative
 		rotation_speed.x = -delta.y
 		rotation_speed.y = -delta.x
+		
+
 
 func _can_grab():
 	can_grab = true
@@ -131,7 +134,7 @@ func on_bubble_release(power: float):
 	bubble = null
 	animTree.set("parameters/Charge/blend_amount", 0.0)
 	animTree.set("parameters/Punch/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	velocity = (%BubbleMarker.global_position - global_position) * power
+	velocity += (%BubbleMarker.global_position - global_position) * power
 
 func grab():
 	#TODO tween a swinging motion and apply force

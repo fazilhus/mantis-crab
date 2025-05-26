@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb8hder3r2dre"]
 
-[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_yxbtg"]
+[ext_resource type="Script" uid="uid://c0d0pkr81677m" path="res://scripts/checkpoint.gd" id="1_yxbtg"]
 [ext_resource type="PackedScene" uid="uid://2bxsj4ibq1w6" path="res://scenes/spawn_point.tscn" id="2_ex4we"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_au21r"]

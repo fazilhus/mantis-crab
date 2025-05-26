@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://cw330ojpgp8yv"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_oqn0f"]
+[ext_resource type="Script" uid="uid://c4rad2idq2uo1" path="res://scripts/game.gd" id="1_oqn0f"]
 [ext_resource type="PackedScene" uid="uid://psgmmk1fddd6" path="res://scenes/lighting.tscn" id="2_sjwpg"]
 [ext_resource type="PackedScene" uid="uid://vcifh1n8soak" path="res://scenes/level_manager.tscn" id="2_tpw7h"]
 [ext_resource type="PackedScene" uid="uid://c8qi2w8yq1hxt" path="res://scenes/player_manager.tscn" id="3_h7ysb"]
 [ext_resource type="PackedScene" uid="uid://pw4j76ev6jae" path="res://scenes/test_level.tscn" id="4_kel11"]
 [ext_resource type="PackedScene" uid="uid://b2e6y7u61uyoq" path="res://DeathScreen.tscn" id="7_6lvcq"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="7_7aevl"]
+[ext_resource type="Script" uid="uid://wqlaclsdodm6" path="res://scripts/hud.gd" id="7_7aevl"]
 [ext_resource type="PackedScene" uid="uid://ssgmxn5726ui" path="res://scenes/ui/Main Menu.tscn" id="8_p18m0"]
 [ext_resource type="PackedScene" uid="uid://6mj27v7wafev" path="res://scenes/ui/Options.tscn" id="9_0gmxg"]
 [ext_resource type="PackedScene" uid="uid://dt4k8urekf1ax" path="res://scenes/ui/pause menu.tscn" id="10_3ssns"]
@@ -65,10 +65,15 @@ visible = false
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("10_wglq5")
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_bc73l")
+volume_db = -10.0
 bus = &"Music"
+
+[node name="SpeedrunTimer" type="Timer" parent="."]
+unique_name_in_owner = true

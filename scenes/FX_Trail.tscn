@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5xsuut1d3xyd"]
 
 [ext_resource type="Shader" uid="uid://b6d3r6tprvuen" path="res://assets/fx/Trail.tres" id="1_q1djp"]
-[ext_resource type="Script" path="res://assets/fx/Trail3D.gd" id="2_pmlqn"]
+[ext_resource type="Script" uid="uid://ccp3ugdm84lk1" path="res://assets/fx/Trail3D.gd" id="2_pmlqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g02xx"]
 render_priority = 0

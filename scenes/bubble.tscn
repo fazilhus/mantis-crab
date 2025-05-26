@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://67yw87d3amit"]
 
-[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_kgfc5"]
+[ext_resource type="Script" uid="uid://r14oweyy8p2q" path="res://scripts/bubble.gd" id="1_kgfc5"]
 [ext_resource type="Shader" uid="uid://sg6p05wmkfhb" path="res://assets/fx/bubble.tres" id="2_5wujn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1pwg"]

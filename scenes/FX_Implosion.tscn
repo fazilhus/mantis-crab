@@ -231,8 +231,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yjud"]
 _data = {
-"Implosion": SubResource("Animation_xfkm8"),
-"RESET": SubResource("Animation_1fdf2")
+&"Implosion": SubResource("Animation_xfkm8"),
+&"RESET": SubResource("Animation_1fdf2")
 }
 
 [node name="VFX_Implosion" type="Node3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfjf0nujhxn12"]
 
-[ext_resource type="Script" path="res://scripts/ui/timer_ui.gd" id="1_n5o2i"]
+[ext_resource type="Script" uid="uid://dhq1r8w0lw50n" path="res://scripts/ui/timer_ui.gd" id="1_n5o2i"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="2_qwwrx"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("stopwatch_label")]

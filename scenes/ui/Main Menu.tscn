@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://ssgmxn5726ui"]
 
 [ext_resource type="Theme" uid="uid://chts77b3618uu" path="res://resources/menu_theme.tres" id="1_71frh"]
-[ext_resource type="Script" path="res://scripts/ui/menu.gd" id="1_m47di"]
+[ext_resource type="Script" uid="uid://qli73repqjf7" path="res://scripts/ui/menu.gd" id="1_m47di"]
 [ext_resource type="Texture2D" uid="uid://b0cxsa7gg0b65" path="res://assets/textures/title_screen.png" id="3_vlbfv"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="4_fc051"]
 [ext_resource type="Texture2D" uid="uid://dbg38nj22f7ym" path="res://scenes/ui/ui_play.png" id="5_8fab2"]

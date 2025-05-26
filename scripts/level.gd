@@ -2,6 +2,7 @@ class_name Level
 extends Node3D
 
 @onready var checkpoints_node : Node = %Checkpoints
+@onready var text = %Label3D
 
 var checkpoints : Array[Checkpoint] = []
 
@@ -9,6 +10,7 @@ var last_activated_checkpoint : Checkpoint
 
 func _ready():
 	SignalBuss.checkpoit_triggered.connect(_on_checkpoint_triggered)
+	SignalBuss.timeFinished.connect(_update_sign)
 
 	for child in checkpoints_node.get_children():
 		var checkpoint : Checkpoint = child
@@ -31,3 +33,14 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 func _on_kill_floor_area_3d_body_entered(body):
 	if body is PlayerCharacter:
 		SignalBuss.player_died.emit()
+
+func _levelfinished():
+	pass
+	
+func _update_sign(time: float):
+	text.text = "YOU WIN!\n \"Y\" To Dance\n Your time: " + str(time).pad_decimals(1) + "S"
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is PlayerCharacter:
+		SignalBuss.levelFinished.emit()

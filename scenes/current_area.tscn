@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cssibkyc0xmx0"]
 
-[ext_resource type="Script" path="res://scenes/current.gd" id="1_e1fhf"]
+[ext_resource type="Script" uid="uid://daf5yays68nx8" path="res://scenes/current.gd" id="1_e1fhf"]
 [ext_resource type="PackedScene" uid="uid://d065p5o36w0un" path="res://scenes/FX_WaterStream.tscn" id="2_gshle"]
 [ext_resource type="AudioStream" uid="uid://eulsgv864jtk" path="res://assets/audio/mantiscrab_swoosh.ogg" id="3_a75po"]
 

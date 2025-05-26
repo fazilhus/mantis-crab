@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu64gk3kj41jl"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_s1i0l"]
+[ext_resource type="Script" uid="uid://clee1weal4th" path="res://scripts/level.gd" id="1_s1i0l"]
 [ext_resource type="PackedScene" uid="uid://cb8hder3r2dre" path="res://scenes/checkpoint.tscn" id="2_gqs7d"]
 
 [node name="Level" type="Node3D"]

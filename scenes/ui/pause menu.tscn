@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dt4k8urekf1ax"]
 
-[ext_resource type="Script" path="res://scripts/ui/pause menu.gd" id="1_yder4"]
+[ext_resource type="Script" uid="uid://ds4y72bxt53bw" path="res://scripts/ui/pause menu.gd" id="1_yder4"]
 [ext_resource type="Texture2D" uid="uid://dpt3aaseuu0hx" path="res://assets/textures/FX/bubble-mini.png" id="2_10tps"]
 [ext_resource type="FontFile" uid="uid://bvt2lwacyhmkq" path="res://scenes/ui/Crush Bubble.otf" id="3_n1a7x"]
 [ext_resource type="Texture2D" uid="uid://drd3lcy70rmy5" path="res://assets/textures/BottleTransparent.png" id="4_ynnpt"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wsm8ph4dqeke"]
 
-[ext_resource type="Script" path="res://scenes/collectable.gd" id="1_878rw"]
+[ext_resource type="Script" uid="uid://cq3of6nnjd726" path="res://scenes/collectable.gd" id="1_878rw"]
 [ext_resource type="Texture2D" uid="uid://d3l1te85s5kws" path="res://assets/models/mantis crab bottle_KrabbEnviroTexture_V2.png" id="2_0rc42"]
 [ext_resource type="AudioStream" uid="uid://cd3kk0aijo4h2" path="res://assets/audio/mantiscrab_bottlecollect.ogg" id="2_3n2iw"]
 [ext_resource type="ArrayMesh" uid="uid://ddjr0cmtxwf1i" path="res://assets/models/mantis crab bottle_v2.obj" id="2_q6j7g"]

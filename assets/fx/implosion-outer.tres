@@ -113,12 +113,12 @@ code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform float DistortSpeed = 0.5;
-uniform float DistortSize = 1;
+uniform float DistortSize = 1.0;
 uniform sampler2D tex_vtx_5;
 uniform float DistortStrenght = 0.30000001192093;
 uniform float DistortSpeed2 = 0.5;
 uniform sampler2D tex_frg_7;
-uniform float FresnelPower = 1;
+uniform float FresnelPower = 1.0;
 uniform vec4 teInsideColour : source_color = vec4(0.216494, 0.290247, 0.413162, 1.000000);
 uniform vec4 EdgeColour : source_color = vec4(0.000000, 0.139199, 0.157021, 1.000000);
 

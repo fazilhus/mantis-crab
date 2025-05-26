@@ -26,7 +26,7 @@ op_type = 5
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-uniform float FresnelPower = 1;
+uniform float FresnelPower = 1.0;
 uniform vec4 InsideColour : source_color = vec4(0.216494, 0.290247, 0.413162, 1.000000);
 uniform vec4 EdgeColour : source_color = vec4(0.000000, 0.139199, 0.157021, 1.000000);
 

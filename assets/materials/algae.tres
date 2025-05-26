@@ -101,7 +101,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_vtx_19;
 uniform sampler2D tex_vtx_18;
 uniform float DistortSpeed = 0.5;
-uniform float DistortSize = 1;
+uniform float DistortSize = 1.0;
 uniform sampler2D tex_vtx_6;
 uniform float DistortStrenght = 0.40000000596046;
 uniform sampler2D tex_frg_2;
